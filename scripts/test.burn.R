@@ -5,22 +5,40 @@ devtools::load_all("~/Dropbox/Dev/EpiModelHIV/EpiModelHIV")
 
 # Main Test Script ----------------------------------------------------
 
-load("est/nwstats.rda")
-load("est/fit.rda")
+scr.dir <- "~/Box Sync/Injectable PrEP ABM study/injectable-prep/"
+load(file.path(scr.dir, "est/nwstats.rda"))
+load(file.path(scr.dir, "est/fit.rda"))
 
 param <- param_msm(nwstats = st,
                    race.method = 1,
-                   prep.start = 5000,
-                   prep.coverage = 0,
-                   riskh.start = 3,
-                   prep.timing.lnt = TRUE,
-                   prep.indics = 5,
-                   prep.sens.start = 30)
+                   riskh.start = 1,
+                   prep.start = 26,
+                   prep.la.start = 26,
+                   prep.replace.mod = "curr.oral",
+                   prep.class.hr = c(0.69, 0.19, 0.02),
+                   prep.coverage = 0.2,
+                   prep.coverage.la = 0.1,
+                   prep.adhr.dist = c(0.089, 0.127, 0.785),
+                   prep.adhr.dist.la = c(0.20, 0.80),
+                   prep.discont.rate = 1-(2^(-1/781)),
+                   prep.hadr.int = 8 * 7,
+                   prep.ladr.int = 16 * 7,
+                   prepla.dlevel.icpt = 4.5,
+                   prepla.dlevel.icpt.err = 2.5/3,
+                   prepla.dlevel.slope = 25,
+                   prep.la.hr = c(0.75, 0.50, 0.02),
+                   prep.tst.int = 90,
+                   prep.risk.int = 182,
+                   prep.risk.reassess.method = "year",
+                   rcomp.prob = 0.41,
+                   rcomp.adh.groups = 2:3,
+                   rcomp.main.only = FALSE,
+                   rcomp.discl.only = FALSE)
 init <- init_msm(nwstats = st,
-                 prev.B = 0.434,
-                 prev.W = 0.132)
+                 prev.B = 0.260,
+                 prev.W = 0.260)
 control <- control_msm(simno = 1,
-                       nsteps = 50,
+                       nsteps = 200,
                        nsims = 1,
                        ncores = 1,
                        initialize.FUN = initialize_msm,
@@ -46,10 +64,10 @@ control <- control_msm(simno = 1,
                        prev.FUN = prevalence_msm,
                        verbose.FUN = verbose_msm)
 
-sim <- netsim(est, param, init, control)
+# sim <- netsim(est, param, init, control)
 
-df <- as.data.frame(sim)
-names(df)
+# df <- as.data.frame(sim)
+# names(df)
 
 
 # Testing/Timing ------------------------------------------------------
@@ -57,7 +75,7 @@ names(df)
 
 dat <- initialize_msm(est, param, init, control, s = 1)
 
-for (at in 2:520) {
+for (at in 2:104) {
   dat <- aging_msm(dat, at)
   dat <- deaths_msm(dat, at)
   dat <- births_msm(dat, at)
@@ -79,4 +97,6 @@ for (at in 2:520) {
   cat(at, ".", sep = "")
 }
 
-sapply(dat$attr, length)
+length(unique(sapply(dat$attr, length)))
+names(dat$attr)
+table(dat$attr$prepStat, dat$attr$prepElig)
