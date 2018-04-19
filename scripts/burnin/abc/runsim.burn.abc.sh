@@ -1,12 +1,12 @@
 #!/bin/bash
 
 ### User specs
-#PBS -N sti-abc-meta
+#PBS -N lap-abc
 #PBS -l nodes=1:ppn=16,mem=50gb,feature=16core,walltime=05:00:00:00
-#PBS -o /gscratch/csde/sjenness/stia/out
-#PBS -e /gscratch/csde/sjenness/stia/out
+#PBS -o /suppscr/csde/sjenness/lap/out
+#PBS -e /suppscr/csde/sjenness/lap/out
 #PBS -j oe
-#PBS -d /gscratch/csde/sjenness/stia
+#PBS -d /suppscr/csde/sjenness/lap
 #PBS -m ae
 
 ### Standard specs
@@ -19,8 +19,5 @@ MEMPERTASK=$((NODEFREE/HYAK_TPN))
 ulimit -v $MEMPERTASK
 export MX_RCACHE=0
 
-### Modules
-module load r_3.2.4
-
 ### App
-R CMD BATCH --vanilla sim.burn.abcsmc4.R out/sim.burn.abcsmc4.n${NSIM}.p${PACC}.Rout
+R CMD BATCH --vanilla sim.burn.abc.R out/sim.burn.abc8.Rout

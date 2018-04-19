@@ -3,10 +3,9 @@
 
 library("EpiModelHPC")
 
-vars <- list(PLNT = TRUE,
-             PIND = 1:5)
+vars <- list(A=1)
 qsub_master(simno.start = 1000,
-            nsubjobs = 7,
+            nsubjobs = 4,
             backfill = FALSE,
             vars = vars,
             append = FALSE,

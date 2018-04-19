@@ -1,12 +1,12 @@
 #!/bin/bash
 
 ### User specs
-#PBS -N psens
+#PBS -N lap
 #PBS -l nodes=1:ppn=16,mem=50gb,feature=16core,walltime=01:00:00
-#PBS -o /gscratch/csde/sjenness/psens/out
-#PBS -e /gscratch/csde/sjenness/psens/out
+#PBS -o /suppscr/csde/sjenness/lap/out
+#PBS -e /suppscr/csde/sjenness/lap/out
 #PBS -j oe
-#PBS -d /gscratch/csde/sjenness/psens
+#PBS -d /suppscr/csde/sjenness/lap
 #PBS -m n
 
 ### Standard specs
@@ -18,9 +18,6 @@ NODEFREE=$((NODEMEM-2097152))
 MEMPERTASK=$((NODEFREE/HYAK_TPN))
 ulimit -v $MEMPERTASK
 export MX_RCACHE=0
-
-### Modules
-module load r_3.2.4
 
 
 ### App

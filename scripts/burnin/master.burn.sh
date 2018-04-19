@@ -1,7 +1,12 @@
 #!/bin/bash
 
-qsub -q batch -t 1-7 -m n -v SIMNO=1000,NJOBS=7,PLNT=TRUE,PIND=1 runsim.burn.sh
-qsub -q batch -t 1-7 -m n -v SIMNO=1001,NJOBS=7,PLNT=TRUE,PIND=2 runsim.burn.sh
-qsub -q batch -t 1-7 -m n -v SIMNO=1002,NJOBS=7,PLNT=TRUE,PIND=3 runsim.burn.sh
-qsub -q batch -t 1-7 -m n -v SIMNO=1003,NJOBS=7,PLNT=TRUE,PIND=4 runsim.burn.sh
-qsub -q batch -t 1-7 -m n -v SIMNO=1004,NJOBS=7,PLNT=TRUE,PIND=5 runsim.burn.sh
+scp scripts/burnin/*.burn.[Rs]* hyak:/suppscr/csde/sjenness/lap
+
+qsub -q batch -t 1-16 -m n -v SIMNO=1024,NJOBS=16 runsim.burn.sh
+
+scp hyak:/suppscr/csde/sjenness/lap/data/sim.n1023.rda data/
+
+scp hyak:/suppscr/csde/sjenness/lap/data/sim.*.rda data/
+
+scp est/lap.burnin.rda hyak:/suppscr/csde/sjenness/lap/est/
+

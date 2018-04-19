@@ -1,34 +1,29 @@
 
 ## Packages
 library("methods")
+devtools::load_all("~/Dropbox/Dev/EpiModelHIV/EpiModelHIV")
 suppressMessages(library("EpiModelHIV"))
-
-## Environmental Arguments
-simno <- Sys.getenv("SIMNO")
-jobno <- Sys.getenv("PBS_ARRAYID")
-njobs <- as.numeric(Sys.getenv("NJOBS"))
-fsimno <- paste(simno, jobno, sep = ".")
 
 load("est/nwstats.rda")
 
-param <- param_msm(ai.scale.BB = 1.0748572,
-                   ai.scale.BW = 1.0748572,
-                   ai.scale.WW = 1.0748572,
+param <- param_msm(ai.scale.BB = 1.0734,
+                   ai.scale.BW = 1.0734,
+                   ai.scale.WW = 1.0734,
 
-                   rgc.tprob = 0.3972,
-                   ugc.tprob = 0.3060,
-                   rct.tprob = 0.2220,
-                   uct.tprob = 0.1819,
+                   rgc.tprob = 0.3950,
+                   ugc.tprob = 0.2859,
+                   rct.tprob = 0.2295,
+                   uct.tprob = 0.1937,
 
-                   rgc.ntx.int = 234.14,
-                   ugc.ntx.int = 234.14,
-                   rct.ntx.int = 318.59,
-                   uct.ntx.int = 318.59,
+                   rgc.ntx.int = 241.5142,
+                   ugc.ntx.int = 241.5142,
+                   rct.ntx.int = 304.5330,
+                   uct.ntx.int = 304.5330,
 
-                   hiv.rgc.rr = 2.7426694,
-                   hiv.ugc.rr = 1.6936982,
-                   hiv.rct.rr = 2.7426694,
-                   hiv.uct.rr = 1.6936982,
+                   hiv.rgc.rr = 2.7525,
+                   hiv.ugc.rr = 1.7204,
+                   hiv.rct.rr = 2.7525,
+                   hiv.uct.rr = 1.7204,
 
                    nwstats = st,
                    race.method = 1,
@@ -58,7 +53,7 @@ param <- param_msm(ai.scale.BB = 1.0748572,
 
                    rgc.sympt.prob = 0.16,
                    ugc.sympt.prob = 0.90,
-                   rct.sympt.prob = 0.16,
+                   rct.sympt.prob = 0.14,
                    uct.sympt.prob = 0.58,
                    gc.sympt.prob.tx.B = 0.85,
                    gc.sympt.prob.tx.W = 0.85,
@@ -68,15 +63,18 @@ param <- param_msm(ai.scale.BB = 1.0748572,
                    gc.asympt.prob.tx.W = 0.10,
                    ct.asympt.prob.tx.B = 0.15,
                    ct.asympt.prob.tx.W = 0.15)
+
 init <- init_msm(nwstats = st,
-                 prev.ugc = 0.005,
-                 prev.rgc = 0.005,
-                 prev.uct = 0.015,
-                 prev.rct = 0.015)
-control <- control_msm(simno = fsimno,
-                       nsteps = 52*50,
-                       nsims = 16,
-                       ncores = 16,
+                 prev.B = 0.253,
+                 prev.W = 0.253,
+                 prev.ugc = 0.01,
+                 prev.rgc = 0.01,
+                 prev.uct = 0.01,
+                 prev.rct = 0.01)
+control <- control_msm(simno = 1,
+                       nsteps = 52*20,
+                       nsims = 1,
+                       ncores = 1,
                        initialize.FUN = initialize_msm,
                        aging.FUN = aging_msm,
                        deaths.FUN = deaths_msm,
@@ -98,12 +96,14 @@ control <- control_msm(simno = fsimno,
                        stirecov.FUN = sti_recov,
                        stitx.FUN = sti_tx,
                        prev.FUN = prevalence_msm,
-                       verbose.FUN = verbose_msm,
-                       verbose = FALSE)
+                       verbose.FUN = verbose_msm)
 
-## Simulation
-netsim_hpc("est/fit.rda", param, init, control,
-            save.min = FALSE, save.max = TRUE)
 
-# process_simfiles(simno = simno, min.n = njobs,
-                 # compress = TRUE, outdir = "data/")
+load("est/fit.rda")
+sim <- netsim(est, param, init, control)
+
+df <- as.data.frame(sim)
+names(df)
+
+plot(sim, y = "i.prev")
+plot(sim, y = "gc")
