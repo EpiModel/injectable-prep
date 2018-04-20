@@ -1,12 +1,12 @@
 #!/bin/bash
 
 ### User specs
-#PBS -N followup
+#PBS -N lap
 #PBS -l nodes=1:ppn=16,mem=50gb,feature=16core,walltime=01:00:00
-#PBS -o /gscratch/csde/sjenness/prace/out
-#PBS -e /gscratch/csde/sjenness/prace/out
+#PBS -o /suppscr/csde/sjenness/lap/out
+#PBS -e /suppscr/csde/sjenness/lap/out
 #PBS -j oe
-#PBS -d /gscratch/csde/sjenness/prace
+#PBS -d /suppscr/csde/sjenness/lap
 #PBS -m n
 
 ### Standard specs
@@ -19,8 +19,6 @@ MEMPERTASK=$((NODEFREE/HYAK_TPN))
 ulimit -v $MEMPERTASK
 export MX_RCACHE=0
 
-### Modules
-module load r_3.2.5
 
 ### App
 Rscript sim.fu.R
