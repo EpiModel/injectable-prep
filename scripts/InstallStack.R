@@ -1,6 +1,8 @@
 
 ## Update LA PrEP stack
 
+# Necessary now every time using devtools on Hyak
+install.packages("curl")
 
 devtools::install_github("statnet/EpiModel")
 devtools::install_github("statnet/EpiModelHPC")
