@@ -8,26 +8,7 @@ devtools::load_all("~/Dropbox/Dev/EpiModelHIV/EpiModelHIV")
 ## Parameters
 load("est/nwstats.rda")
 
-param <- param_msm(ai.scale.BB = 1.0748572,
-                   ai.scale.BW = 1.0748572,
-                   ai.scale.WW = 1.0748572,
-
-                   rgc.tprob = 0.3972,
-                   ugc.tprob = 0.3060,
-                   rct.tprob = 0.2220,
-                   uct.tprob = 0.1819,
-
-                   rgc.ntx.int = 234.14,
-                   ugc.ntx.int = 234.14,
-                   rct.ntx.int = 318.59,
-                   uct.ntx.int = 318.59,
-
-                   hiv.rgc.rr = 2.7426694,
-                   hiv.ugc.rr = 1.6936982,
-                   hiv.rct.rr = 2.7426694,
-                   hiv.uct.rr = 1.6936982,
-
-                   nwstats = st,
+param <- param_msm(nwstats = st,
                    race.method = 1,
                    riskh.start = 2500,
 
@@ -50,33 +31,7 @@ param <- param_msm(ai.scale.BB = 1.0748572,
                    prepla.dlevel.icpt.err = 2.5/3,          ## fixed, SA
                    prepla.dlevel.slope = 25,                ## fixed, SA
                    prep.la.hr = c(0.15, 0.05, 0.02),        ## mod2
-
-                   prep.tst.int = 90,
-                   prep.risk.int = 182,
-                   prep.risk.reassess.method = "year",
-
-                   prep.sti.screen.int = 182,
-                   prep.la.sti.screen.int = 121,
-                   prep.sti.prob.tx = 1,
-                   prep.continue.stand.tx = TRUE,
-
-                   rcomp.prob = 0.41,
-                   rcomp.adh.groups = 2:3,
-                   rcomp.main.only = FALSE,
-                   rcomp.discl.only = FALSE,
-
-                   rgc.sympt.prob = 0.16,
-                   ugc.sympt.prob = 0.90,
-                   rct.sympt.prob = 0.16,
-                   uct.sympt.prob = 0.58,
-                   gc.sympt.prob.tx.B = 0.85,
-                   gc.sympt.prob.tx.W = 0.85,
-                   ct.sympt.prob.tx.B = 0.90,
-                   ct.sympt.prob.tx.W = 0.90,
-                   gc.asympt.prob.tx.B = 0.10,
-                   gc.asympt.prob.tx.W = 0.10,
-                   ct.asympt.prob.tx.B = 0.15,
-                   ct.asympt.prob.tx.W = 0.15)
+)
 
 init <- init_msm(st)
 
