@@ -38,8 +38,8 @@ plot(cf, y = "i.prev", add = TRUE,
      mean.col = "firebrick", qnts.col = "firebrick")
 
 
-sims <- 2000:2010
-p <- wesanderson::wes_palette("Zissou", n = length(sims), type = "continuous")
+sims <- c(2000, 2030:2033)
+p <- wesanderson::wes_palette("Zissou1", n = length(sims), type = "continuous")
 for (j in sims) {
   fn <- paste0("data/sim.n", j, ".rda")
   load(fn)
@@ -51,8 +51,9 @@ for (j in sims) {
 
 # make master df ----------------------------------------------------------
 
+sims <- c(2000, 2030:2033)
 d <- data.frame(covo = NA, covl = NA, ir100 = NA, i.prev = NA)
-for (j in 2000:2010) {
+for (j in sims) {
   fn <- paste0("data/sim.n", j, ".rda")
   load(fn)
 
@@ -70,3 +71,4 @@ table(d$covl)
 p <- wesanderson::wes_palette("Zissou", n = length(unique(d$covl)), type = "continuous")
 boxplot(ir100 ~ covl, data = d, outline = FALSE, col = p, medlwd = 1.5)
 boxplot(i.prev ~ covl, data = d, outline = FALSE, col = p, medlwd = 1.5)
+

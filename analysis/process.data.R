@@ -8,9 +8,9 @@ sim <- NULL
 
 # Table 1 data
 
-system("scp hyak:/suppscr/csde/sjenness/lap/data/sim.n2*.rda data/")
+system("scp hyak:/suppscr/csde/sjenness/lap/data/sim.*.rda data/")
 
-(fn <- list.files("data", pattern = "sim.n2010.*", full.names = TRUE))
+(fn <- list.files("data", pattern = "sim.n20[2-3][0-9].*", full.names = TRUE))
 
 # Truncate, reduce
 for (i in fn) {
