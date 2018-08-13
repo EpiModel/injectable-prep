@@ -19,6 +19,9 @@ MEMPERTASK=$((NODEFREE/HYAK_TPN))
 ulimit -v $MEMPERTASK
 export MX_RCACHE=0
 
+. /suppscr/csde/sjenness/spack/share/spack/setup-env.sh
+module load r-3.5.0-gcc-8.1.0-bcqjjkd
+module load gcc-8.1.0-gcc-4.4.7-eaajvcy
 
 ### App
 Rscript sim.fu.R

@@ -11,7 +11,9 @@ fsimno <- paste(simno, jobno, sep = ".")
 
 COVO <- as.numeric(Sys.getenv("COVO"))
 COVL <- as.numeric(Sys.getenv("COVL"))
-REPM <- Sys.getenv("REPM")
+# REPM <- Sys.getenv("REPM")
+# LADRT <- as.numeric(Sys.getenv("LADRT"))
+# HADRP <- as.numeric(Sys.getenv("HADRP"))
 
 ## Parameters
 load("est/nwstats.rda")
@@ -24,7 +26,7 @@ param <- param_msm(nwstats = st,
 
                    prep.coverage = COVO,                      ## mod1
                    prep.coverage.la = COVL,                   ## mod1
-                   prep.replace.mod = REPM,                  ## mod1
+                   prep.replace.mod = "all",                  ## mod1
 
                    prep.class.hr = c(0.69, 0.19, 0.02),       ## fixed
                    prep.adhr.dist = c(0.089, 0.127, 0.785),   ## fixed

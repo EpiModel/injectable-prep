@@ -53,3 +53,28 @@ qsub_master(simno.start = 2030,
             append = TRUE,
             runsimfile = "runsim.fu.sh",
             outfile = "scripts/followup/master.fu.sh")
+
+
+
+
+# Table 3 -----------------------------------------------------------------
+
+COVO <- as.numeric(Sys.getenv("COVO"))
+COVL <- as.numeric(Sys.getenv("COVL"))
+REPM <- Sys.getenv("REPM")
+LADRT <- as.numeric(Sys.getenv("LADRT"))
+HADRP <- as.numeric(Sys.getenv("HADRP"))
+
+# supplementation
+vars <- list(COVO = 0.15,
+             COVL = 0.15,
+             REPM = "all",
+             LADRT = c(10, 14, 16),
+             HADRP = c(0, 0.25, 0.5, 0.75, 1))
+qsub_master(simno.start = 2040,
+            nsubjobs = 16,
+            backfill = FALSE,
+            vars = vars,
+            append = TRUE,
+            runsimfile = "runsim.fu.sh",
+            outfile = "scripts/followup/master.fu.sh")
