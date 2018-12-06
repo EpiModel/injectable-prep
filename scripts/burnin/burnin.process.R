@@ -2,12 +2,13 @@
 ## Process burn-in
 suppressMessages(library("EpiModelHIV"))
 
-list.files("data/")
 
+list.files("data/")
+unlink("data/*.rda")
 
 # Qualitative -------------------------------------------------------------
 
-load("data/sim.n1023.rda")
+load("data/sim.n1000.rda")
 
 df <- as.data.frame(sim)
 
