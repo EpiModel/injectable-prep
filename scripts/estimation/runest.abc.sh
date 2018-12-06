@@ -1,28 +1,29 @@
 #!/bin/bash
 
-### User specs
-#PBS -N estabc
-#PBS -l nodes=1:ppn=16,mem=50gb,feature=16core,walltime=01:00:00
-#PBS -o /gscratch/csde/sjenness/sti/out
-#PBS -e /gscratch/csde/sjenness/sti/out
-#PBS -j oe
-#PBS -d /gscratch/csde/sjenness/sti
-#PBS -m n
+## Job Name
+#SBATCH --job-name=lap-estabc
 
-### Standard specs
-HYAK_NPE=$(wc -l < $PBS_NODEFILE)
-HYAK_NNODES=$(uniq $PBS_NODEFILE | wc -l )
-HYAK_TPN=$((HYAK_NPE/HYAK_NNODES))
-NODEMEM=`grep MemTotal /proc/meminfo | awk '{print $2}'`
-NODEFREE=$((NODEMEM-2097152))
-MEMPERTASK=$((NODEFREE/HYAK_TPN))
-ulimit -v $MEMPERTASK
-export MX_RCACHE=0
+## Nodes
+#SBATCH --nodes=1
 
+## Tasks per node
+#SBATCH --ntasks-per-node=16
 
-# module load r_3.2.4
-export PATH=$PATH:/gscratch/csde/spack/r-3.4.1/bin
+## Walltime
+#SBATCH --time=1:00:00
 
+## E-mail notification
+#SBATCH --mail-type=FAIL
+#SBATCH --mail-user=sjennes@emory.edu
 
-### App
+## Memory per node
+#SBATCH --mem=55G
+
+## Specify the working directory
+#SBATCH --workdir=/suppscr/csde/sjenness/lap
+
+. /suppscr/csde/sjenness/spack/share/spack/setup-env.sh
+module load gcc-8.1.0-gcc-4.4.7-eaajvcy
+module load r-3.5.1-gcc-8.1.0-unb32sy
+
 Rscript estim.abc.R
