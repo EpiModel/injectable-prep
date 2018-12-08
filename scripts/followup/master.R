@@ -13,7 +13,7 @@ sbatch_master(vars,
               build.runsim = TRUE,
               simno.start = 2000,
               ckpt = TRUE,
-              narray = 7,
+              nsims = 100,
               ncores = 16,
               mem = "55G")
 

@@ -1,8 +1,7 @@
 
 ## LA PrEP Exploratory
 
-load("data/sim.n2000.rda")
-sim <- truncate_sim(sim, at = 2600)
+load("../../data/sim.n2000.rda")
 
 df <- as.data.frame(sim)
 names(df)
@@ -27,10 +26,10 @@ plot(sim, y = "prepCurr.la")
 
 
 load("data/sim.n2000.rda")
-ref <- truncate_sim(sim, at = 2600)
+ref <- sim
 
 load("data/sim.n2002.rda")
-cf <- truncate_sim(sim, at = 2600)
+cf <- sim
 
 plot(ref, y = "ir100", ylim = c(0, 6))
 abline(h = 3.4, lty = 2)

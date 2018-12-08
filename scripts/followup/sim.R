@@ -57,5 +57,4 @@ control <- control_msm(simno = fsimno,
 netsim_hpc("est/lap.burnin.rda", param, init, control,
            compress = FALSE, verbose = FALSE)
 
-process_simfiles(simno = simno, min.n = njobs,
-                 outdir = "data/", compress = TRUE)
+process_simfiles(simno = simno, min.n = njobs, nsims = nsims, truncate.at = 2600)
