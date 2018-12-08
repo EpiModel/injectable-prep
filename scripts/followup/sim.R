@@ -4,13 +4,11 @@ library("methods")
 suppressMessages(library("EpiModelHIV"))
 
 ## Environmental Arguments
-simno <- as.numeric(Sys.getenv("SIMNO"))
-jobno <- as.numeric(Sys.getenv("SLURM_ARRAY_TASK_ID"))
-njobs <- as.numeric(Sys.getenv("NJOBS"))
-fsimno <- paste(simno, jobno, sep = ".")
+pull_env_vars(num.vars = c("PSP", "PPI"))
 
-psp <- as.numeric(Sys.getenv("PSP"))
-ppi <- as.numeric(Sys.getenv("PPI"))
+cat(fsimno)
+cat(PSP)
+cat(PPI)
 
 ## Parameters
 load("est/nwstats.rda")
@@ -21,8 +19,8 @@ param <- param_msm(nwstats = st,
                    prep.start = 2601,
                    prep.la.start = 2861,
 
-                   prep.start.prob = psp,
-                   prep.prob.oral = 1 - ppi,
+                   prep.start.prob = PSP,
+                   prep.prob.oral = 1 - PPI,
 
                    prep.adhr.dist = c(0.089, 0.127, 0.785),
                    prep.adhr.hr = c(0.69, 0.19, 0.02),
@@ -50,8 +48,8 @@ init <- init_msm(st)
 control <- control_msm(simno = fsimno,
                        start = 2601,
                        nsteps = 3380,
-                       nsims = 25,
-                       ncores = 25,
+                       nsims = ncores,
+                       ncores = ncores,
                        initialize.FUN = reinit_msm,
                        verbose = FALSE)
 
