@@ -11,9 +11,26 @@ vars <- list(PSP = c(0.2925, 0.10, 0.20, 0.40, 0.50),
 sbatch_master(vars,
               master.file = "master.sh",
               build.runsim = TRUE,
+              param.sheet = "params.csv",
+              param.tag = "Table1",
               simno.start = 2000,
               ckpt = TRUE,
               nsims = 100,
               ncores = 16,
-              mem = "55G")
+              mem = "56G")
 
+# Figure 1
+
+vars <- list(PSP = seq(0, 1, 0.05),
+             PPI = seq(0, 1, 0.05))
+sbatch_master(vars,
+              master.file = "master.sh",
+              build.runsim = FALSE,
+              param.sheet = "params.csv",
+              param.tag = "Figure1",
+              append = TRUE,
+              simno.start = 2500,
+              ckpt = TRUE,
+              nsims = 100,
+              ncores = 25,
+              mem = "100G")
