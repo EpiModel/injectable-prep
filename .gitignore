@@ -35,3 +35,5 @@ vignettes/*.pdf
 .DS_Store
 
 data/*.rda
+data/f1/*.rda
+data/t1/*.rda

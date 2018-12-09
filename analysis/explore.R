@@ -1,7 +1,7 @@
 
 ## LA PrEP Exploratory
 
-load("../../data/sim.n2000.rda")
+load("data/t1/sim.n2000.rda")
 
 df <- as.data.frame(sim)
 names(df)
@@ -25,10 +25,10 @@ plot(sim, y = "prepCurr.la")
 
 
 
-load("data/sim.n2000.rda")
+load("data/t1/sim.n2000.rda")
 ref <- sim
 
-load("data/sim.n2002.rda")
+load("data/t1/sim.n2010.rda")
 cf <- sim
 
 plot(ref, y = "ir100", ylim = c(0, 6))
@@ -46,14 +46,14 @@ plot(cf, y = "i.prev", add = TRUE,
 
 # make master df ----------------------------------------------------------
 
-sims <- c(1000, 2000, 2002)
-d <- data.frame(sprob = NA, probi = NA, ir100 = NA, i.prev = NA)
+sims <- c(2000:2024)
+d <- data.frame(psp = NA, ppi = NA, ir100 = NA, i.prev = NA)
 for (j in sims) {
-  fn <- paste0("data/sim.n", j, ".rda")
+  fn <- paste0("data/t1/sim.n", j, ".rda")
   load(fn)
 
-  df <- data.frame(sprob = sim$param$prep.start.prob,
-                   probi = 1-sim$param$prep.prob.oral,
+  df <- data.frame(psp = sim$param$prep.start.prob,
+                   ppi = 1-sim$param$prep.prob.oral,
                    ir100 = unname(colMeans(tail(sim$epi$ir100, 50))),
                    i.prev = as.numeric(tail(sim$epi$i.prev, 1)))
 
@@ -61,9 +61,9 @@ for (j in sims) {
 }
 d <- d[-1, ]
 str(d)
-table(d$sprob, d$probi)
+table(d$psp, d$ppi)
 
-p <- wesanderson::wes_palette("Zissou1", n = length(unique(d$covl)), type = "continuous")
-boxplot(ir100 ~ sprob, data = d, outline = FALSE, col = p, medlwd = 1.5)
-boxplot(i.prev ~ probi, data = d, outline = FALSE, col = p, medlwd = 1.5)
+p <- wesanderson::wes_palette("Zissou1", n = length(unique(d$psp)), type = "continuous")
+boxplot(ir100 ~ psp, data = d, outline = FALSE, col = p, medlwd = 1.5)
+boxplot(ir100 ~ ppi, data = d, outline = FALSE, col = p, medlwd = 1.5)
 
