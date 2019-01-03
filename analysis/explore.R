@@ -1,7 +1,7 @@
 
 ## LA PrEP Exploratory
 
-load("data/t1/sim.n2000.rda")
+load("../../data/sim.n1000.rda")
 
 df <- as.data.frame(sim)
 names(df)
@@ -23,7 +23,11 @@ names(df)
 plot(sim, y = "prepCurr")
 plot(sim, y = "prepCurr.la")
 
-
+sim <- mutate_epi(sim, pFrac = prepCurr / prepElig)
+plot(sim, y = "pFrac")
+abline(v = 52*5)
+stat <- as.numeric(sim$epi$pFrac[52*5, ])
+summary(stat)
 
 load("data/t1/sim.n2000.rda")
 ref <- sim
