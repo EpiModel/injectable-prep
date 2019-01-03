@@ -11,14 +11,14 @@ setwd("~/Box Sync/Injectable PrEP ABM study/injectable-prep/")
 load("est/nwstats.rda")
 
 psp <- 0.295
-ppi <- 0.0
+ppi <- 0.5
 
 param <- param_msm(nwstats = st,
                    race.method = 1,
                    riskh.start = 2500,
 
                    prep.start = 2601,
-                   prep.la.start = 2861,
+                   prep.la.start = 2601, #2861,
 
                    prep.start.prob = psp,
                    prep.prob.oral = 1 - ppi,
@@ -51,8 +51,8 @@ init <- init_msm(st)
 control <- control_msm(simno = 1,
                        start = 2601,
                        nsteps = 3380,
-                       nsims = 5,
-                       ncores = 5,
+                       nsims = 1,
+                       ncores = 1,
                        initialize.FUN = reinit_msm,
                        verbose = TRUE)
 

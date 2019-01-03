@@ -1,469 +1,291 @@
 #!/bin/bash
 
-sbatch -p ckpt -A csde-ckpt --array=1-7 --nodes=1 --ntasks-per-node=16 --time=1:00:00 --mem=56G --job-name=s2000 --export=ALL,SIMNO=2000,NJOBS=7,NSIMS=100,PSP=0.2925,PPI=0 runsim.sh
-sbatch -p ckpt -A csde-ckpt --array=1-7 --nodes=1 --ntasks-per-node=16 --time=1:00:00 --mem=56G --job-name=s2001 --export=ALL,SIMNO=2001,NJOBS=7,NSIMS=100,PSP=0.1,PPI=0 runsim.sh
-sbatch -p ckpt -A csde-ckpt --array=1-7 --nodes=1 --ntasks-per-node=16 --time=1:00:00 --mem=56G --job-name=s2002 --export=ALL,SIMNO=2002,NJOBS=7,NSIMS=100,PSP=0.2,PPI=0 runsim.sh
-sbatch -p ckpt -A csde-ckpt --array=1-7 --nodes=1 --ntasks-per-node=16 --time=1:00:00 --mem=56G --job-name=s2003 --export=ALL,SIMNO=2003,NJOBS=7,NSIMS=100,PSP=0.4,PPI=0 runsim.sh
-sbatch -p ckpt -A csde-ckpt --array=1-7 --nodes=1 --ntasks-per-node=16 --time=1:00:00 --mem=56G --job-name=s2004 --export=ALL,SIMNO=2004,NJOBS=7,NSIMS=100,PSP=0.5,PPI=0 runsim.sh
-sbatch -p ckpt -A csde-ckpt --array=1-7 --nodes=1 --ntasks-per-node=16 --time=1:00:00 --mem=56G --job-name=s2005 --export=ALL,SIMNO=2005,NJOBS=7,NSIMS=100,PSP=0.2925,PPI=0.25 runsim.sh
-sbatch -p ckpt -A csde-ckpt --array=1-7 --nodes=1 --ntasks-per-node=16 --time=1:00:00 --mem=56G --job-name=s2006 --export=ALL,SIMNO=2006,NJOBS=7,NSIMS=100,PSP=0.1,PPI=0.25 runsim.sh
-sbatch -p ckpt -A csde-ckpt --array=1-7 --nodes=1 --ntasks-per-node=16 --time=1:00:00 --mem=56G --job-name=s2007 --export=ALL,SIMNO=2007,NJOBS=7,NSIMS=100,PSP=0.2,PPI=0.25 runsim.sh
-sbatch -p ckpt -A csde-ckpt --array=1-7 --nodes=1 --ntasks-per-node=16 --time=1:00:00 --mem=56G --job-name=s2008 --export=ALL,SIMNO=2008,NJOBS=7,NSIMS=100,PSP=0.4,PPI=0.25 runsim.sh
-sbatch -p ckpt -A csde-ckpt --array=1-7 --nodes=1 --ntasks-per-node=16 --time=1:00:00 --mem=56G --job-name=s2009 --export=ALL,SIMNO=2009,NJOBS=7,NSIMS=100,PSP=0.5,PPI=0.25 runsim.sh
-sbatch -p ckpt -A csde-ckpt --array=1-7 --nodes=1 --ntasks-per-node=16 --time=1:00:00 --mem=56G --job-name=s2010 --export=ALL,SIMNO=2010,NJOBS=7,NSIMS=100,PSP=0.2925,PPI=0.5 runsim.sh
-sbatch -p ckpt -A csde-ckpt --array=1-7 --nodes=1 --ntasks-per-node=16 --time=1:00:00 --mem=56G --job-name=s2011 --export=ALL,SIMNO=2011,NJOBS=7,NSIMS=100,PSP=0.1,PPI=0.5 runsim.sh
-sbatch -p ckpt -A csde-ckpt --array=1-7 --nodes=1 --ntasks-per-node=16 --time=1:00:00 --mem=56G --job-name=s2012 --export=ALL,SIMNO=2012,NJOBS=7,NSIMS=100,PSP=0.2,PPI=0.5 runsim.sh
-sbatch -p ckpt -A csde-ckpt --array=1-7 --nodes=1 --ntasks-per-node=16 --time=1:00:00 --mem=56G --job-name=s2013 --export=ALL,SIMNO=2013,NJOBS=7,NSIMS=100,PSP=0.4,PPI=0.5 runsim.sh
-sbatch -p ckpt -A csde-ckpt --array=1-7 --nodes=1 --ntasks-per-node=16 --time=1:00:00 --mem=56G --job-name=s2014 --export=ALL,SIMNO=2014,NJOBS=7,NSIMS=100,PSP=0.5,PPI=0.5 runsim.sh
-sbatch -p ckpt -A csde-ckpt --array=1-7 --nodes=1 --ntasks-per-node=16 --time=1:00:00 --mem=56G --job-name=s2015 --export=ALL,SIMNO=2015,NJOBS=7,NSIMS=100,PSP=0.2925,PPI=0.75 runsim.sh
-sbatch -p ckpt -A csde-ckpt --array=1-7 --nodes=1 --ntasks-per-node=16 --time=1:00:00 --mem=56G --job-name=s2016 --export=ALL,SIMNO=2016,NJOBS=7,NSIMS=100,PSP=0.1,PPI=0.75 runsim.sh
-sbatch -p ckpt -A csde-ckpt --array=1-7 --nodes=1 --ntasks-per-node=16 --time=1:00:00 --mem=56G --job-name=s2017 --export=ALL,SIMNO=2017,NJOBS=7,NSIMS=100,PSP=0.2,PPI=0.75 runsim.sh
-sbatch -p ckpt -A csde-ckpt --array=1-7 --nodes=1 --ntasks-per-node=16 --time=1:00:00 --mem=56G --job-name=s2018 --export=ALL,SIMNO=2018,NJOBS=7,NSIMS=100,PSP=0.4,PPI=0.75 runsim.sh
-sbatch -p ckpt -A csde-ckpt --array=1-7 --nodes=1 --ntasks-per-node=16 --time=1:00:00 --mem=56G --job-name=s2019 --export=ALL,SIMNO=2019,NJOBS=7,NSIMS=100,PSP=0.5,PPI=0.75 runsim.sh
-sbatch -p ckpt -A csde-ckpt --array=1-7 --nodes=1 --ntasks-per-node=16 --time=1:00:00 --mem=56G --job-name=s2020 --export=ALL,SIMNO=2020,NJOBS=7,NSIMS=100,PSP=0.2925,PPI=1 runsim.sh
-sbatch -p ckpt -A csde-ckpt --array=1-7 --nodes=1 --ntasks-per-node=16 --time=1:00:00 --mem=56G --job-name=s2021 --export=ALL,SIMNO=2021,NJOBS=7,NSIMS=100,PSP=0.1,PPI=1 runsim.sh
-sbatch -p ckpt -A csde-ckpt --array=1-7 --nodes=1 --ntasks-per-node=16 --time=1:00:00 --mem=56G --job-name=s2022 --export=ALL,SIMNO=2022,NJOBS=7,NSIMS=100,PSP=0.2,PPI=1 runsim.sh
-sbatch -p ckpt -A csde-ckpt --array=1-7 --nodes=1 --ntasks-per-node=16 --time=1:00:00 --mem=56G --job-name=s2023 --export=ALL,SIMNO=2023,NJOBS=7,NSIMS=100,PSP=0.4,PPI=1 runsim.sh
-sbatch -p ckpt -A csde-ckpt --array=1-7 --nodes=1 --ntasks-per-node=16 --time=1:00:00 --mem=56G --job-name=s2024 --export=ALL,SIMNO=2024,NJOBS=7,NSIMS=100,PSP=0.5,PPI=1 runsim.sh
+# sbatch -p ckpt -A csde-ckpt --array=1-4 --nodes=1 --ntasks-per-node=25 --time=1:00:00 --mem=100G --job-name=s1000 --export=ALL,SIMNO=1000,NJOBS=4,NSIMS=100,PSP=0.1,PPI=0,PICPT=3.59,PHALF=35,RELHR=1,LOWP=0.215,DCREL=1 runsim.sh
+# sbatch -p ckpt -A csde-ckpt --array=1-4 --nodes=1 --ntasks-per-node=25 --time=1:00:00 --mem=100G --job-name=s1001 --export=ALL,SIMNO=1001,NJOBS=4,NSIMS=100,PSP=0.102,PPI=0,PICPT=3.59,PHALF=35,RELHR=1,LOWP=0.215,DCREL=1 runsim.sh
+# sbatch -p ckpt -A csde-ckpt --array=1-4 --nodes=1 --ntasks-per-node=25 --time=1:00:00 --mem=100G --job-name=s1002 --export=ALL,SIMNO=1002,NJOBS=4,NSIMS=100,PSP=0.104,PPI=0,PICPT=3.59,PHALF=35,RELHR=1,LOWP=0.215,DCREL=1 runsim.sh
+# sbatch -p ckpt -A csde-ckpt --array=1-4 --nodes=1 --ntasks-per-node=25 --time=1:00:00 --mem=100G --job-name=s1003 --export=ALL,SIMNO=1003,NJOBS=4,NSIMS=100,PSP=0.106,PPI=0,PICPT=3.59,PHALF=35,RELHR=1,LOWP=0.215,DCREL=1 runsim.sh
+# sbatch -p ckpt -A csde-ckpt --array=1-4 --nodes=1 --ntasks-per-node=25 --time=1:00:00 --mem=100G --job-name=s1004 --export=ALL,SIMNO=1004,NJOBS=4,NSIMS=100,PSP=0.108,PPI=0,PICPT=3.59,PHALF=35,RELHR=1,LOWP=0.215,DCREL=1 runsim.sh
+#
+# sbatch -p ckpt -A csde-ckpt --array=1-9 --nodes=1 --ntasks-per-node=28 --time=1:00:00 --mem=100G --job-name=s2000 --export=ALL,SIMNO=2000,NJOBS=9,NSIMS=250,PSP=0.104,PPI=0,PICPT=3.59,PHALF=35,RELHR=1,LOWP=0.215,DCREL=1 runsim.sh
+# sbatch -p ckpt -A csde-ckpt --array=1-9 --nodes=1 --ntasks-per-node=28 --time=1:00:00 --mem=100G --job-name=s2001 --export=ALL,SIMNO=2001,NJOBS=9,NSIMS=250,PSP=0.2,PPI=0,PICPT=3.59,PHALF=35,RELHR=1,LOWP=0.215,DCREL=1 runsim.sh
+# sbatch -p ckpt -A csde-ckpt --array=1-9 --nodes=1 --ntasks-per-node=28 --time=1:00:00 --mem=100G --job-name=s2002 --export=ALL,SIMNO=2002,NJOBS=9,NSIMS=250,PSP=0.4,PPI=0,PICPT=3.59,PHALF=35,RELHR=1,LOWP=0.215,DCREL=1 runsim.sh
+# sbatch -p ckpt -A csde-ckpt --array=1-9 --nodes=1 --ntasks-per-node=28 --time=1:00:00 --mem=100G --job-name=s2003 --export=ALL,SIMNO=2003,NJOBS=9,NSIMS=250,PSP=0.5,PPI=0,PICPT=3.59,PHALF=35,RELHR=1,LOWP=0.215,DCREL=1 runsim.sh
+# sbatch -p ckpt -A csde-ckpt --array=1-9 --nodes=1 --ntasks-per-node=28 --time=1:00:00 --mem=100G --job-name=s2004 --export=ALL,SIMNO=2004,NJOBS=9,NSIMS=250,PSP=0.104,PPI=0.25,PICPT=3.59,PHALF=35,RELHR=1,LOWP=0.215,DCREL=1 runsim.sh
+# sbatch -p ckpt -A csde-ckpt --array=1-9 --nodes=1 --ntasks-per-node=28 --time=1:00:00 --mem=100G --job-name=s2005 --export=ALL,SIMNO=2005,NJOBS=9,NSIMS=250,PSP=0.2,PPI=0.25,PICPT=3.59,PHALF=35,RELHR=1,LOWP=0.215,DCREL=1 runsim.sh
+# sbatch -p ckpt -A csde-ckpt --array=1-9 --nodes=1 --ntasks-per-node=28 --time=1:00:00 --mem=100G --job-name=s2006 --export=ALL,SIMNO=2006,NJOBS=9,NSIMS=250,PSP=0.4,PPI=0.25,PICPT=3.59,PHALF=35,RELHR=1,LOWP=0.215,DCREL=1 runsim.sh
+# sbatch -p ckpt -A csde-ckpt --array=1-9 --nodes=1 --ntasks-per-node=28 --time=1:00:00 --mem=100G --job-name=s2007 --export=ALL,SIMNO=2007,NJOBS=9,NSIMS=250,PSP=0.5,PPI=0.25,PICPT=3.59,PHALF=35,RELHR=1,LOWP=0.215,DCREL=1 runsim.sh
+# sbatch -p ckpt -A csde-ckpt --array=1-9 --nodes=1 --ntasks-per-node=28 --time=1:00:00 --mem=100G --job-name=s2008 --export=ALL,SIMNO=2008,NJOBS=9,NSIMS=250,PSP=0.104,PPI=0.5,PICPT=3.59,PHALF=35,RELHR=1,LOWP=0.215,DCREL=1 runsim.sh
+# sbatch -p ckpt -A csde-ckpt --array=1-9 --nodes=1 --ntasks-per-node=28 --time=1:00:00 --mem=100G --job-name=s2009 --export=ALL,SIMNO=2009,NJOBS=9,NSIMS=250,PSP=0.2,PPI=0.5,PICPT=3.59,PHALF=35,RELHR=1,LOWP=0.215,DCREL=1 runsim.sh
+# sbatch -p ckpt -A csde-ckpt --array=1-9 --nodes=1 --ntasks-per-node=28 --time=1:00:00 --mem=100G --job-name=s2010 --export=ALL,SIMNO=2010,NJOBS=9,NSIMS=250,PSP=0.4,PPI=0.5,PICPT=3.59,PHALF=35,RELHR=1,LOWP=0.215,DCREL=1 runsim.sh
+# sbatch -p ckpt -A csde-ckpt --array=1-9 --nodes=1 --ntasks-per-node=28 --time=1:00:00 --mem=100G --job-name=s2011 --export=ALL,SIMNO=2011,NJOBS=9,NSIMS=250,PSP=0.5,PPI=0.5,PICPT=3.59,PHALF=35,RELHR=1,LOWP=0.215,DCREL=1 runsim.sh
+# sbatch -p ckpt -A csde-ckpt --array=1-9 --nodes=1 --ntasks-per-node=28 --time=1:00:00 --mem=100G --job-name=s2012 --export=ALL,SIMNO=2012,NJOBS=9,NSIMS=250,PSP=0.104,PPI=0.75,PICPT=3.59,PHALF=35,RELHR=1,LOWP=0.215,DCREL=1 runsim.sh
+# sbatch -p ckpt -A csde-ckpt --array=1-9 --nodes=1 --ntasks-per-node=28 --time=1:00:00 --mem=100G --job-name=s2013 --export=ALL,SIMNO=2013,NJOBS=9,NSIMS=250,PSP=0.2,PPI=0.75,PICPT=3.59,PHALF=35,RELHR=1,LOWP=0.215,DCREL=1 runsim.sh
+# sbatch -p ckpt -A csde-ckpt --array=1-9 --nodes=1 --ntasks-per-node=28 --time=1:00:00 --mem=100G --job-name=s2014 --export=ALL,SIMNO=2014,NJOBS=9,NSIMS=250,PSP=0.4,PPI=0.75,PICPT=3.59,PHALF=35,RELHR=1,LOWP=0.215,DCREL=1 runsim.sh
+# sbatch -p ckpt -A csde-ckpt --array=1-9 --nodes=1 --ntasks-per-node=28 --time=1:00:00 --mem=100G --job-name=s2015 --export=ALL,SIMNO=2015,NJOBS=9,NSIMS=250,PSP=0.5,PPI=0.75,PICPT=3.59,PHALF=35,RELHR=1,LOWP=0.215,DCREL=1 runsim.sh
+# sbatch -p ckpt -A csde-ckpt --array=1-9 --nodes=1 --ntasks-per-node=28 --time=1:00:00 --mem=100G --job-name=s2016 --export=ALL,SIMNO=2016,NJOBS=9,NSIMS=250,PSP=0.104,PPI=1,PICPT=3.59,PHALF=35,RELHR=1,LOWP=0.215,DCREL=1 runsim.sh
+# sbatch -p ckpt -A csde-ckpt --array=1-9 --nodes=1 --ntasks-per-node=28 --time=1:00:00 --mem=100G --job-name=s2017 --export=ALL,SIMNO=2017,NJOBS=9,NSIMS=250,PSP=0.2,PPI=1,PICPT=3.59,PHALF=35,RELHR=1,LOWP=0.215,DCREL=1 runsim.sh
+# sbatch -p ckpt -A csde-ckpt --array=1-9 --nodes=1 --ntasks-per-node=28 --time=1:00:00 --mem=100G --job-name=s2018 --export=ALL,SIMNO=2018,NJOBS=9,NSIMS=250,PSP=0.4,PPI=1,PICPT=3.59,PHALF=35,RELHR=1,LOWP=0.215,DCREL=1 runsim.sh
+# sbatch -p ckpt -A csde-ckpt --array=1-9 --nodes=1 --ntasks-per-node=28 --time=1:00:00 --mem=100G --job-name=s2019 --export=ALL,SIMNO=2019,NJOBS=9,NSIMS=250,PSP=0.5,PPI=1,PICPT=3.59,PHALF=35,RELHR=1,LOWP=0.215,DCREL=1 runsim.sh
+#
+# sbatch -p ckpt -A csde-ckpt --array=1-9 --nodes=1 --ntasks-per-node=28 --time=1:00:00 --mem=100G --job-name=s3000 --export=ALL,SIMNO=3000,NJOBS=9,NSIMS=250,PSP=0,PPI=0,PICPT=3.59,PHALF=35,RELHR=1,LOWP=0.215,DCREL=1 runsim.sh
+# sbatch -p ckpt -A csde-ckpt --array=1-9 --nodes=1 --ntasks-per-node=28 --time=1:00:00 --mem=100G --job-name=s3001 --export=ALL,SIMNO=3001,NJOBS=9,NSIMS=250,PSP=0.1,PPI=0,PICPT=3.59,PHALF=35,RELHR=1,LOWP=0.215,DCREL=1 runsim.sh
+# sbatch -p ckpt -A csde-ckpt --array=1-9 --nodes=1 --ntasks-per-node=28 --time=1:00:00 --mem=100G --job-name=s3002 --export=ALL,SIMNO=3002,NJOBS=9,NSIMS=250,PSP=0.2,PPI=0,PICPT=3.59,PHALF=35,RELHR=1,LOWP=0.215,DCREL=1 runsim.sh
+# sbatch -p ckpt -A csde-ckpt --array=1-9 --nodes=1 --ntasks-per-node=28 --time=1:00:00 --mem=100G --job-name=s3003 --export=ALL,SIMNO=3003,NJOBS=9,NSIMS=250,PSP=0.3,PPI=0,PICPT=3.59,PHALF=35,RELHR=1,LOWP=0.215,DCREL=1 runsim.sh
+# sbatch -p ckpt -A csde-ckpt --array=1-9 --nodes=1 --ntasks-per-node=28 --time=1:00:00 --mem=100G --job-name=s3004 --export=ALL,SIMNO=3004,NJOBS=9,NSIMS=250,PSP=0.4,PPI=0,PICPT=3.59,PHALF=35,RELHR=1,LOWP=0.215,DCREL=1 runsim.sh
+# sbatch -p ckpt -A csde-ckpt --array=1-9 --nodes=1 --ntasks-per-node=28 --time=1:00:00 --mem=100G --job-name=s3005 --export=ALL,SIMNO=3005,NJOBS=9,NSIMS=250,PSP=0.5,PPI=0,PICPT=3.59,PHALF=35,RELHR=1,LOWP=0.215,DCREL=1 runsim.sh
+# sbatch -p ckpt -A csde-ckpt --array=1-9 --nodes=1 --ntasks-per-node=28 --time=1:00:00 --mem=100G --job-name=s3006 --export=ALL,SIMNO=3006,NJOBS=9,NSIMS=250,PSP=0.6,PPI=0,PICPT=3.59,PHALF=35,RELHR=1,LOWP=0.215,DCREL=1 runsim.sh
+# sbatch -p ckpt -A csde-ckpt --array=1-9 --nodes=1 --ntasks-per-node=28 --time=1:00:00 --mem=100G --job-name=s3007 --export=ALL,SIMNO=3007,NJOBS=9,NSIMS=250,PSP=0.7,PPI=0,PICPT=3.59,PHALF=35,RELHR=1,LOWP=0.215,DCREL=1 runsim.sh
+# sbatch -p ckpt -A csde-ckpt --array=1-9 --nodes=1 --ntasks-per-node=28 --time=1:00:00 --mem=100G --job-name=s3008 --export=ALL,SIMNO=3008,NJOBS=9,NSIMS=250,PSP=0.8,PPI=0,PICPT=3.59,PHALF=35,RELHR=1,LOWP=0.215,DCREL=1 runsim.sh
+# sbatch -p ckpt -A csde-ckpt --array=1-9 --nodes=1 --ntasks-per-node=28 --time=1:00:00 --mem=100G --job-name=s3009 --export=ALL,SIMNO=3009,NJOBS=9,NSIMS=250,PSP=0.9,PPI=0,PICPT=3.59,PHALF=35,RELHR=1,LOWP=0.215,DCREL=1 runsim.sh
+# sbatch -p ckpt -A csde-ckpt --array=1-9 --nodes=1 --ntasks-per-node=28 --time=1:00:00 --mem=100G --job-name=s3010 --export=ALL,SIMNO=3010,NJOBS=9,NSIMS=250,PSP=1,PPI=0,PICPT=3.59,PHALF=35,RELHR=1,LOWP=0.215,DCREL=1 runsim.sh
+# sbatch -p ckpt -A csde-ckpt --array=1-9 --nodes=1 --ntasks-per-node=28 --time=1:00:00 --mem=100G --job-name=s3011 --export=ALL,SIMNO=3011,NJOBS=9,NSIMS=250,PSP=0,PPI=0.1,PICPT=3.59,PHALF=35,RELHR=1,LOWP=0.215,DCREL=1 runsim.sh
+# sbatch -p ckpt -A csde-ckpt --array=1-9 --nodes=1 --ntasks-per-node=28 --time=1:00:00 --mem=100G --job-name=s3012 --export=ALL,SIMNO=3012,NJOBS=9,NSIMS=250,PSP=0.1,PPI=0.1,PICPT=3.59,PHALF=35,RELHR=1,LOWP=0.215,DCREL=1 runsim.sh
+# sbatch -p ckpt -A csde-ckpt --array=1-9 --nodes=1 --ntasks-per-node=28 --time=1:00:00 --mem=100G --job-name=s3013 --export=ALL,SIMNO=3013,NJOBS=9,NSIMS=250,PSP=0.2,PPI=0.1,PICPT=3.59,PHALF=35,RELHR=1,LOWP=0.215,DCREL=1 runsim.sh
+# sbatch -p ckpt -A csde-ckpt --array=1-9 --nodes=1 --ntasks-per-node=28 --time=1:00:00 --mem=100G --job-name=s3014 --export=ALL,SIMNO=3014,NJOBS=9,NSIMS=250,PSP=0.3,PPI=0.1,PICPT=3.59,PHALF=35,RELHR=1,LOWP=0.215,DCREL=1 runsim.sh
+# sbatch -p ckpt -A csde-ckpt --array=1-9 --nodes=1 --ntasks-per-node=28 --time=1:00:00 --mem=100G --job-name=s3015 --export=ALL,SIMNO=3015,NJOBS=9,NSIMS=250,PSP=0.4,PPI=0.1,PICPT=3.59,PHALF=35,RELHR=1,LOWP=0.215,DCREL=1 runsim.sh
+# sbatch -p ckpt -A csde-ckpt --array=1-9 --nodes=1 --ntasks-per-node=28 --time=1:00:00 --mem=100G --job-name=s3016 --export=ALL,SIMNO=3016,NJOBS=9,NSIMS=250,PSP=0.5,PPI=0.1,PICPT=3.59,PHALF=35,RELHR=1,LOWP=0.215,DCREL=1 runsim.sh
+# sbatch -p ckpt -A csde-ckpt --array=1-9 --nodes=1 --ntasks-per-node=28 --time=1:00:00 --mem=100G --job-name=s3017 --export=ALL,SIMNO=3017,NJOBS=9,NSIMS=250,PSP=0.6,PPI=0.1,PICPT=3.59,PHALF=35,RELHR=1,LOWP=0.215,DCREL=1 runsim.sh
+# sbatch -p ckpt -A csde-ckpt --array=1-9 --nodes=1 --ntasks-per-node=28 --time=1:00:00 --mem=100G --job-name=s3018 --export=ALL,SIMNO=3018,NJOBS=9,NSIMS=250,PSP=0.7,PPI=0.1,PICPT=3.59,PHALF=35,RELHR=1,LOWP=0.215,DCREL=1 runsim.sh
+# sbatch -p ckpt -A csde-ckpt --array=1-9 --nodes=1 --ntasks-per-node=28 --time=1:00:00 --mem=100G --job-name=s3019 --export=ALL,SIMNO=3019,NJOBS=9,NSIMS=250,PSP=0.8,PPI=0.1,PICPT=3.59,PHALF=35,RELHR=1,LOWP=0.215,DCREL=1 runsim.sh
+# sbatch -p ckpt -A csde-ckpt --array=1-9 --nodes=1 --ntasks-per-node=28 --time=1:00:00 --mem=100G --job-name=s3020 --export=ALL,SIMNO=3020,NJOBS=9,NSIMS=250,PSP=0.9,PPI=0.1,PICPT=3.59,PHALF=35,RELHR=1,LOWP=0.215,DCREL=1 runsim.sh
+# sbatch -p ckpt -A csde-ckpt --array=1-9 --nodes=1 --ntasks-per-node=28 --time=1:00:00 --mem=100G --job-name=s3021 --export=ALL,SIMNO=3021,NJOBS=9,NSIMS=250,PSP=1,PPI=0.1,PICPT=3.59,PHALF=35,RELHR=1,LOWP=0.215,DCREL=1 runsim.sh
+# sbatch -p ckpt -A csde-ckpt --array=1-9 --nodes=1 --ntasks-per-node=28 --time=1:00:00 --mem=100G --job-name=s3022 --export=ALL,SIMNO=3022,NJOBS=9,NSIMS=250,PSP=0,PPI=0.2,PICPT=3.59,PHALF=35,RELHR=1,LOWP=0.215,DCREL=1 runsim.sh
+# sbatch -p ckpt -A csde-ckpt --array=1-9 --nodes=1 --ntasks-per-node=28 --time=1:00:00 --mem=100G --job-name=s3023 --export=ALL,SIMNO=3023,NJOBS=9,NSIMS=250,PSP=0.1,PPI=0.2,PICPT=3.59,PHALF=35,RELHR=1,LOWP=0.215,DCREL=1 runsim.sh
+# sbatch -p ckpt -A csde-ckpt --array=1-9 --nodes=1 --ntasks-per-node=28 --time=1:00:00 --mem=100G --job-name=s3024 --export=ALL,SIMNO=3024,NJOBS=9,NSIMS=250,PSP=0.2,PPI=0.2,PICPT=3.59,PHALF=35,RELHR=1,LOWP=0.215,DCREL=1 runsim.sh
+# sbatch -p ckpt -A csde-ckpt --array=1-9 --nodes=1 --ntasks-per-node=28 --time=1:00:00 --mem=100G --job-name=s3025 --export=ALL,SIMNO=3025,NJOBS=9,NSIMS=250,PSP=0.3,PPI=0.2,PICPT=3.59,PHALF=35,RELHR=1,LOWP=0.215,DCREL=1 runsim.sh
+# sbatch -p ckpt -A csde-ckpt --array=1-9 --nodes=1 --ntasks-per-node=28 --time=1:00:00 --mem=100G --job-name=s3026 --export=ALL,SIMNO=3026,NJOBS=9,NSIMS=250,PSP=0.4,PPI=0.2,PICPT=3.59,PHALF=35,RELHR=1,LOWP=0.215,DCREL=1 runsim.sh
+# sbatch -p ckpt -A csde-ckpt --array=1-9 --nodes=1 --ntasks-per-node=28 --time=1:00:00 --mem=100G --job-name=s3027 --export=ALL,SIMNO=3027,NJOBS=9,NSIMS=250,PSP=0.5,PPI=0.2,PICPT=3.59,PHALF=35,RELHR=1,LOWP=0.215,DCREL=1 runsim.sh
+# sbatch -p ckpt -A csde-ckpt --array=1-9 --nodes=1 --ntasks-per-node=28 --time=1:00:00 --mem=100G --job-name=s3028 --export=ALL,SIMNO=3028,NJOBS=9,NSIMS=250,PSP=0.6,PPI=0.2,PICPT=3.59,PHALF=35,RELHR=1,LOWP=0.215,DCREL=1 runsim.sh
+# sbatch -p ckpt -A csde-ckpt --array=1-9 --nodes=1 --ntasks-per-node=28 --time=1:00:00 --mem=100G --job-name=s3029 --export=ALL,SIMNO=3029,NJOBS=9,NSIMS=250,PSP=0.7,PPI=0.2,PICPT=3.59,PHALF=35,RELHR=1,LOWP=0.215,DCREL=1 runsim.sh
+# sbatch -p ckpt -A csde-ckpt --array=1-9 --nodes=1 --ntasks-per-node=28 --time=1:00:00 --mem=100G --job-name=s3030 --export=ALL,SIMNO=3030,NJOBS=9,NSIMS=250,PSP=0.8,PPI=0.2,PICPT=3.59,PHALF=35,RELHR=1,LOWP=0.215,DCREL=1 runsim.sh
+# sbatch -p ckpt -A csde-ckpt --array=1-9 --nodes=1 --ntasks-per-node=28 --time=1:00:00 --mem=100G --job-name=s3031 --export=ALL,SIMNO=3031,NJOBS=9,NSIMS=250,PSP=0.9,PPI=0.2,PICPT=3.59,PHALF=35,RELHR=1,LOWP=0.215,DCREL=1 runsim.sh
+# sbatch -p ckpt -A csde-ckpt --array=1-9 --nodes=1 --ntasks-per-node=28 --time=1:00:00 --mem=100G --job-name=s3032 --export=ALL,SIMNO=3032,NJOBS=9,NSIMS=250,PSP=1,PPI=0.2,PICPT=3.59,PHALF=35,RELHR=1,LOWP=0.215,DCREL=1 runsim.sh
+# sbatch -p ckpt -A csde-ckpt --array=1-9 --nodes=1 --ntasks-per-node=28 --time=1:00:00 --mem=100G --job-name=s3033 --export=ALL,SIMNO=3033,NJOBS=9,NSIMS=250,PSP=0,PPI=0.3,PICPT=3.59,PHALF=35,RELHR=1,LOWP=0.215,DCREL=1 runsim.sh
+# sbatch -p ckpt -A csde-ckpt --array=1-9 --nodes=1 --ntasks-per-node=28 --time=1:00:00 --mem=100G --job-name=s3034 --export=ALL,SIMNO=3034,NJOBS=9,NSIMS=250,PSP=0.1,PPI=0.3,PICPT=3.59,PHALF=35,RELHR=1,LOWP=0.215,DCREL=1 runsim.sh
+# sbatch -p ckpt -A csde-ckpt --array=1-9 --nodes=1 --ntasks-per-node=28 --time=1:00:00 --mem=100G --job-name=s3035 --export=ALL,SIMNO=3035,NJOBS=9,NSIMS=250,PSP=0.2,PPI=0.3,PICPT=3.59,PHALF=35,RELHR=1,LOWP=0.215,DCREL=1 runsim.sh
+# sbatch -p ckpt -A csde-ckpt --array=1-9 --nodes=1 --ntasks-per-node=28 --time=1:00:00 --mem=100G --job-name=s3036 --export=ALL,SIMNO=3036,NJOBS=9,NSIMS=250,PSP=0.3,PPI=0.3,PICPT=3.59,PHALF=35,RELHR=1,LOWP=0.215,DCREL=1 runsim.sh
+# sbatch -p ckpt -A csde-ckpt --array=1-9 --nodes=1 --ntasks-per-node=28 --time=1:00:00 --mem=100G --job-name=s3037 --export=ALL,SIMNO=3037,NJOBS=9,NSIMS=250,PSP=0.4,PPI=0.3,PICPT=3.59,PHALF=35,RELHR=1,LOWP=0.215,DCREL=1 runsim.sh
+# sbatch -p ckpt -A csde-ckpt --array=1-9 --nodes=1 --ntasks-per-node=28 --time=1:00:00 --mem=100G --job-name=s3038 --export=ALL,SIMNO=3038,NJOBS=9,NSIMS=250,PSP=0.5,PPI=0.3,PICPT=3.59,PHALF=35,RELHR=1,LOWP=0.215,DCREL=1 runsim.sh
+# sbatch -p ckpt -A csde-ckpt --array=1-9 --nodes=1 --ntasks-per-node=28 --time=1:00:00 --mem=100G --job-name=s3039 --export=ALL,SIMNO=3039,NJOBS=9,NSIMS=250,PSP=0.6,PPI=0.3,PICPT=3.59,PHALF=35,RELHR=1,LOWP=0.215,DCREL=1 runsim.sh
+# sbatch -p ckpt -A csde-ckpt --array=1-9 --nodes=1 --ntasks-per-node=28 --time=1:00:00 --mem=100G --job-name=s3040 --export=ALL,SIMNO=3040,NJOBS=9,NSIMS=250,PSP=0.7,PPI=0.3,PICPT=3.59,PHALF=35,RELHR=1,LOWP=0.215,DCREL=1 runsim.sh
+# sbatch -p ckpt -A csde-ckpt --array=1-9 --nodes=1 --ntasks-per-node=28 --time=1:00:00 --mem=100G --job-name=s3041 --export=ALL,SIMNO=3041,NJOBS=9,NSIMS=250,PSP=0.8,PPI=0.3,PICPT=3.59,PHALF=35,RELHR=1,LOWP=0.215,DCREL=1 runsim.sh
+# sbatch -p ckpt -A csde-ckpt --array=1-9 --nodes=1 --ntasks-per-node=28 --time=1:00:00 --mem=100G --job-name=s3042 --export=ALL,SIMNO=3042,NJOBS=9,NSIMS=250,PSP=0.9,PPI=0.3,PICPT=3.59,PHALF=35,RELHR=1,LOWP=0.215,DCREL=1 runsim.sh
+# sbatch -p ckpt -A csde-ckpt --array=1-9 --nodes=1 --ntasks-per-node=28 --time=1:00:00 --mem=100G --job-name=s3043 --export=ALL,SIMNO=3043,NJOBS=9,NSIMS=250,PSP=1,PPI=0.3,PICPT=3.59,PHALF=35,RELHR=1,LOWP=0.215,DCREL=1 runsim.sh
+# sbatch -p ckpt -A csde-ckpt --array=1-9 --nodes=1 --ntasks-per-node=28 --time=1:00:00 --mem=100G --job-name=s3044 --export=ALL,SIMNO=3044,NJOBS=9,NSIMS=250,PSP=0,PPI=0.4,PICPT=3.59,PHALF=35,RELHR=1,LOWP=0.215,DCREL=1 runsim.sh
+# sbatch -p ckpt -A csde-ckpt --array=1-9 --nodes=1 --ntasks-per-node=28 --time=1:00:00 --mem=100G --job-name=s3045 --export=ALL,SIMNO=3045,NJOBS=9,NSIMS=250,PSP=0.1,PPI=0.4,PICPT=3.59,PHALF=35,RELHR=1,LOWP=0.215,DCREL=1 runsim.sh
+# sbatch -p ckpt -A csde-ckpt --array=1-9 --nodes=1 --ntasks-per-node=28 --time=1:00:00 --mem=100G --job-name=s3046 --export=ALL,SIMNO=3046,NJOBS=9,NSIMS=250,PSP=0.2,PPI=0.4,PICPT=3.59,PHALF=35,RELHR=1,LOWP=0.215,DCREL=1 runsim.sh
+# sbatch -p ckpt -A csde-ckpt --array=1-9 --nodes=1 --ntasks-per-node=28 --time=1:00:00 --mem=100G --job-name=s3047 --export=ALL,SIMNO=3047,NJOBS=9,NSIMS=250,PSP=0.3,PPI=0.4,PICPT=3.59,PHALF=35,RELHR=1,LOWP=0.215,DCREL=1 runsim.sh
+# sbatch -p ckpt -A csde-ckpt --array=1-9 --nodes=1 --ntasks-per-node=28 --time=1:00:00 --mem=100G --job-name=s3048 --export=ALL,SIMNO=3048,NJOBS=9,NSIMS=250,PSP=0.4,PPI=0.4,PICPT=3.59,PHALF=35,RELHR=1,LOWP=0.215,DCREL=1 runsim.sh
+# sbatch -p ckpt -A csde-ckpt --array=1-9 --nodes=1 --ntasks-per-node=28 --time=1:00:00 --mem=100G --job-name=s3049 --export=ALL,SIMNO=3049,NJOBS=9,NSIMS=250,PSP=0.5,PPI=0.4,PICPT=3.59,PHALF=35,RELHR=1,LOWP=0.215,DCREL=1 runsim.sh
+# sbatch -p ckpt -A csde-ckpt --array=1-9 --nodes=1 --ntasks-per-node=28 --time=1:00:00 --mem=100G --job-name=s3050 --export=ALL,SIMNO=3050,NJOBS=9,NSIMS=250,PSP=0.6,PPI=0.4,PICPT=3.59,PHALF=35,RELHR=1,LOWP=0.215,DCREL=1 runsim.sh
+# sbatch -p ckpt -A csde-ckpt --array=1-9 --nodes=1 --ntasks-per-node=28 --time=1:00:00 --mem=100G --job-name=s3051 --export=ALL,SIMNO=3051,NJOBS=9,NSIMS=250,PSP=0.7,PPI=0.4,PICPT=3.59,PHALF=35,RELHR=1,LOWP=0.215,DCREL=1 runsim.sh
+# sbatch -p ckpt -A csde-ckpt --array=1-9 --nodes=1 --ntasks-per-node=28 --time=1:00:00 --mem=100G --job-name=s3052 --export=ALL,SIMNO=3052,NJOBS=9,NSIMS=250,PSP=0.8,PPI=0.4,PICPT=3.59,PHALF=35,RELHR=1,LOWP=0.215,DCREL=1 runsim.sh
+# sbatch -p ckpt -A csde-ckpt --array=1-9 --nodes=1 --ntasks-per-node=28 --time=1:00:00 --mem=100G --job-name=s3053 --export=ALL,SIMNO=3053,NJOBS=9,NSIMS=250,PSP=0.9,PPI=0.4,PICPT=3.59,PHALF=35,RELHR=1,LOWP=0.215,DCREL=1 runsim.sh
+# sbatch -p ckpt -A csde-ckpt --array=1-9 --nodes=1 --ntasks-per-node=28 --time=1:00:00 --mem=100G --job-name=s3054 --export=ALL,SIMNO=3054,NJOBS=9,NSIMS=250,PSP=1,PPI=0.4,PICPT=3.59,PHALF=35,RELHR=1,LOWP=0.215,DCREL=1 runsim.sh
+# sbatch -p ckpt -A csde-ckpt --array=1-9 --nodes=1 --ntasks-per-node=28 --time=1:00:00 --mem=100G --job-name=s3055 --export=ALL,SIMNO=3055,NJOBS=9,NSIMS=250,PSP=0,PPI=0.5,PICPT=3.59,PHALF=35,RELHR=1,LOWP=0.215,DCREL=1 runsim.sh
+# sbatch -p ckpt -A csde-ckpt --array=1-9 --nodes=1 --ntasks-per-node=28 --time=1:00:00 --mem=100G --job-name=s3056 --export=ALL,SIMNO=3056,NJOBS=9,NSIMS=250,PSP=0.1,PPI=0.5,PICPT=3.59,PHALF=35,RELHR=1,LOWP=0.215,DCREL=1 runsim.sh
+# sbatch -p ckpt -A csde-ckpt --array=1-9 --nodes=1 --ntasks-per-node=28 --time=1:00:00 --mem=100G --job-name=s3057 --export=ALL,SIMNO=3057,NJOBS=9,NSIMS=250,PSP=0.2,PPI=0.5,PICPT=3.59,PHALF=35,RELHR=1,LOWP=0.215,DCREL=1 runsim.sh
+# sbatch -p ckpt -A csde-ckpt --array=1-9 --nodes=1 --ntasks-per-node=28 --time=1:00:00 --mem=100G --job-name=s3058 --export=ALL,SIMNO=3058,NJOBS=9,NSIMS=250,PSP=0.3,PPI=0.5,PICPT=3.59,PHALF=35,RELHR=1,LOWP=0.215,DCREL=1 runsim.sh
+# sbatch -p ckpt -A csde-ckpt --array=1-9 --nodes=1 --ntasks-per-node=28 --time=1:00:00 --mem=100G --job-name=s3059 --export=ALL,SIMNO=3059,NJOBS=9,NSIMS=250,PSP=0.4,PPI=0.5,PICPT=3.59,PHALF=35,RELHR=1,LOWP=0.215,DCREL=1 runsim.sh
+# sbatch -p ckpt -A csde-ckpt --array=1-9 --nodes=1 --ntasks-per-node=28 --time=1:00:00 --mem=100G --job-name=s3060 --export=ALL,SIMNO=3060,NJOBS=9,NSIMS=250,PSP=0.5,PPI=0.5,PICPT=3.59,PHALF=35,RELHR=1,LOWP=0.215,DCREL=1 runsim.sh
+# sbatch -p ckpt -A csde-ckpt --array=1-9 --nodes=1 --ntasks-per-node=28 --time=1:00:00 --mem=100G --job-name=s3061 --export=ALL,SIMNO=3061,NJOBS=9,NSIMS=250,PSP=0.6,PPI=0.5,PICPT=3.59,PHALF=35,RELHR=1,LOWP=0.215,DCREL=1 runsim.sh
+# sbatch -p ckpt -A csde-ckpt --array=1-9 --nodes=1 --ntasks-per-node=28 --time=1:00:00 --mem=100G --job-name=s3062 --export=ALL,SIMNO=3062,NJOBS=9,NSIMS=250,PSP=0.7,PPI=0.5,PICPT=3.59,PHALF=35,RELHR=1,LOWP=0.215,DCREL=1 runsim.sh
+# sbatch -p ckpt -A csde-ckpt --array=1-9 --nodes=1 --ntasks-per-node=28 --time=1:00:00 --mem=100G --job-name=s3063 --export=ALL,SIMNO=3063,NJOBS=9,NSIMS=250,PSP=0.8,PPI=0.5,PICPT=3.59,PHALF=35,RELHR=1,LOWP=0.215,DCREL=1 runsim.sh
+# sbatch -p ckpt -A csde-ckpt --array=1-9 --nodes=1 --ntasks-per-node=28 --time=1:00:00 --mem=100G --job-name=s3064 --export=ALL,SIMNO=3064,NJOBS=9,NSIMS=250,PSP=0.9,PPI=0.5,PICPT=3.59,PHALF=35,RELHR=1,LOWP=0.215,DCREL=1 runsim.sh
+# sbatch -p ckpt -A csde-ckpt --array=1-9 --nodes=1 --ntasks-per-node=28 --time=1:00:00 --mem=100G --job-name=s3065 --export=ALL,SIMNO=3065,NJOBS=9,NSIMS=250,PSP=1,PPI=0.5,PICPT=3.59,PHALF=35,RELHR=1,LOWP=0.215,DCREL=1 runsim.sh
+# sbatch -p ckpt -A csde-ckpt --array=1-9 --nodes=1 --ntasks-per-node=28 --time=1:00:00 --mem=100G --job-name=s3066 --export=ALL,SIMNO=3066,NJOBS=9,NSIMS=250,PSP=0,PPI=0.6,PICPT=3.59,PHALF=35,RELHR=1,LOWP=0.215,DCREL=1 runsim.sh
+# sbatch -p ckpt -A csde-ckpt --array=1-9 --nodes=1 --ntasks-per-node=28 --time=1:00:00 --mem=100G --job-name=s3067 --export=ALL,SIMNO=3067,NJOBS=9,NSIMS=250,PSP=0.1,PPI=0.6,PICPT=3.59,PHALF=35,RELHR=1,LOWP=0.215,DCREL=1 runsim.sh
+# sbatch -p ckpt -A csde-ckpt --array=1-9 --nodes=1 --ntasks-per-node=28 --time=1:00:00 --mem=100G --job-name=s3068 --export=ALL,SIMNO=3068,NJOBS=9,NSIMS=250,PSP=0.2,PPI=0.6,PICPT=3.59,PHALF=35,RELHR=1,LOWP=0.215,DCREL=1 runsim.sh
+# sbatch -p ckpt -A csde-ckpt --array=1-9 --nodes=1 --ntasks-per-node=28 --time=1:00:00 --mem=100G --job-name=s3069 --export=ALL,SIMNO=3069,NJOBS=9,NSIMS=250,PSP=0.3,PPI=0.6,PICPT=3.59,PHALF=35,RELHR=1,LOWP=0.215,DCREL=1 runsim.sh
+# sbatch -p ckpt -A csde-ckpt --array=1-9 --nodes=1 --ntasks-per-node=28 --time=1:00:00 --mem=100G --job-name=s3070 --export=ALL,SIMNO=3070,NJOBS=9,NSIMS=250,PSP=0.4,PPI=0.6,PICPT=3.59,PHALF=35,RELHR=1,LOWP=0.215,DCREL=1 runsim.sh
+# sbatch -p ckpt -A csde-ckpt --array=1-9 --nodes=1 --ntasks-per-node=28 --time=1:00:00 --mem=100G --job-name=s3071 --export=ALL,SIMNO=3071,NJOBS=9,NSIMS=250,PSP=0.5,PPI=0.6,PICPT=3.59,PHALF=35,RELHR=1,LOWP=0.215,DCREL=1 runsim.sh
+# sbatch -p ckpt -A csde-ckpt --array=1-9 --nodes=1 --ntasks-per-node=28 --time=1:00:00 --mem=100G --job-name=s3072 --export=ALL,SIMNO=3072,NJOBS=9,NSIMS=250,PSP=0.6,PPI=0.6,PICPT=3.59,PHALF=35,RELHR=1,LOWP=0.215,DCREL=1 runsim.sh
+# sbatch -p ckpt -A csde-ckpt --array=1-9 --nodes=1 --ntasks-per-node=28 --time=1:00:00 --mem=100G --job-name=s3073 --export=ALL,SIMNO=3073,NJOBS=9,NSIMS=250,PSP=0.7,PPI=0.6,PICPT=3.59,PHALF=35,RELHR=1,LOWP=0.215,DCREL=1 runsim.sh
+# sbatch -p ckpt -A csde-ckpt --array=1-9 --nodes=1 --ntasks-per-node=28 --time=1:00:00 --mem=100G --job-name=s3074 --export=ALL,SIMNO=3074,NJOBS=9,NSIMS=250,PSP=0.8,PPI=0.6,PICPT=3.59,PHALF=35,RELHR=1,LOWP=0.215,DCREL=1 runsim.sh
+# sbatch -p ckpt -A csde-ckpt --array=1-9 --nodes=1 --ntasks-per-node=28 --time=1:00:00 --mem=100G --job-name=s3075 --export=ALL,SIMNO=3075,NJOBS=9,NSIMS=250,PSP=0.9,PPI=0.6,PICPT=3.59,PHALF=35,RELHR=1,LOWP=0.215,DCREL=1 runsim.sh
+# sbatch -p ckpt -A csde-ckpt --array=1-9 --nodes=1 --ntasks-per-node=28 --time=1:00:00 --mem=100G --job-name=s3076 --export=ALL,SIMNO=3076,NJOBS=9,NSIMS=250,PSP=1,PPI=0.6,PICPT=3.59,PHALF=35,RELHR=1,LOWP=0.215,DCREL=1 runsim.sh
+# sbatch -p ckpt -A csde-ckpt --array=1-9 --nodes=1 --ntasks-per-node=28 --time=1:00:00 --mem=100G --job-name=s3077 --export=ALL,SIMNO=3077,NJOBS=9,NSIMS=250,PSP=0,PPI=0.7,PICPT=3.59,PHALF=35,RELHR=1,LOWP=0.215,DCREL=1 runsim.sh
+# sbatch -p ckpt -A csde-ckpt --array=1-9 --nodes=1 --ntasks-per-node=28 --time=1:00:00 --mem=100G --job-name=s3078 --export=ALL,SIMNO=3078,NJOBS=9,NSIMS=250,PSP=0.1,PPI=0.7,PICPT=3.59,PHALF=35,RELHR=1,LOWP=0.215,DCREL=1 runsim.sh
+# sbatch -p ckpt -A csde-ckpt --array=1-9 --nodes=1 --ntasks-per-node=28 --time=1:00:00 --mem=100G --job-name=s3079 --export=ALL,SIMNO=3079,NJOBS=9,NSIMS=250,PSP=0.2,PPI=0.7,PICPT=3.59,PHALF=35,RELHR=1,LOWP=0.215,DCREL=1 runsim.sh
+# sbatch -p ckpt -A csde-ckpt --array=1-9 --nodes=1 --ntasks-per-node=28 --time=1:00:00 --mem=100G --job-name=s3080 --export=ALL,SIMNO=3080,NJOBS=9,NSIMS=250,PSP=0.3,PPI=0.7,PICPT=3.59,PHALF=35,RELHR=1,LOWP=0.215,DCREL=1 runsim.sh
+# sbatch -p ckpt -A csde-ckpt --array=1-9 --nodes=1 --ntasks-per-node=28 --time=1:00:00 --mem=100G --job-name=s3081 --export=ALL,SIMNO=3081,NJOBS=9,NSIMS=250,PSP=0.4,PPI=0.7,PICPT=3.59,PHALF=35,RELHR=1,LOWP=0.215,DCREL=1 runsim.sh
+# sbatch -p ckpt -A csde-ckpt --array=1-9 --nodes=1 --ntasks-per-node=28 --time=1:00:00 --mem=100G --job-name=s3082 --export=ALL,SIMNO=3082,NJOBS=9,NSIMS=250,PSP=0.5,PPI=0.7,PICPT=3.59,PHALF=35,RELHR=1,LOWP=0.215,DCREL=1 runsim.sh
+# sbatch -p ckpt -A csde-ckpt --array=1-9 --nodes=1 --ntasks-per-node=28 --time=1:00:00 --mem=100G --job-name=s3083 --export=ALL,SIMNO=3083,NJOBS=9,NSIMS=250,PSP=0.6,PPI=0.7,PICPT=3.59,PHALF=35,RELHR=1,LOWP=0.215,DCREL=1 runsim.sh
+# sbatch -p ckpt -A csde-ckpt --array=1-9 --nodes=1 --ntasks-per-node=28 --time=1:00:00 --mem=100G --job-name=s3084 --export=ALL,SIMNO=3084,NJOBS=9,NSIMS=250,PSP=0.7,PPI=0.7,PICPT=3.59,PHALF=35,RELHR=1,LOWP=0.215,DCREL=1 runsim.sh
+# sbatch -p ckpt -A csde-ckpt --array=1-9 --nodes=1 --ntasks-per-node=28 --time=1:00:00 --mem=100G --job-name=s3085 --export=ALL,SIMNO=3085,NJOBS=9,NSIMS=250,PSP=0.8,PPI=0.7,PICPT=3.59,PHALF=35,RELHR=1,LOWP=0.215,DCREL=1 runsim.sh
+# sbatch -p ckpt -A csde-ckpt --array=1-9 --nodes=1 --ntasks-per-node=28 --time=1:00:00 --mem=100G --job-name=s3086 --export=ALL,SIMNO=3086,NJOBS=9,NSIMS=250,PSP=0.9,PPI=0.7,PICPT=3.59,PHALF=35,RELHR=1,LOWP=0.215,DCREL=1 runsim.sh
+# sbatch -p ckpt -A csde-ckpt --array=1-9 --nodes=1 --ntasks-per-node=28 --time=1:00:00 --mem=100G --job-name=s3087 --export=ALL,SIMNO=3087,NJOBS=9,NSIMS=250,PSP=1,PPI=0.7,PICPT=3.59,PHALF=35,RELHR=1,LOWP=0.215,DCREL=1 runsim.sh
+# sbatch -p ckpt -A csde-ckpt --array=1-9 --nodes=1 --ntasks-per-node=28 --time=1:00:00 --mem=100G --job-name=s3088 --export=ALL,SIMNO=3088,NJOBS=9,NSIMS=250,PSP=0,PPI=0.8,PICPT=3.59,PHALF=35,RELHR=1,LOWP=0.215,DCREL=1 runsim.sh
+# sbatch -p ckpt -A csde-ckpt --array=1-9 --nodes=1 --ntasks-per-node=28 --time=1:00:00 --mem=100G --job-name=s3089 --export=ALL,SIMNO=3089,NJOBS=9,NSIMS=250,PSP=0.1,PPI=0.8,PICPT=3.59,PHALF=35,RELHR=1,LOWP=0.215,DCREL=1 runsim.sh
+# sbatch -p ckpt -A csde-ckpt --array=1-9 --nodes=1 --ntasks-per-node=28 --time=1:00:00 --mem=100G --job-name=s3090 --export=ALL,SIMNO=3090,NJOBS=9,NSIMS=250,PSP=0.2,PPI=0.8,PICPT=3.59,PHALF=35,RELHR=1,LOWP=0.215,DCREL=1 runsim.sh
+# sbatch -p ckpt -A csde-ckpt --array=1-9 --nodes=1 --ntasks-per-node=28 --time=1:00:00 --mem=100G --job-name=s3091 --export=ALL,SIMNO=3091,NJOBS=9,NSIMS=250,PSP=0.3,PPI=0.8,PICPT=3.59,PHALF=35,RELHR=1,LOWP=0.215,DCREL=1 runsim.sh
+# sbatch -p ckpt -A csde-ckpt --array=1-9 --nodes=1 --ntasks-per-node=28 --time=1:00:00 --mem=100G --job-name=s3092 --export=ALL,SIMNO=3092,NJOBS=9,NSIMS=250,PSP=0.4,PPI=0.8,PICPT=3.59,PHALF=35,RELHR=1,LOWP=0.215,DCREL=1 runsim.sh
+# sbatch -p ckpt -A csde-ckpt --array=1-9 --nodes=1 --ntasks-per-node=28 --time=1:00:00 --mem=100G --job-name=s3093 --export=ALL,SIMNO=3093,NJOBS=9,NSIMS=250,PSP=0.5,PPI=0.8,PICPT=3.59,PHALF=35,RELHR=1,LOWP=0.215,DCREL=1 runsim.sh
+# sbatch -p ckpt -A csde-ckpt --array=1-9 --nodes=1 --ntasks-per-node=28 --time=1:00:00 --mem=100G --job-name=s3094 --export=ALL,SIMNO=3094,NJOBS=9,NSIMS=250,PSP=0.6,PPI=0.8,PICPT=3.59,PHALF=35,RELHR=1,LOWP=0.215,DCREL=1 runsim.sh
+# sbatch -p ckpt -A csde-ckpt --array=1-9 --nodes=1 --ntasks-per-node=28 --time=1:00:00 --mem=100G --job-name=s3095 --export=ALL,SIMNO=3095,NJOBS=9,NSIMS=250,PSP=0.7,PPI=0.8,PICPT=3.59,PHALF=35,RELHR=1,LOWP=0.215,DCREL=1 runsim.sh
+# sbatch -p ckpt -A csde-ckpt --array=1-9 --nodes=1 --ntasks-per-node=28 --time=1:00:00 --mem=100G --job-name=s3096 --export=ALL,SIMNO=3096,NJOBS=9,NSIMS=250,PSP=0.8,PPI=0.8,PICPT=3.59,PHALF=35,RELHR=1,LOWP=0.215,DCREL=1 runsim.sh
+# sbatch -p ckpt -A csde-ckpt --array=1-9 --nodes=1 --ntasks-per-node=28 --time=1:00:00 --mem=100G --job-name=s3097 --export=ALL,SIMNO=3097,NJOBS=9,NSIMS=250,PSP=0.9,PPI=0.8,PICPT=3.59,PHALF=35,RELHR=1,LOWP=0.215,DCREL=1 runsim.sh
+# sbatch -p ckpt -A csde-ckpt --array=1-9 --nodes=1 --ntasks-per-node=28 --time=1:00:00 --mem=100G --job-name=s3098 --export=ALL,SIMNO=3098,NJOBS=9,NSIMS=250,PSP=1,PPI=0.8,PICPT=3.59,PHALF=35,RELHR=1,LOWP=0.215,DCREL=1 runsim.sh
+# sbatch -p ckpt -A csde-ckpt --array=1-9 --nodes=1 --ntasks-per-node=28 --time=1:00:00 --mem=100G --job-name=s3099 --export=ALL,SIMNO=3099,NJOBS=9,NSIMS=250,PSP=0,PPI=0.9,PICPT=3.59,PHALF=35,RELHR=1,LOWP=0.215,DCREL=1 runsim.sh
+# sbatch -p ckpt -A csde-ckpt --array=1-9 --nodes=1 --ntasks-per-node=28 --time=1:00:00 --mem=100G --job-name=s3100 --export=ALL,SIMNO=3100,NJOBS=9,NSIMS=250,PSP=0.1,PPI=0.9,PICPT=3.59,PHALF=35,RELHR=1,LOWP=0.215,DCREL=1 runsim.sh
+# sbatch -p ckpt -A csde-ckpt --array=1-9 --nodes=1 --ntasks-per-node=28 --time=1:00:00 --mem=100G --job-name=s3101 --export=ALL,SIMNO=3101,NJOBS=9,NSIMS=250,PSP=0.2,PPI=0.9,PICPT=3.59,PHALF=35,RELHR=1,LOWP=0.215,DCREL=1 runsim.sh
+# sbatch -p ckpt -A csde-ckpt --array=1-9 --nodes=1 --ntasks-per-node=28 --time=1:00:00 --mem=100G --job-name=s3102 --export=ALL,SIMNO=3102,NJOBS=9,NSIMS=250,PSP=0.3,PPI=0.9,PICPT=3.59,PHALF=35,RELHR=1,LOWP=0.215,DCREL=1 runsim.sh
+# sbatch -p ckpt -A csde-ckpt --array=1-9 --nodes=1 --ntasks-per-node=28 --time=1:00:00 --mem=100G --job-name=s3103 --export=ALL,SIMNO=3103,NJOBS=9,NSIMS=250,PSP=0.4,PPI=0.9,PICPT=3.59,PHALF=35,RELHR=1,LOWP=0.215,DCREL=1 runsim.sh
+# sbatch -p ckpt -A csde-ckpt --array=1-9 --nodes=1 --ntasks-per-node=28 --time=1:00:00 --mem=100G --job-name=s3104 --export=ALL,SIMNO=3104,NJOBS=9,NSIMS=250,PSP=0.5,PPI=0.9,PICPT=3.59,PHALF=35,RELHR=1,LOWP=0.215,DCREL=1 runsim.sh
+# sbatch -p ckpt -A csde-ckpt --array=1-9 --nodes=1 --ntasks-per-node=28 --time=1:00:00 --mem=100G --job-name=s3105 --export=ALL,SIMNO=3105,NJOBS=9,NSIMS=250,PSP=0.6,PPI=0.9,PICPT=3.59,PHALF=35,RELHR=1,LOWP=0.215,DCREL=1 runsim.sh
+# sbatch -p ckpt -A csde-ckpt --array=1-9 --nodes=1 --ntasks-per-node=28 --time=1:00:00 --mem=100G --job-name=s3106 --export=ALL,SIMNO=3106,NJOBS=9,NSIMS=250,PSP=0.7,PPI=0.9,PICPT=3.59,PHALF=35,RELHR=1,LOWP=0.215,DCREL=1 runsim.sh
+# sbatch -p ckpt -A csde-ckpt --array=1-9 --nodes=1 --ntasks-per-node=28 --time=1:00:00 --mem=100G --job-name=s3107 --export=ALL,SIMNO=3107,NJOBS=9,NSIMS=250,PSP=0.8,PPI=0.9,PICPT=3.59,PHALF=35,RELHR=1,LOWP=0.215,DCREL=1 runsim.sh
+# sbatch -p ckpt -A csde-ckpt --array=1-9 --nodes=1 --ntasks-per-node=28 --time=1:00:00 --mem=100G --job-name=s3108 --export=ALL,SIMNO=3108,NJOBS=9,NSIMS=250,PSP=0.9,PPI=0.9,PICPT=3.59,PHALF=35,RELHR=1,LOWP=0.215,DCREL=1 runsim.sh
+# sbatch -p ckpt -A csde-ckpt --array=1-9 --nodes=1 --ntasks-per-node=28 --time=1:00:00 --mem=100G --job-name=s3109 --export=ALL,SIMNO=3109,NJOBS=9,NSIMS=250,PSP=1,PPI=0.9,PICPT=3.59,PHALF=35,RELHR=1,LOWP=0.215,DCREL=1 runsim.sh
+# sbatch -p ckpt -A csde-ckpt --array=1-9 --nodes=1 --ntasks-per-node=28 --time=1:00:00 --mem=100G --job-name=s3110 --export=ALL,SIMNO=3110,NJOBS=9,NSIMS=250,PSP=0,PPI=1,PICPT=3.59,PHALF=35,RELHR=1,LOWP=0.215,DCREL=1 runsim.sh
+# sbatch -p ckpt -A csde-ckpt --array=1-9 --nodes=1 --ntasks-per-node=28 --time=1:00:00 --mem=100G --job-name=s3111 --export=ALL,SIMNO=3111,NJOBS=9,NSIMS=250,PSP=0.1,PPI=1,PICPT=3.59,PHALF=35,RELHR=1,LOWP=0.215,DCREL=1 runsim.sh
+# sbatch -p ckpt -A csde-ckpt --array=1-9 --nodes=1 --ntasks-per-node=28 --time=1:00:00 --mem=100G --job-name=s3112 --export=ALL,SIMNO=3112,NJOBS=9,NSIMS=250,PSP=0.2,PPI=1,PICPT=3.59,PHALF=35,RELHR=1,LOWP=0.215,DCREL=1 runsim.sh
+# sbatch -p ckpt -A csde-ckpt --array=1-9 --nodes=1 --ntasks-per-node=28 --time=1:00:00 --mem=100G --job-name=s3113 --export=ALL,SIMNO=3113,NJOBS=9,NSIMS=250,PSP=0.3,PPI=1,PICPT=3.59,PHALF=35,RELHR=1,LOWP=0.215,DCREL=1 runsim.sh
+# sbatch -p ckpt -A csde-ckpt --array=1-9 --nodes=1 --ntasks-per-node=28 --time=1:00:00 --mem=100G --job-name=s3114 --export=ALL,SIMNO=3114,NJOBS=9,NSIMS=250,PSP=0.4,PPI=1,PICPT=3.59,PHALF=35,RELHR=1,LOWP=0.215,DCREL=1 runsim.sh
+# sbatch -p ckpt -A csde-ckpt --array=1-9 --nodes=1 --ntasks-per-node=28 --time=1:00:00 --mem=100G --job-name=s3115 --export=ALL,SIMNO=3115,NJOBS=9,NSIMS=250,PSP=0.5,PPI=1,PICPT=3.59,PHALF=35,RELHR=1,LOWP=0.215,DCREL=1 runsim.sh
+# sbatch -p ckpt -A csde-ckpt --array=1-9 --nodes=1 --ntasks-per-node=28 --time=1:00:00 --mem=100G --job-name=s3116 --export=ALL,SIMNO=3116,NJOBS=9,NSIMS=250,PSP=0.6,PPI=1,PICPT=3.59,PHALF=35,RELHR=1,LOWP=0.215,DCREL=1 runsim.sh
+# sbatch -p ckpt -A csde-ckpt --array=1-9 --nodes=1 --ntasks-per-node=28 --time=1:00:00 --mem=100G --job-name=s3117 --export=ALL,SIMNO=3117,NJOBS=9,NSIMS=250,PSP=0.7,PPI=1,PICPT=3.59,PHALF=35,RELHR=1,LOWP=0.215,DCREL=1 runsim.sh
+# sbatch -p ckpt -A csde-ckpt --array=1-9 --nodes=1 --ntasks-per-node=28 --time=1:00:00 --mem=100G --job-name=s3118 --export=ALL,SIMNO=3118,NJOBS=9,NSIMS=250,PSP=0.8,PPI=1,PICPT=3.59,PHALF=35,RELHR=1,LOWP=0.215,DCREL=1 runsim.sh
+# sbatch -p ckpt -A csde-ckpt --array=1-9 --nodes=1 --ntasks-per-node=28 --time=1:00:00 --mem=100G --job-name=s3119 --export=ALL,SIMNO=3119,NJOBS=9,NSIMS=250,PSP=0.9,PPI=1,PICPT=3.59,PHALF=35,RELHR=1,LOWP=0.215,DCREL=1 runsim.sh
+# sbatch -p ckpt -A csde-ckpt --array=1-9 --nodes=1 --ntasks-per-node=28 --time=1:00:00 --mem=100G --job-name=s3120 --export=ALL,SIMNO=3120,NJOBS=9,NSIMS=250,PSP=1,PPI=1,PICPT=3.59,PHALF=35,RELHR=1,LOWP=0.215,DCREL=1 runsim.sh
+#
+# sbatch -p ckpt -A csde-ckpt --array=1-9 --nodes=1 --ntasks-per-node=28 --time=1:00:00 --mem=100G --job-name=s4000 --export=ALL,SIMNO=4000,NJOBS=9,NSIMS=250,PSP=0.104,PPI=0.5,PICPT=1.5,PHALF=15,RELHR=1,LOWP=0.215,DCREL=1 runsim.sh
+# sbatch -p ckpt -A csde-ckpt --array=1-9 --nodes=1 --ntasks-per-node=28 --time=1:00:00 --mem=100G --job-name=s4001 --export=ALL,SIMNO=4001,NJOBS=9,NSIMS=250,PSP=0.104,PPI=0.5,PICPT=2,PHALF=15,RELHR=1,LOWP=0.215,DCREL=1 runsim.sh
+# sbatch -p ckpt -A csde-ckpt --array=1-9 --nodes=1 --ntasks-per-node=28 --time=1:00:00 --mem=100G --job-name=s4002 --export=ALL,SIMNO=4002,NJOBS=9,NSIMS=250,PSP=0.104,PPI=0.5,PICPT=2.5,PHALF=15,RELHR=1,LOWP=0.215,DCREL=1 runsim.sh
+# sbatch -p ckpt -A csde-ckpt --array=1-9 --nodes=1 --ntasks-per-node=28 --time=1:00:00 --mem=100G --job-name=s4003 --export=ALL,SIMNO=4003,NJOBS=9,NSIMS=250,PSP=0.104,PPI=0.5,PICPT=3,PHALF=15,RELHR=1,LOWP=0.215,DCREL=1 runsim.sh
+# sbatch -p ckpt -A csde-ckpt --array=1-9 --nodes=1 --ntasks-per-node=28 --time=1:00:00 --mem=100G --job-name=s4004 --export=ALL,SIMNO=4004,NJOBS=9,NSIMS=250,PSP=0.104,PPI=0.5,PICPT=3.5,PHALF=15,RELHR=1,LOWP=0.215,DCREL=1 runsim.sh
+# sbatch -p ckpt -A csde-ckpt --array=1-9 --nodes=1 --ntasks-per-node=28 --time=1:00:00 --mem=100G --job-name=s4005 --export=ALL,SIMNO=4005,NJOBS=9,NSIMS=250,PSP=0.104,PPI=0.5,PICPT=4,PHALF=15,RELHR=1,LOWP=0.215,DCREL=1 runsim.sh
+# sbatch -p ckpt -A csde-ckpt --array=1-9 --nodes=1 --ntasks-per-node=28 --time=1:00:00 --mem=100G --job-name=s4006 --export=ALL,SIMNO=4006,NJOBS=9,NSIMS=250,PSP=0.104,PPI=0.5,PICPT=4.5,PHALF=15,RELHR=1,LOWP=0.215,DCREL=1 runsim.sh
+# sbatch -p ckpt -A csde-ckpt --array=1-9 --nodes=1 --ntasks-per-node=28 --time=1:00:00 --mem=100G --job-name=s4007 --export=ALL,SIMNO=4007,NJOBS=9,NSIMS=250,PSP=0.104,PPI=0.5,PICPT=5,PHALF=15,RELHR=1,LOWP=0.215,DCREL=1 runsim.sh
+# sbatch -p ckpt -A csde-ckpt --array=1-9 --nodes=1 --ntasks-per-node=28 --time=1:00:00 --mem=100G --job-name=s4008 --export=ALL,SIMNO=4008,NJOBS=9,NSIMS=250,PSP=0.104,PPI=0.5,PICPT=5.5,PHALF=15,RELHR=1,LOWP=0.215,DCREL=1 runsim.sh
+# sbatch -p ckpt -A csde-ckpt --array=1-9 --nodes=1 --ntasks-per-node=28 --time=1:00:00 --mem=100G --job-name=s4009 --export=ALL,SIMNO=4009,NJOBS=9,NSIMS=250,PSP=0.104,PPI=0.5,PICPT=6,PHALF=15,RELHR=1,LOWP=0.215,DCREL=1 runsim.sh
+# sbatch -p ckpt -A csde-ckpt --array=1-9 --nodes=1 --ntasks-per-node=28 --time=1:00:00 --mem=100G --job-name=s4010 --export=ALL,SIMNO=4010,NJOBS=9,NSIMS=250,PSP=0.104,PPI=0.5,PICPT=6.5,PHALF=15,RELHR=1,LOWP=0.215,DCREL=1 runsim.sh
+# sbatch -p ckpt -A csde-ckpt --array=1-9 --nodes=1 --ntasks-per-node=28 --time=1:00:00 --mem=100G --job-name=s4011 --export=ALL,SIMNO=4011,NJOBS=9,NSIMS=250,PSP=0.104,PPI=0.5,PICPT=1.5,PHALF=20,RELHR=1,LOWP=0.215,DCREL=1 runsim.sh
+# sbatch -p ckpt -A csde-ckpt --array=1-9 --nodes=1 --ntasks-per-node=28 --time=1:00:00 --mem=100G --job-name=s4012 --export=ALL,SIMNO=4012,NJOBS=9,NSIMS=250,PSP=0.104,PPI=0.5,PICPT=2,PHALF=20,RELHR=1,LOWP=0.215,DCREL=1 runsim.sh
+# sbatch -p ckpt -A csde-ckpt --array=1-9 --nodes=1 --ntasks-per-node=28 --time=1:00:00 --mem=100G --job-name=s4013 --export=ALL,SIMNO=4013,NJOBS=9,NSIMS=250,PSP=0.104,PPI=0.5,PICPT=2.5,PHALF=20,RELHR=1,LOWP=0.215,DCREL=1 runsim.sh
+# sbatch -p ckpt -A csde-ckpt --array=1-9 --nodes=1 --ntasks-per-node=28 --time=1:00:00 --mem=100G --job-name=s4014 --export=ALL,SIMNO=4014,NJOBS=9,NSIMS=250,PSP=0.104,PPI=0.5,PICPT=3,PHALF=20,RELHR=1,LOWP=0.215,DCREL=1 runsim.sh
+# sbatch -p ckpt -A csde-ckpt --array=1-9 --nodes=1 --ntasks-per-node=28 --time=1:00:00 --mem=100G --job-name=s4015 --export=ALL,SIMNO=4015,NJOBS=9,NSIMS=250,PSP=0.104,PPI=0.5,PICPT=3.5,PHALF=20,RELHR=1,LOWP=0.215,DCREL=1 runsim.sh
+# sbatch -p ckpt -A csde-ckpt --array=1-9 --nodes=1 --ntasks-per-node=28 --time=1:00:00 --mem=100G --job-name=s4016 --export=ALL,SIMNO=4016,NJOBS=9,NSIMS=250,PSP=0.104,PPI=0.5,PICPT=4,PHALF=20,RELHR=1,LOWP=0.215,DCREL=1 runsim.sh
+# sbatch -p ckpt -A csde-ckpt --array=1-9 --nodes=1 --ntasks-per-node=28 --time=1:00:00 --mem=100G --job-name=s4017 --export=ALL,SIMNO=4017,NJOBS=9,NSIMS=250,PSP=0.104,PPI=0.5,PICPT=4.5,PHALF=20,RELHR=1,LOWP=0.215,DCREL=1 runsim.sh
+# sbatch -p ckpt -A csde-ckpt --array=1-9 --nodes=1 --ntasks-per-node=28 --time=1:00:00 --mem=100G --job-name=s4018 --export=ALL,SIMNO=4018,NJOBS=9,NSIMS=250,PSP=0.104,PPI=0.5,PICPT=5,PHALF=20,RELHR=1,LOWP=0.215,DCREL=1 runsim.sh
+# sbatch -p ckpt -A csde-ckpt --array=1-9 --nodes=1 --ntasks-per-node=28 --time=1:00:00 --mem=100G --job-name=s4019 --export=ALL,SIMNO=4019,NJOBS=9,NSIMS=250,PSP=0.104,PPI=0.5,PICPT=5.5,PHALF=20,RELHR=1,LOWP=0.215,DCREL=1 runsim.sh
+# sbatch -p ckpt -A csde-ckpt --array=1-9 --nodes=1 --ntasks-per-node=28 --time=1:00:00 --mem=100G --job-name=s4020 --export=ALL,SIMNO=4020,NJOBS=9,NSIMS=250,PSP=0.104,PPI=0.5,PICPT=6,PHALF=20,RELHR=1,LOWP=0.215,DCREL=1 runsim.sh
+# sbatch -p ckpt -A csde-ckpt --array=1-9 --nodes=1 --ntasks-per-node=28 --time=1:00:00 --mem=100G --job-name=s4021 --export=ALL,SIMNO=4021,NJOBS=9,NSIMS=250,PSP=0.104,PPI=0.5,PICPT=6.5,PHALF=20,RELHR=1,LOWP=0.215,DCREL=1 runsim.sh
+# sbatch -p ckpt -A csde-ckpt --array=1-9 --nodes=1 --ntasks-per-node=28 --time=1:00:00 --mem=100G --job-name=s4022 --export=ALL,SIMNO=4022,NJOBS=9,NSIMS=250,PSP=0.104,PPI=0.5,PICPT=1.5,PHALF=25,RELHR=1,LOWP=0.215,DCREL=1 runsim.sh
+# sbatch -p ckpt -A csde-ckpt --array=1-9 --nodes=1 --ntasks-per-node=28 --time=1:00:00 --mem=100G --job-name=s4023 --export=ALL,SIMNO=4023,NJOBS=9,NSIMS=250,PSP=0.104,PPI=0.5,PICPT=2,PHALF=25,RELHR=1,LOWP=0.215,DCREL=1 runsim.sh
+# sbatch -p ckpt -A csde-ckpt --array=1-9 --nodes=1 --ntasks-per-node=28 --time=1:00:00 --mem=100G --job-name=s4024 --export=ALL,SIMNO=4024,NJOBS=9,NSIMS=250,PSP=0.104,PPI=0.5,PICPT=2.5,PHALF=25,RELHR=1,LOWP=0.215,DCREL=1 runsim.sh
+# sbatch -p ckpt -A csde-ckpt --array=1-9 --nodes=1 --ntasks-per-node=28 --time=1:00:00 --mem=100G --job-name=s4025 --export=ALL,SIMNO=4025,NJOBS=9,NSIMS=250,PSP=0.104,PPI=0.5,PICPT=3,PHALF=25,RELHR=1,LOWP=0.215,DCREL=1 runsim.sh
+# sbatch -p ckpt -A csde-ckpt --array=1-9 --nodes=1 --ntasks-per-node=28 --time=1:00:00 --mem=100G --job-name=s4026 --export=ALL,SIMNO=4026,NJOBS=9,NSIMS=250,PSP=0.104,PPI=0.5,PICPT=3.5,PHALF=25,RELHR=1,LOWP=0.215,DCREL=1 runsim.sh
+# sbatch -p ckpt -A csde-ckpt --array=1-9 --nodes=1 --ntasks-per-node=28 --time=1:00:00 --mem=100G --job-name=s4027 --export=ALL,SIMNO=4027,NJOBS=9,NSIMS=250,PSP=0.104,PPI=0.5,PICPT=4,PHALF=25,RELHR=1,LOWP=0.215,DCREL=1 runsim.sh
+# sbatch -p ckpt -A csde-ckpt --array=1-9 --nodes=1 --ntasks-per-node=28 --time=1:00:00 --mem=100G --job-name=s4028 --export=ALL,SIMNO=4028,NJOBS=9,NSIMS=250,PSP=0.104,PPI=0.5,PICPT=4.5,PHALF=25,RELHR=1,LOWP=0.215,DCREL=1 runsim.sh
+# sbatch -p ckpt -A csde-ckpt --array=1-9 --nodes=1 --ntasks-per-node=28 --time=1:00:00 --mem=100G --job-name=s4029 --export=ALL,SIMNO=4029,NJOBS=9,NSIMS=250,PSP=0.104,PPI=0.5,PICPT=5,PHALF=25,RELHR=1,LOWP=0.215,DCREL=1 runsim.sh
+# sbatch -p ckpt -A csde-ckpt --array=1-9 --nodes=1 --ntasks-per-node=28 --time=1:00:00 --mem=100G --job-name=s4030 --export=ALL,SIMNO=4030,NJOBS=9,NSIMS=250,PSP=0.104,PPI=0.5,PICPT=5.5,PHALF=25,RELHR=1,LOWP=0.215,DCREL=1 runsim.sh
+# sbatch -p ckpt -A csde-ckpt --array=1-9 --nodes=1 --ntasks-per-node=28 --time=1:00:00 --mem=100G --job-name=s4031 --export=ALL,SIMNO=4031,NJOBS=9,NSIMS=250,PSP=0.104,PPI=0.5,PICPT=6,PHALF=25,RELHR=1,LOWP=0.215,DCREL=1 runsim.sh
+# sbatch -p ckpt -A csde-ckpt --array=1-9 --nodes=1 --ntasks-per-node=28 --time=1:00:00 --mem=100G --job-name=s4032 --export=ALL,SIMNO=4032,NJOBS=9,NSIMS=250,PSP=0.104,PPI=0.5,PICPT=6.5,PHALF=25,RELHR=1,LOWP=0.215,DCREL=1 runsim.sh
+# sbatch -p ckpt -A csde-ckpt --array=1-9 --nodes=1 --ntasks-per-node=28 --time=1:00:00 --mem=100G --job-name=s4033 --export=ALL,SIMNO=4033,NJOBS=9,NSIMS=250,PSP=0.104,PPI=0.5,PICPT=1.5,PHALF=30,RELHR=1,LOWP=0.215,DCREL=1 runsim.sh
+# sbatch -p ckpt -A csde-ckpt --array=1-9 --nodes=1 --ntasks-per-node=28 --time=1:00:00 --mem=100G --job-name=s4034 --export=ALL,SIMNO=4034,NJOBS=9,NSIMS=250,PSP=0.104,PPI=0.5,PICPT=2,PHALF=30,RELHR=1,LOWP=0.215,DCREL=1 runsim.sh
+# sbatch -p ckpt -A csde-ckpt --array=1-9 --nodes=1 --ntasks-per-node=28 --time=1:00:00 --mem=100G --job-name=s4035 --export=ALL,SIMNO=4035,NJOBS=9,NSIMS=250,PSP=0.104,PPI=0.5,PICPT=2.5,PHALF=30,RELHR=1,LOWP=0.215,DCREL=1 runsim.sh
+# sbatch -p ckpt -A csde-ckpt --array=1-9 --nodes=1 --ntasks-per-node=28 --time=1:00:00 --mem=100G --job-name=s4036 --export=ALL,SIMNO=4036,NJOBS=9,NSIMS=250,PSP=0.104,PPI=0.5,PICPT=3,PHALF=30,RELHR=1,LOWP=0.215,DCREL=1 runsim.sh
+# sbatch -p ckpt -A csde-ckpt --array=1-9 --nodes=1 --ntasks-per-node=28 --time=1:00:00 --mem=100G --job-name=s4037 --export=ALL,SIMNO=4037,NJOBS=9,NSIMS=250,PSP=0.104,PPI=0.5,PICPT=3.5,PHALF=30,RELHR=1,LOWP=0.215,DCREL=1 runsim.sh
+# sbatch -p ckpt -A csde-ckpt --array=1-9 --nodes=1 --ntasks-per-node=28 --time=1:00:00 --mem=100G --job-name=s4038 --export=ALL,SIMNO=4038,NJOBS=9,NSIMS=250,PSP=0.104,PPI=0.5,PICPT=4,PHALF=30,RELHR=1,LOWP=0.215,DCREL=1 runsim.sh
+# sbatch -p ckpt -A csde-ckpt --array=1-9 --nodes=1 --ntasks-per-node=28 --time=1:00:00 --mem=100G --job-name=s4039 --export=ALL,SIMNO=4039,NJOBS=9,NSIMS=250,PSP=0.104,PPI=0.5,PICPT=4.5,PHALF=30,RELHR=1,LOWP=0.215,DCREL=1 runsim.sh
+# sbatch -p ckpt -A csde-ckpt --array=1-9 --nodes=1 --ntasks-per-node=28 --time=1:00:00 --mem=100G --job-name=s4040 --export=ALL,SIMNO=4040,NJOBS=9,NSIMS=250,PSP=0.104,PPI=0.5,PICPT=5,PHALF=30,RELHR=1,LOWP=0.215,DCREL=1 runsim.sh
+# sbatch -p ckpt -A csde-ckpt --array=1-9 --nodes=1 --ntasks-per-node=28 --time=1:00:00 --mem=100G --job-name=s4041 --export=ALL,SIMNO=4041,NJOBS=9,NSIMS=250,PSP=0.104,PPI=0.5,PICPT=5.5,PHALF=30,RELHR=1,LOWP=0.215,DCREL=1 runsim.sh
+# sbatch -p ckpt -A csde-ckpt --array=1-9 --nodes=1 --ntasks-per-node=28 --time=1:00:00 --mem=100G --job-name=s4042 --export=ALL,SIMNO=4042,NJOBS=9,NSIMS=250,PSP=0.104,PPI=0.5,PICPT=6,PHALF=30,RELHR=1,LOWP=0.215,DCREL=1 runsim.sh
+# sbatch -p ckpt -A csde-ckpt --array=1-9 --nodes=1 --ntasks-per-node=28 --time=1:00:00 --mem=100G --job-name=s4043 --export=ALL,SIMNO=4043,NJOBS=9,NSIMS=250,PSP=0.104,PPI=0.5,PICPT=6.5,PHALF=30,RELHR=1,LOWP=0.215,DCREL=1 runsim.sh
+# sbatch -p ckpt -A csde-ckpt --array=1-9 --nodes=1 --ntasks-per-node=28 --time=1:00:00 --mem=100G --job-name=s4044 --export=ALL,SIMNO=4044,NJOBS=9,NSIMS=250,PSP=0.104,PPI=0.5,PICPT=1.5,PHALF=35,RELHR=1,LOWP=0.215,DCREL=1 runsim.sh
+# sbatch -p ckpt -A csde-ckpt --array=1-9 --nodes=1 --ntasks-per-node=28 --time=1:00:00 --mem=100G --job-name=s4045 --export=ALL,SIMNO=4045,NJOBS=9,NSIMS=250,PSP=0.104,PPI=0.5,PICPT=2,PHALF=35,RELHR=1,LOWP=0.215,DCREL=1 runsim.sh
+# sbatch -p ckpt -A csde-ckpt --array=1-9 --nodes=1 --ntasks-per-node=28 --time=1:00:00 --mem=100G --job-name=s4046 --export=ALL,SIMNO=4046,NJOBS=9,NSIMS=250,PSP=0.104,PPI=0.5,PICPT=2.5,PHALF=35,RELHR=1,LOWP=0.215,DCREL=1 runsim.sh
+# sbatch -p ckpt -A csde-ckpt --array=1-9 --nodes=1 --ntasks-per-node=28 --time=1:00:00 --mem=100G --job-name=s4047 --export=ALL,SIMNO=4047,NJOBS=9,NSIMS=250,PSP=0.104,PPI=0.5,PICPT=3,PHALF=35,RELHR=1,LOWP=0.215,DCREL=1 runsim.sh
+# sbatch -p ckpt -A csde-ckpt --array=1-9 --nodes=1 --ntasks-per-node=28 --time=1:00:00 --mem=100G --job-name=s4048 --export=ALL,SIMNO=4048,NJOBS=9,NSIMS=250,PSP=0.104,PPI=0.5,PICPT=3.5,PHALF=35,RELHR=1,LOWP=0.215,DCREL=1 runsim.sh
+# sbatch -p ckpt -A csde-ckpt --array=1-9 --nodes=1 --ntasks-per-node=28 --time=1:00:00 --mem=100G --job-name=s4049 --export=ALL,SIMNO=4049,NJOBS=9,NSIMS=250,PSP=0.104,PPI=0.5,PICPT=4,PHALF=35,RELHR=1,LOWP=0.215,DCREL=1 runsim.sh
+# sbatch -p ckpt -A csde-ckpt --array=1-9 --nodes=1 --ntasks-per-node=28 --time=1:00:00 --mem=100G --job-name=s4050 --export=ALL,SIMNO=4050,NJOBS=9,NSIMS=250,PSP=0.104,PPI=0.5,PICPT=4.5,PHALF=35,RELHR=1,LOWP=0.215,DCREL=1 runsim.sh
+# sbatch -p ckpt -A csde-ckpt --array=1-9 --nodes=1 --ntasks-per-node=28 --time=1:00:00 --mem=100G --job-name=s4051 --export=ALL,SIMNO=4051,NJOBS=9,NSIMS=250,PSP=0.104,PPI=0.5,PICPT=5,PHALF=35,RELHR=1,LOWP=0.215,DCREL=1 runsim.sh
+# sbatch -p ckpt -A csde-ckpt --array=1-9 --nodes=1 --ntasks-per-node=28 --time=1:00:00 --mem=100G --job-name=s4052 --export=ALL,SIMNO=4052,NJOBS=9,NSIMS=250,PSP=0.104,PPI=0.5,PICPT=5.5,PHALF=35,RELHR=1,LOWP=0.215,DCREL=1 runsim.sh
+# sbatch -p ckpt -A csde-ckpt --array=1-9 --nodes=1 --ntasks-per-node=28 --time=1:00:00 --mem=100G --job-name=s4053 --export=ALL,SIMNO=4053,NJOBS=9,NSIMS=250,PSP=0.104,PPI=0.5,PICPT=6,PHALF=35,RELHR=1,LOWP=0.215,DCREL=1 runsim.sh
+# sbatch -p ckpt -A csde-ckpt --array=1-9 --nodes=1 --ntasks-per-node=28 --time=1:00:00 --mem=100G --job-name=s4054 --export=ALL,SIMNO=4054,NJOBS=9,NSIMS=250,PSP=0.104,PPI=0.5,PICPT=6.5,PHALF=35,RELHR=1,LOWP=0.215,DCREL=1 runsim.sh
+# sbatch -p ckpt -A csde-ckpt --array=1-9 --nodes=1 --ntasks-per-node=28 --time=1:00:00 --mem=100G --job-name=s4055 --export=ALL,SIMNO=4055,NJOBS=9,NSIMS=250,PSP=0.104,PPI=0.5,PICPT=1.5,PHALF=40,RELHR=1,LOWP=0.215,DCREL=1 runsim.sh
+# sbatch -p ckpt -A csde-ckpt --array=1-9 --nodes=1 --ntasks-per-node=28 --time=1:00:00 --mem=100G --job-name=s4056 --export=ALL,SIMNO=4056,NJOBS=9,NSIMS=250,PSP=0.104,PPI=0.5,PICPT=2,PHALF=40,RELHR=1,LOWP=0.215,DCREL=1 runsim.sh
+# sbatch -p ckpt -A csde-ckpt --array=1-9 --nodes=1 --ntasks-per-node=28 --time=1:00:00 --mem=100G --job-name=s4057 --export=ALL,SIMNO=4057,NJOBS=9,NSIMS=250,PSP=0.104,PPI=0.5,PICPT=2.5,PHALF=40,RELHR=1,LOWP=0.215,DCREL=1 runsim.sh
+# sbatch -p ckpt -A csde-ckpt --array=1-9 --nodes=1 --ntasks-per-node=28 --time=1:00:00 --mem=100G --job-name=s4058 --export=ALL,SIMNO=4058,NJOBS=9,NSIMS=250,PSP=0.104,PPI=0.5,PICPT=3,PHALF=40,RELHR=1,LOWP=0.215,DCREL=1 runsim.sh
+# sbatch -p ckpt -A csde-ckpt --array=1-9 --nodes=1 --ntasks-per-node=28 --time=1:00:00 --mem=100G --job-name=s4059 --export=ALL,SIMNO=4059,NJOBS=9,NSIMS=250,PSP=0.104,PPI=0.5,PICPT=3.5,PHALF=40,RELHR=1,LOWP=0.215,DCREL=1 runsim.sh
+# sbatch -p ckpt -A csde-ckpt --array=1-9 --nodes=1 --ntasks-per-node=28 --time=1:00:00 --mem=100G --job-name=s4060 --export=ALL,SIMNO=4060,NJOBS=9,NSIMS=250,PSP=0.104,PPI=0.5,PICPT=4,PHALF=40,RELHR=1,LOWP=0.215,DCREL=1 runsim.sh
+# sbatch -p ckpt -A csde-ckpt --array=1-9 --nodes=1 --ntasks-per-node=28 --time=1:00:00 --mem=100G --job-name=s4061 --export=ALL,SIMNO=4061,NJOBS=9,NSIMS=250,PSP=0.104,PPI=0.5,PICPT=4.5,PHALF=40,RELHR=1,LOWP=0.215,DCREL=1 runsim.sh
+# sbatch -p ckpt -A csde-ckpt --array=1-9 --nodes=1 --ntasks-per-node=28 --time=1:00:00 --mem=100G --job-name=s4062 --export=ALL,SIMNO=4062,NJOBS=9,NSIMS=250,PSP=0.104,PPI=0.5,PICPT=5,PHALF=40,RELHR=1,LOWP=0.215,DCREL=1 runsim.sh
+# sbatch -p ckpt -A csde-ckpt --array=1-9 --nodes=1 --ntasks-per-node=28 --time=1:00:00 --mem=100G --job-name=s4063 --export=ALL,SIMNO=4063,NJOBS=9,NSIMS=250,PSP=0.104,PPI=0.5,PICPT=5.5,PHALF=40,RELHR=1,LOWP=0.215,DCREL=1 runsim.sh
+# sbatch -p ckpt -A csde-ckpt --array=1-9 --nodes=1 --ntasks-per-node=28 --time=1:00:00 --mem=100G --job-name=s4064 --export=ALL,SIMNO=4064,NJOBS=9,NSIMS=250,PSP=0.104,PPI=0.5,PICPT=6,PHALF=40,RELHR=1,LOWP=0.215,DCREL=1 runsim.sh
+# sbatch -p ckpt -A csde-ckpt --array=1-9 --nodes=1 --ntasks-per-node=28 --time=1:00:00 --mem=100G --job-name=s4065 --export=ALL,SIMNO=4065,NJOBS=9,NSIMS=250,PSP=0.104,PPI=0.5,PICPT=6.5,PHALF=40,RELHR=1,LOWP=0.215,DCREL=1 runsim.sh
+# sbatch -p ckpt -A csde-ckpt --array=1-9 --nodes=1 --ntasks-per-node=28 --time=1:00:00 --mem=100G --job-name=s4066 --export=ALL,SIMNO=4066,NJOBS=9,NSIMS=250,PSP=0.104,PPI=0.5,PICPT=1.5,PHALF=45,RELHR=1,LOWP=0.215,DCREL=1 runsim.sh
+# sbatch -p ckpt -A csde-ckpt --array=1-9 --nodes=1 --ntasks-per-node=28 --time=1:00:00 --mem=100G --job-name=s4067 --export=ALL,SIMNO=4067,NJOBS=9,NSIMS=250,PSP=0.104,PPI=0.5,PICPT=2,PHALF=45,RELHR=1,LOWP=0.215,DCREL=1 runsim.sh
+# sbatch -p ckpt -A csde-ckpt --array=1-9 --nodes=1 --ntasks-per-node=28 --time=1:00:00 --mem=100G --job-name=s4068 --export=ALL,SIMNO=4068,NJOBS=9,NSIMS=250,PSP=0.104,PPI=0.5,PICPT=2.5,PHALF=45,RELHR=1,LOWP=0.215,DCREL=1 runsim.sh
+# sbatch -p ckpt -A csde-ckpt --array=1-9 --nodes=1 --ntasks-per-node=28 --time=1:00:00 --mem=100G --job-name=s4069 --export=ALL,SIMNO=4069,NJOBS=9,NSIMS=250,PSP=0.104,PPI=0.5,PICPT=3,PHALF=45,RELHR=1,LOWP=0.215,DCREL=1 runsim.sh
+# sbatch -p ckpt -A csde-ckpt --array=1-9 --nodes=1 --ntasks-per-node=28 --time=1:00:00 --mem=100G --job-name=s4070 --export=ALL,SIMNO=4070,NJOBS=9,NSIMS=250,PSP=0.104,PPI=0.5,PICPT=3.5,PHALF=45,RELHR=1,LOWP=0.215,DCREL=1 runsim.sh
+# sbatch -p ckpt -A csde-ckpt --array=1-9 --nodes=1 --ntasks-per-node=28 --time=1:00:00 --mem=100G --job-name=s4071 --export=ALL,SIMNO=4071,NJOBS=9,NSIMS=250,PSP=0.104,PPI=0.5,PICPT=4,PHALF=45,RELHR=1,LOWP=0.215,DCREL=1 runsim.sh
+# sbatch -p ckpt -A csde-ckpt --array=1-9 --nodes=1 --ntasks-per-node=28 --time=1:00:00 --mem=100G --job-name=s4072 --export=ALL,SIMNO=4072,NJOBS=9,NSIMS=250,PSP=0.104,PPI=0.5,PICPT=4.5,PHALF=45,RELHR=1,LOWP=0.215,DCREL=1 runsim.sh
+# sbatch -p ckpt -A csde-ckpt --array=1-9 --nodes=1 --ntasks-per-node=28 --time=1:00:00 --mem=100G --job-name=s4073 --export=ALL,SIMNO=4073,NJOBS=9,NSIMS=250,PSP=0.104,PPI=0.5,PICPT=5,PHALF=45,RELHR=1,LOWP=0.215,DCREL=1 runsim.sh
+# sbatch -p ckpt -A csde-ckpt --array=1-9 --nodes=1 --ntasks-per-node=28 --time=1:00:00 --mem=100G --job-name=s4074 --export=ALL,SIMNO=4074,NJOBS=9,NSIMS=250,PSP=0.104,PPI=0.5,PICPT=5.5,PHALF=45,RELHR=1,LOWP=0.215,DCREL=1 runsim.sh
+# sbatch -p ckpt -A csde-ckpt --array=1-9 --nodes=1 --ntasks-per-node=28 --time=1:00:00 --mem=100G --job-name=s4075 --export=ALL,SIMNO=4075,NJOBS=9,NSIMS=250,PSP=0.104,PPI=0.5,PICPT=6,PHALF=45,RELHR=1,LOWP=0.215,DCREL=1 runsim.sh
+# sbatch -p ckpt -A csde-ckpt --array=1-9 --nodes=1 --ntasks-per-node=28 --time=1:00:00 --mem=100G --job-name=s4076 --export=ALL,SIMNO=4076,NJOBS=9,NSIMS=250,PSP=0.104,PPI=0.5,PICPT=6.5,PHALF=45,RELHR=1,LOWP=0.215,DCREL=1 runsim.sh
+# sbatch -p ckpt -A csde-ckpt --array=1-9 --nodes=1 --ntasks-per-node=28 --time=1:00:00 --mem=100G --job-name=s4077 --export=ALL,SIMNO=4077,NJOBS=9,NSIMS=250,PSP=0.104,PPI=0.5,PICPT=1.5,PHALF=50,RELHR=1,LOWP=0.215,DCREL=1 runsim.sh
+# sbatch -p ckpt -A csde-ckpt --array=1-9 --nodes=1 --ntasks-per-node=28 --time=1:00:00 --mem=100G --job-name=s4078 --export=ALL,SIMNO=4078,NJOBS=9,NSIMS=250,PSP=0.104,PPI=0.5,PICPT=2,PHALF=50,RELHR=1,LOWP=0.215,DCREL=1 runsim.sh
+# sbatch -p ckpt -A csde-ckpt --array=1-9 --nodes=1 --ntasks-per-node=28 --time=1:00:00 --mem=100G --job-name=s4079 --export=ALL,SIMNO=4079,NJOBS=9,NSIMS=250,PSP=0.104,PPI=0.5,PICPT=2.5,PHALF=50,RELHR=1,LOWP=0.215,DCREL=1 runsim.sh
+# sbatch -p ckpt -A csde-ckpt --array=1-9 --nodes=1 --ntasks-per-node=28 --time=1:00:00 --mem=100G --job-name=s4080 --export=ALL,SIMNO=4080,NJOBS=9,NSIMS=250,PSP=0.104,PPI=0.5,PICPT=3,PHALF=50,RELHR=1,LOWP=0.215,DCREL=1 runsim.sh
+# sbatch -p ckpt -A csde-ckpt --array=1-9 --nodes=1 --ntasks-per-node=28 --time=1:00:00 --mem=100G --job-name=s4081 --export=ALL,SIMNO=4081,NJOBS=9,NSIMS=250,PSP=0.104,PPI=0.5,PICPT=3.5,PHALF=50,RELHR=1,LOWP=0.215,DCREL=1 runsim.sh
+# sbatch -p ckpt -A csde-ckpt --array=1-9 --nodes=1 --ntasks-per-node=28 --time=1:00:00 --mem=100G --job-name=s4082 --export=ALL,SIMNO=4082,NJOBS=9,NSIMS=250,PSP=0.104,PPI=0.5,PICPT=4,PHALF=50,RELHR=1,LOWP=0.215,DCREL=1 runsim.sh
+# sbatch -p ckpt -A csde-ckpt --array=1-9 --nodes=1 --ntasks-per-node=28 --time=1:00:00 --mem=100G --job-name=s4083 --export=ALL,SIMNO=4083,NJOBS=9,NSIMS=250,PSP=0.104,PPI=0.5,PICPT=4.5,PHALF=50,RELHR=1,LOWP=0.215,DCREL=1 runsim.sh
+# sbatch -p ckpt -A csde-ckpt --array=1-9 --nodes=1 --ntasks-per-node=28 --time=1:00:00 --mem=100G --job-name=s4084 --export=ALL,SIMNO=4084,NJOBS=9,NSIMS=250,PSP=0.104,PPI=0.5,PICPT=5,PHALF=50,RELHR=1,LOWP=0.215,DCREL=1 runsim.sh
+# sbatch -p ckpt -A csde-ckpt --array=1-9 --nodes=1 --ntasks-per-node=28 --time=1:00:00 --mem=100G --job-name=s4085 --export=ALL,SIMNO=4085,NJOBS=9,NSIMS=250,PSP=0.104,PPI=0.5,PICPT=5.5,PHALF=50,RELHR=1,LOWP=0.215,DCREL=1 runsim.sh
+# sbatch -p ckpt -A csde-ckpt --array=1-9 --nodes=1 --ntasks-per-node=28 --time=1:00:00 --mem=100G --job-name=s4086 --export=ALL,SIMNO=4086,NJOBS=9,NSIMS=250,PSP=0.104,PPI=0.5,PICPT=6,PHALF=50,RELHR=1,LOWP=0.215,DCREL=1 runsim.sh
+# sbatch -p ckpt -A csde-ckpt --array=1-9 --nodes=1 --ntasks-per-node=28 --time=1:00:00 --mem=100G --job-name=s4087 --export=ALL,SIMNO=4087,NJOBS=9,NSIMS=250,PSP=0.104,PPI=0.5,PICPT=6.5,PHALF=50,RELHR=1,LOWP=0.215,DCREL=1 runsim.sh
+# sbatch -p ckpt -A csde-ckpt --array=1-9 --nodes=1 --ntasks-per-node=28 --time=1:00:00 --mem=100G --job-name=s4088 --export=ALL,SIMNO=4088,NJOBS=9,NSIMS=250,PSP=0.104,PPI=0.5,PICPT=1.5,PHALF=55,RELHR=1,LOWP=0.215,DCREL=1 runsim.sh
+# sbatch -p ckpt -A csde-ckpt --array=1-9 --nodes=1 --ntasks-per-node=28 --time=1:00:00 --mem=100G --job-name=s4089 --export=ALL,SIMNO=4089,NJOBS=9,NSIMS=250,PSP=0.104,PPI=0.5,PICPT=2,PHALF=55,RELHR=1,LOWP=0.215,DCREL=1 runsim.sh
+# sbatch -p ckpt -A csde-ckpt --array=1-9 --nodes=1 --ntasks-per-node=28 --time=1:00:00 --mem=100G --job-name=s4090 --export=ALL,SIMNO=4090,NJOBS=9,NSIMS=250,PSP=0.104,PPI=0.5,PICPT=2.5,PHALF=55,RELHR=1,LOWP=0.215,DCREL=1 runsim.sh
+# sbatch -p ckpt -A csde-ckpt --array=1-9 --nodes=1 --ntasks-per-node=28 --time=1:00:00 --mem=100G --job-name=s4091 --export=ALL,SIMNO=4091,NJOBS=9,NSIMS=250,PSP=0.104,PPI=0.5,PICPT=3,PHALF=55,RELHR=1,LOWP=0.215,DCREL=1 runsim.sh
+# sbatch -p ckpt -A csde-ckpt --array=1-9 --nodes=1 --ntasks-per-node=28 --time=1:00:00 --mem=100G --job-name=s4092 --export=ALL,SIMNO=4092,NJOBS=9,NSIMS=250,PSP=0.104,PPI=0.5,PICPT=3.5,PHALF=55,RELHR=1,LOWP=0.215,DCREL=1 runsim.sh
+# sbatch -p ckpt -A csde-ckpt --array=1-9 --nodes=1 --ntasks-per-node=28 --time=1:00:00 --mem=100G --job-name=s4093 --export=ALL,SIMNO=4093,NJOBS=9,NSIMS=250,PSP=0.104,PPI=0.5,PICPT=4,PHALF=55,RELHR=1,LOWP=0.215,DCREL=1 runsim.sh
+# sbatch -p ckpt -A csde-ckpt --array=1-9 --nodes=1 --ntasks-per-node=28 --time=1:00:00 --mem=100G --job-name=s4094 --export=ALL,SIMNO=4094,NJOBS=9,NSIMS=250,PSP=0.104,PPI=0.5,PICPT=4.5,PHALF=55,RELHR=1,LOWP=0.215,DCREL=1 runsim.sh
+# sbatch -p ckpt -A csde-ckpt --array=1-9 --nodes=1 --ntasks-per-node=28 --time=1:00:00 --mem=100G --job-name=s4095 --export=ALL,SIMNO=4095,NJOBS=9,NSIMS=250,PSP=0.104,PPI=0.5,PICPT=5,PHALF=55,RELHR=1,LOWP=0.215,DCREL=1 runsim.sh
+# sbatch -p ckpt -A csde-ckpt --array=1-9 --nodes=1 --ntasks-per-node=28 --time=1:00:00 --mem=100G --job-name=s4096 --export=ALL,SIMNO=4096,NJOBS=9,NSIMS=250,PSP=0.104,PPI=0.5,PICPT=5.5,PHALF=55,RELHR=1,LOWP=0.215,DCREL=1 runsim.sh
+# sbatch -p ckpt -A csde-ckpt --array=1-9 --nodes=1 --ntasks-per-node=28 --time=1:00:00 --mem=100G --job-name=s4097 --export=ALL,SIMNO=4097,NJOBS=9,NSIMS=250,PSP=0.104,PPI=0.5,PICPT=6,PHALF=55,RELHR=1,LOWP=0.215,DCREL=1 runsim.sh
+# sbatch -p ckpt -A csde-ckpt --array=1-9 --nodes=1 --ntasks-per-node=28 --time=1:00:00 --mem=100G --job-name=s4098 --export=ALL,SIMNO=4098,NJOBS=9,NSIMS=250,PSP=0.104,PPI=0.5,PICPT=6.5,PHALF=55,RELHR=1,LOWP=0.215,DCREL=1 runsim.sh
+# sbatch -p ckpt -A csde-ckpt --array=1-9 --nodes=1 --ntasks-per-node=28 --time=1:00:00 --mem=100G --job-name=s4099 --export=ALL,SIMNO=4099,NJOBS=9,NSIMS=250,PSP=0.104,PPI=0.5,PICPT=1.5,PHALF=60,RELHR=1,LOWP=0.215,DCREL=1 runsim.sh
+# sbatch -p ckpt -A csde-ckpt --array=1-9 --nodes=1 --ntasks-per-node=28 --time=1:00:00 --mem=100G --job-name=s4100 --export=ALL,SIMNO=4100,NJOBS=9,NSIMS=250,PSP=0.104,PPI=0.5,PICPT=2,PHALF=60,RELHR=1,LOWP=0.215,DCREL=1 runsim.sh
+# sbatch -p ckpt -A csde-ckpt --array=1-9 --nodes=1 --ntasks-per-node=28 --time=1:00:00 --mem=100G --job-name=s4101 --export=ALL,SIMNO=4101,NJOBS=9,NSIMS=250,PSP=0.104,PPI=0.5,PICPT=2.5,PHALF=60,RELHR=1,LOWP=0.215,DCREL=1 runsim.sh
+# sbatch -p ckpt -A csde-ckpt --array=1-9 --nodes=1 --ntasks-per-node=28 --time=1:00:00 --mem=100G --job-name=s4102 --export=ALL,SIMNO=4102,NJOBS=9,NSIMS=250,PSP=0.104,PPI=0.5,PICPT=3,PHALF=60,RELHR=1,LOWP=0.215,DCREL=1 runsim.sh
+# sbatch -p ckpt -A csde-ckpt --array=1-9 --nodes=1 --ntasks-per-node=28 --time=1:00:00 --mem=100G --job-name=s4103 --export=ALL,SIMNO=4103,NJOBS=9,NSIMS=250,PSP=0.104,PPI=0.5,PICPT=3.5,PHALF=60,RELHR=1,LOWP=0.215,DCREL=1 runsim.sh
+# sbatch -p ckpt -A csde-ckpt --array=1-9 --nodes=1 --ntasks-per-node=28 --time=1:00:00 --mem=100G --job-name=s4104 --export=ALL,SIMNO=4104,NJOBS=9,NSIMS=250,PSP=0.104,PPI=0.5,PICPT=4,PHALF=60,RELHR=1,LOWP=0.215,DCREL=1 runsim.sh
+# sbatch -p ckpt -A csde-ckpt --array=1-9 --nodes=1 --ntasks-per-node=28 --time=1:00:00 --mem=100G --job-name=s4105 --export=ALL,SIMNO=4105,NJOBS=9,NSIMS=250,PSP=0.104,PPI=0.5,PICPT=4.5,PHALF=60,RELHR=1,LOWP=0.215,DCREL=1 runsim.sh
+# sbatch -p ckpt -A csde-ckpt --array=1-9 --nodes=1 --ntasks-per-node=28 --time=1:00:00 --mem=100G --job-name=s4106 --export=ALL,SIMNO=4106,NJOBS=9,NSIMS=250,PSP=0.104,PPI=0.5,PICPT=5,PHALF=60,RELHR=1,LOWP=0.215,DCREL=1 runsim.sh
+# sbatch -p ckpt -A csde-ckpt --array=1-9 --nodes=1 --ntasks-per-node=28 --time=1:00:00 --mem=100G --job-name=s4107 --export=ALL,SIMNO=4107,NJOBS=9,NSIMS=250,PSP=0.104,PPI=0.5,PICPT=5.5,PHALF=60,RELHR=1,LOWP=0.215,DCREL=1 runsim.sh
+# sbatch -p ckpt -A csde-ckpt --array=1-9 --nodes=1 --ntasks-per-node=28 --time=1:00:00 --mem=100G --job-name=s4108 --export=ALL,SIMNO=4108,NJOBS=9,NSIMS=250,PSP=0.104,PPI=0.5,PICPT=6,PHALF=60,RELHR=1,LOWP=0.215,DCREL=1 runsim.sh
+# sbatch -p ckpt -A csde-ckpt --array=1-9 --nodes=1 --ntasks-per-node=28 --time=1:00:00 --mem=100G --job-name=s4109 --export=ALL,SIMNO=4109,NJOBS=9,NSIMS=250,PSP=0.104,PPI=0.5,PICPT=6.5,PHALF=60,RELHR=1,LOWP=0.215,DCREL=1 runsim.sh
 
-sbatch -p ckpt -A csde-ckpt --array=1-4 --nodes=1 --ntasks-per-node=25 --time=1:00:00 --mem=100G --job-name=s2500 --export=ALL,SIMNO=2500,NJOBS=4,NSIMS=100,PSP=0,PPI=0 runsim.sh
-sbatch -p ckpt -A csde-ckpt --array=1-4 --nodes=1 --ntasks-per-node=25 --time=1:00:00 --mem=100G --job-name=s2501 --export=ALL,SIMNO=2501,NJOBS=4,NSIMS=100,PSP=0.05,PPI=0 runsim.sh
-sbatch -p ckpt -A csde-ckpt --array=1-4 --nodes=1 --ntasks-per-node=25 --time=1:00:00 --mem=100G --job-name=s2502 --export=ALL,SIMNO=2502,NJOBS=4,NSIMS=100,PSP=0.1,PPI=0 runsim.sh
-sbatch -p ckpt -A csde-ckpt --array=1-4 --nodes=1 --ntasks-per-node=25 --time=1:00:00 --mem=100G --job-name=s2503 --export=ALL,SIMNO=2503,NJOBS=4,NSIMS=100,PSP=0.15,PPI=0 runsim.sh
-sbatch -p ckpt -A csde-ckpt --array=1-4 --nodes=1 --ntasks-per-node=25 --time=1:00:00 --mem=100G --job-name=s2504 --export=ALL,SIMNO=2504,NJOBS=4,NSIMS=100,PSP=0.2,PPI=0 runsim.sh
-sbatch -p ckpt -A csde-ckpt --array=1-4 --nodes=1 --ntasks-per-node=25 --time=1:00:00 --mem=100G --job-name=s2505 --export=ALL,SIMNO=2505,NJOBS=4,NSIMS=100,PSP=0.25,PPI=0 runsim.sh
-sbatch -p ckpt -A csde-ckpt --array=1-4 --nodes=1 --ntasks-per-node=25 --time=1:00:00 --mem=100G --job-name=s2506 --export=ALL,SIMNO=2506,NJOBS=4,NSIMS=100,PSP=0.3,PPI=0 runsim.sh
-sbatch -p ckpt -A csde-ckpt --array=1-4 --nodes=1 --ntasks-per-node=25 --time=1:00:00 --mem=100G --job-name=s2507 --export=ALL,SIMNO=2507,NJOBS=4,NSIMS=100,PSP=0.35,PPI=0 runsim.sh
-sbatch -p ckpt -A csde-ckpt --array=1-4 --nodes=1 --ntasks-per-node=25 --time=1:00:00 --mem=100G --job-name=s2508 --export=ALL,SIMNO=2508,NJOBS=4,NSIMS=100,PSP=0.4,PPI=0 runsim.sh
-sbatch -p ckpt -A csde-ckpt --array=1-4 --nodes=1 --ntasks-per-node=25 --time=1:00:00 --mem=100G --job-name=s2509 --export=ALL,SIMNO=2509,NJOBS=4,NSIMS=100,PSP=0.45,PPI=0 runsim.sh
-sbatch -p ckpt -A csde-ckpt --array=1-4 --nodes=1 --ntasks-per-node=25 --time=1:00:00 --mem=100G --job-name=s2510 --export=ALL,SIMNO=2510,NJOBS=4,NSIMS=100,PSP=0.5,PPI=0 runsim.sh
-sbatch -p ckpt -A csde-ckpt --array=1-4 --nodes=1 --ntasks-per-node=25 --time=1:00:00 --mem=100G --job-name=s2511 --export=ALL,SIMNO=2511,NJOBS=4,NSIMS=100,PSP=0.55,PPI=0 runsim.sh
-sbatch -p ckpt -A csde-ckpt --array=1-4 --nodes=1 --ntasks-per-node=25 --time=1:00:00 --mem=100G --job-name=s2512 --export=ALL,SIMNO=2512,NJOBS=4,NSIMS=100,PSP=0.6,PPI=0 runsim.sh
-sbatch -p ckpt -A csde-ckpt --array=1-4 --nodes=1 --ntasks-per-node=25 --time=1:00:00 --mem=100G --job-name=s2513 --export=ALL,SIMNO=2513,NJOBS=4,NSIMS=100,PSP=0.65,PPI=0 runsim.sh
-sbatch -p ckpt -A csde-ckpt --array=1-4 --nodes=1 --ntasks-per-node=25 --time=1:00:00 --mem=100G --job-name=s2514 --export=ALL,SIMNO=2514,NJOBS=4,NSIMS=100,PSP=0.7,PPI=0 runsim.sh
-sbatch -p ckpt -A csde-ckpt --array=1-4 --nodes=1 --ntasks-per-node=25 --time=1:00:00 --mem=100G --job-name=s2515 --export=ALL,SIMNO=2515,NJOBS=4,NSIMS=100,PSP=0.75,PPI=0 runsim.sh
-sbatch -p ckpt -A csde-ckpt --array=1-4 --nodes=1 --ntasks-per-node=25 --time=1:00:00 --mem=100G --job-name=s2516 --export=ALL,SIMNO=2516,NJOBS=4,NSIMS=100,PSP=0.8,PPI=0 runsim.sh
-sbatch -p ckpt -A csde-ckpt --array=1-4 --nodes=1 --ntasks-per-node=25 --time=1:00:00 --mem=100G --job-name=s2517 --export=ALL,SIMNO=2517,NJOBS=4,NSIMS=100,PSP=0.85,PPI=0 runsim.sh
-sbatch -p ckpt -A csde-ckpt --array=1-4 --nodes=1 --ntasks-per-node=25 --time=1:00:00 --mem=100G --job-name=s2518 --export=ALL,SIMNO=2518,NJOBS=4,NSIMS=100,PSP=0.9,PPI=0 runsim.sh
-sbatch -p ckpt -A csde-ckpt --array=1-4 --nodes=1 --ntasks-per-node=25 --time=1:00:00 --mem=100G --job-name=s2519 --export=ALL,SIMNO=2519,NJOBS=4,NSIMS=100,PSP=0.95,PPI=0 runsim.sh
-sbatch -p ckpt -A csde-ckpt --array=1-4 --nodes=1 --ntasks-per-node=25 --time=1:00:00 --mem=100G --job-name=s2520 --export=ALL,SIMNO=2520,NJOBS=4,NSIMS=100,PSP=1,PPI=0 runsim.sh
-sbatch -p ckpt -A csde-ckpt --array=1-4 --nodes=1 --ntasks-per-node=25 --time=1:00:00 --mem=100G --job-name=s2521 --export=ALL,SIMNO=2521,NJOBS=4,NSIMS=100,PSP=0,PPI=0.05 runsim.sh
-sbatch -p ckpt -A csde-ckpt --array=1-4 --nodes=1 --ntasks-per-node=25 --time=1:00:00 --mem=100G --job-name=s2522 --export=ALL,SIMNO=2522,NJOBS=4,NSIMS=100,PSP=0.05,PPI=0.05 runsim.sh
-sbatch -p ckpt -A csde-ckpt --array=1-4 --nodes=1 --ntasks-per-node=25 --time=1:00:00 --mem=100G --job-name=s2523 --export=ALL,SIMNO=2523,NJOBS=4,NSIMS=100,PSP=0.1,PPI=0.05 runsim.sh
-sbatch -p ckpt -A csde-ckpt --array=1-4 --nodes=1 --ntasks-per-node=25 --time=1:00:00 --mem=100G --job-name=s2524 --export=ALL,SIMNO=2524,NJOBS=4,NSIMS=100,PSP=0.15,PPI=0.05 runsim.sh
-sbatch -p ckpt -A csde-ckpt --array=1-4 --nodes=1 --ntasks-per-node=25 --time=1:00:00 --mem=100G --job-name=s2525 --export=ALL,SIMNO=2525,NJOBS=4,NSIMS=100,PSP=0.2,PPI=0.05 runsim.sh
-sbatch -p ckpt -A csde-ckpt --array=1-4 --nodes=1 --ntasks-per-node=25 --time=1:00:00 --mem=100G --job-name=s2526 --export=ALL,SIMNO=2526,NJOBS=4,NSIMS=100,PSP=0.25,PPI=0.05 runsim.sh
-sbatch -p ckpt -A csde-ckpt --array=1-4 --nodes=1 --ntasks-per-node=25 --time=1:00:00 --mem=100G --job-name=s2527 --export=ALL,SIMNO=2527,NJOBS=4,NSIMS=100,PSP=0.3,PPI=0.05 runsim.sh
-sbatch -p ckpt -A csde-ckpt --array=1-4 --nodes=1 --ntasks-per-node=25 --time=1:00:00 --mem=100G --job-name=s2528 --export=ALL,SIMNO=2528,NJOBS=4,NSIMS=100,PSP=0.35,PPI=0.05 runsim.sh
-sbatch -p ckpt -A csde-ckpt --array=1-4 --nodes=1 --ntasks-per-node=25 --time=1:00:00 --mem=100G --job-name=s2529 --export=ALL,SIMNO=2529,NJOBS=4,NSIMS=100,PSP=0.4,PPI=0.05 runsim.sh
-sbatch -p ckpt -A csde-ckpt --array=1-4 --nodes=1 --ntasks-per-node=25 --time=1:00:00 --mem=100G --job-name=s2530 --export=ALL,SIMNO=2530,NJOBS=4,NSIMS=100,PSP=0.45,PPI=0.05 runsim.sh
-sbatch -p ckpt -A csde-ckpt --array=1-4 --nodes=1 --ntasks-per-node=25 --time=1:00:00 --mem=100G --job-name=s2531 --export=ALL,SIMNO=2531,NJOBS=4,NSIMS=100,PSP=0.5,PPI=0.05 runsim.sh
-sbatch -p ckpt -A csde-ckpt --array=1-4 --nodes=1 --ntasks-per-node=25 --time=1:00:00 --mem=100G --job-name=s2532 --export=ALL,SIMNO=2532,NJOBS=4,NSIMS=100,PSP=0.55,PPI=0.05 runsim.sh
-sbatch -p ckpt -A csde-ckpt --array=1-4 --nodes=1 --ntasks-per-node=25 --time=1:00:00 --mem=100G --job-name=s2533 --export=ALL,SIMNO=2533,NJOBS=4,NSIMS=100,PSP=0.6,PPI=0.05 runsim.sh
-sbatch -p ckpt -A csde-ckpt --array=1-4 --nodes=1 --ntasks-per-node=25 --time=1:00:00 --mem=100G --job-name=s2534 --export=ALL,SIMNO=2534,NJOBS=4,NSIMS=100,PSP=0.65,PPI=0.05 runsim.sh
-sbatch -p ckpt -A csde-ckpt --array=1-4 --nodes=1 --ntasks-per-node=25 --time=1:00:00 --mem=100G --job-name=s2535 --export=ALL,SIMNO=2535,NJOBS=4,NSIMS=100,PSP=0.7,PPI=0.05 runsim.sh
-sbatch -p ckpt -A csde-ckpt --array=1-4 --nodes=1 --ntasks-per-node=25 --time=1:00:00 --mem=100G --job-name=s2536 --export=ALL,SIMNO=2536,NJOBS=4,NSIMS=100,PSP=0.75,PPI=0.05 runsim.sh
-sbatch -p ckpt -A csde-ckpt --array=1-4 --nodes=1 --ntasks-per-node=25 --time=1:00:00 --mem=100G --job-name=s2537 --export=ALL,SIMNO=2537,NJOBS=4,NSIMS=100,PSP=0.8,PPI=0.05 runsim.sh
-sbatch -p ckpt -A csde-ckpt --array=1-4 --nodes=1 --ntasks-per-node=25 --time=1:00:00 --mem=100G --job-name=s2538 --export=ALL,SIMNO=2538,NJOBS=4,NSIMS=100,PSP=0.85,PPI=0.05 runsim.sh
-sbatch -p ckpt -A csde-ckpt --array=1-4 --nodes=1 --ntasks-per-node=25 --time=1:00:00 --mem=100G --job-name=s2539 --export=ALL,SIMNO=2539,NJOBS=4,NSIMS=100,PSP=0.9,PPI=0.05 runsim.sh
-sbatch -p ckpt -A csde-ckpt --array=1-4 --nodes=1 --ntasks-per-node=25 --time=1:00:00 --mem=100G --job-name=s2540 --export=ALL,SIMNO=2540,NJOBS=4,NSIMS=100,PSP=0.95,PPI=0.05 runsim.sh
-sbatch -p ckpt -A csde-ckpt --array=1-4 --nodes=1 --ntasks-per-node=25 --time=1:00:00 --mem=100G --job-name=s2541 --export=ALL,SIMNO=2541,NJOBS=4,NSIMS=100,PSP=1,PPI=0.05 runsim.sh
-sbatch -p ckpt -A csde-ckpt --array=1-4 --nodes=1 --ntasks-per-node=25 --time=1:00:00 --mem=100G --job-name=s2542 --export=ALL,SIMNO=2542,NJOBS=4,NSIMS=100,PSP=0,PPI=0.1 runsim.sh
-sbatch -p ckpt -A csde-ckpt --array=1-4 --nodes=1 --ntasks-per-node=25 --time=1:00:00 --mem=100G --job-name=s2543 --export=ALL,SIMNO=2543,NJOBS=4,NSIMS=100,PSP=0.05,PPI=0.1 runsim.sh
-sbatch -p ckpt -A csde-ckpt --array=1-4 --nodes=1 --ntasks-per-node=25 --time=1:00:00 --mem=100G --job-name=s2544 --export=ALL,SIMNO=2544,NJOBS=4,NSIMS=100,PSP=0.1,PPI=0.1 runsim.sh
-sbatch -p ckpt -A csde-ckpt --array=1-4 --nodes=1 --ntasks-per-node=25 --time=1:00:00 --mem=100G --job-name=s2545 --export=ALL,SIMNO=2545,NJOBS=4,NSIMS=100,PSP=0.15,PPI=0.1 runsim.sh
-sbatch -p ckpt -A csde-ckpt --array=1-4 --nodes=1 --ntasks-per-node=25 --time=1:00:00 --mem=100G --job-name=s2546 --export=ALL,SIMNO=2546,NJOBS=4,NSIMS=100,PSP=0.2,PPI=0.1 runsim.sh
-sbatch -p ckpt -A csde-ckpt --array=1-4 --nodes=1 --ntasks-per-node=25 --time=1:00:00 --mem=100G --job-name=s2547 --export=ALL,SIMNO=2547,NJOBS=4,NSIMS=100,PSP=0.25,PPI=0.1 runsim.sh
-sbatch -p ckpt -A csde-ckpt --array=1-4 --nodes=1 --ntasks-per-node=25 --time=1:00:00 --mem=100G --job-name=s2548 --export=ALL,SIMNO=2548,NJOBS=4,NSIMS=100,PSP=0.3,PPI=0.1 runsim.sh
-sbatch -p ckpt -A csde-ckpt --array=1-4 --nodes=1 --ntasks-per-node=25 --time=1:00:00 --mem=100G --job-name=s2549 --export=ALL,SIMNO=2549,NJOBS=4,NSIMS=100,PSP=0.35,PPI=0.1 runsim.sh
-sbatch -p ckpt -A csde-ckpt --array=1-4 --nodes=1 --ntasks-per-node=25 --time=1:00:00 --mem=100G --job-name=s2550 --export=ALL,SIMNO=2550,NJOBS=4,NSIMS=100,PSP=0.4,PPI=0.1 runsim.sh
-sbatch -p ckpt -A csde-ckpt --array=1-4 --nodes=1 --ntasks-per-node=25 --time=1:00:00 --mem=100G --job-name=s2551 --export=ALL,SIMNO=2551,NJOBS=4,NSIMS=100,PSP=0.45,PPI=0.1 runsim.sh
-sbatch -p ckpt -A csde-ckpt --array=1-4 --nodes=1 --ntasks-per-node=25 --time=1:00:00 --mem=100G --job-name=s2552 --export=ALL,SIMNO=2552,NJOBS=4,NSIMS=100,PSP=0.5,PPI=0.1 runsim.sh
-sbatch -p ckpt -A csde-ckpt --array=1-4 --nodes=1 --ntasks-per-node=25 --time=1:00:00 --mem=100G --job-name=s2553 --export=ALL,SIMNO=2553,NJOBS=4,NSIMS=100,PSP=0.55,PPI=0.1 runsim.sh
-sbatch -p ckpt -A csde-ckpt --array=1-4 --nodes=1 --ntasks-per-node=25 --time=1:00:00 --mem=100G --job-name=s2554 --export=ALL,SIMNO=2554,NJOBS=4,NSIMS=100,PSP=0.6,PPI=0.1 runsim.sh
-sbatch -p ckpt -A csde-ckpt --array=1-4 --nodes=1 --ntasks-per-node=25 --time=1:00:00 --mem=100G --job-name=s2555 --export=ALL,SIMNO=2555,NJOBS=4,NSIMS=100,PSP=0.65,PPI=0.1 runsim.sh
-sbatch -p ckpt -A csde-ckpt --array=1-4 --nodes=1 --ntasks-per-node=25 --time=1:00:00 --mem=100G --job-name=s2556 --export=ALL,SIMNO=2556,NJOBS=4,NSIMS=100,PSP=0.7,PPI=0.1 runsim.sh
-sbatch -p ckpt -A csde-ckpt --array=1-4 --nodes=1 --ntasks-per-node=25 --time=1:00:00 --mem=100G --job-name=s2557 --export=ALL,SIMNO=2557,NJOBS=4,NSIMS=100,PSP=0.75,PPI=0.1 runsim.sh
-sbatch -p ckpt -A csde-ckpt --array=1-4 --nodes=1 --ntasks-per-node=25 --time=1:00:00 --mem=100G --job-name=s2558 --export=ALL,SIMNO=2558,NJOBS=4,NSIMS=100,PSP=0.8,PPI=0.1 runsim.sh
-sbatch -p ckpt -A csde-ckpt --array=1-4 --nodes=1 --ntasks-per-node=25 --time=1:00:00 --mem=100G --job-name=s2559 --export=ALL,SIMNO=2559,NJOBS=4,NSIMS=100,PSP=0.85,PPI=0.1 runsim.sh
-sbatch -p ckpt -A csde-ckpt --array=1-4 --nodes=1 --ntasks-per-node=25 --time=1:00:00 --mem=100G --job-name=s2560 --export=ALL,SIMNO=2560,NJOBS=4,NSIMS=100,PSP=0.9,PPI=0.1 runsim.sh
-sbatch -p ckpt -A csde-ckpt --array=1-4 --nodes=1 --ntasks-per-node=25 --time=1:00:00 --mem=100G --job-name=s2561 --export=ALL,SIMNO=2561,NJOBS=4,NSIMS=100,PSP=0.95,PPI=0.1 runsim.sh
-sbatch -p ckpt -A csde-ckpt --array=1-4 --nodes=1 --ntasks-per-node=25 --time=1:00:00 --mem=100G --job-name=s2562 --export=ALL,SIMNO=2562,NJOBS=4,NSIMS=100,PSP=1,PPI=0.1 runsim.sh
-sbatch -p ckpt -A csde-ckpt --array=1-4 --nodes=1 --ntasks-per-node=25 --time=1:00:00 --mem=100G --job-name=s2563 --export=ALL,SIMNO=2563,NJOBS=4,NSIMS=100,PSP=0,PPI=0.15 runsim.sh
-sbatch -p ckpt -A csde-ckpt --array=1-4 --nodes=1 --ntasks-per-node=25 --time=1:00:00 --mem=100G --job-name=s2564 --export=ALL,SIMNO=2564,NJOBS=4,NSIMS=100,PSP=0.05,PPI=0.15 runsim.sh
-sbatch -p ckpt -A csde-ckpt --array=1-4 --nodes=1 --ntasks-per-node=25 --time=1:00:00 --mem=100G --job-name=s2565 --export=ALL,SIMNO=2565,NJOBS=4,NSIMS=100,PSP=0.1,PPI=0.15 runsim.sh
-sbatch -p ckpt -A csde-ckpt --array=1-4 --nodes=1 --ntasks-per-node=25 --time=1:00:00 --mem=100G --job-name=s2566 --export=ALL,SIMNO=2566,NJOBS=4,NSIMS=100,PSP=0.15,PPI=0.15 runsim.sh
-sbatch -p ckpt -A csde-ckpt --array=1-4 --nodes=1 --ntasks-per-node=25 --time=1:00:00 --mem=100G --job-name=s2567 --export=ALL,SIMNO=2567,NJOBS=4,NSIMS=100,PSP=0.2,PPI=0.15 runsim.sh
-sbatch -p ckpt -A csde-ckpt --array=1-4 --nodes=1 --ntasks-per-node=25 --time=1:00:00 --mem=100G --job-name=s2568 --export=ALL,SIMNO=2568,NJOBS=4,NSIMS=100,PSP=0.25,PPI=0.15 runsim.sh
-sbatch -p ckpt -A csde-ckpt --array=1-4 --nodes=1 --ntasks-per-node=25 --time=1:00:00 --mem=100G --job-name=s2569 --export=ALL,SIMNO=2569,NJOBS=4,NSIMS=100,PSP=0.3,PPI=0.15 runsim.sh
-sbatch -p ckpt -A csde-ckpt --array=1-4 --nodes=1 --ntasks-per-node=25 --time=1:00:00 --mem=100G --job-name=s2570 --export=ALL,SIMNO=2570,NJOBS=4,NSIMS=100,PSP=0.35,PPI=0.15 runsim.sh
-sbatch -p ckpt -A csde-ckpt --array=1-4 --nodes=1 --ntasks-per-node=25 --time=1:00:00 --mem=100G --job-name=s2571 --export=ALL,SIMNO=2571,NJOBS=4,NSIMS=100,PSP=0.4,PPI=0.15 runsim.sh
-sbatch -p ckpt -A csde-ckpt --array=1-4 --nodes=1 --ntasks-per-node=25 --time=1:00:00 --mem=100G --job-name=s2572 --export=ALL,SIMNO=2572,NJOBS=4,NSIMS=100,PSP=0.45,PPI=0.15 runsim.sh
-sbatch -p ckpt -A csde-ckpt --array=1-4 --nodes=1 --ntasks-per-node=25 --time=1:00:00 --mem=100G --job-name=s2573 --export=ALL,SIMNO=2573,NJOBS=4,NSIMS=100,PSP=0.5,PPI=0.15 runsim.sh
-sbatch -p ckpt -A csde-ckpt --array=1-4 --nodes=1 --ntasks-per-node=25 --time=1:00:00 --mem=100G --job-name=s2574 --export=ALL,SIMNO=2574,NJOBS=4,NSIMS=100,PSP=0.55,PPI=0.15 runsim.sh
-sbatch -p ckpt -A csde-ckpt --array=1-4 --nodes=1 --ntasks-per-node=25 --time=1:00:00 --mem=100G --job-name=s2575 --export=ALL,SIMNO=2575,NJOBS=4,NSIMS=100,PSP=0.6,PPI=0.15 runsim.sh
-sbatch -p ckpt -A csde-ckpt --array=1-4 --nodes=1 --ntasks-per-node=25 --time=1:00:00 --mem=100G --job-name=s2576 --export=ALL,SIMNO=2576,NJOBS=4,NSIMS=100,PSP=0.65,PPI=0.15 runsim.sh
-sbatch -p ckpt -A csde-ckpt --array=1-4 --nodes=1 --ntasks-per-node=25 --time=1:00:00 --mem=100G --job-name=s2577 --export=ALL,SIMNO=2577,NJOBS=4,NSIMS=100,PSP=0.7,PPI=0.15 runsim.sh
-sbatch -p ckpt -A csde-ckpt --array=1-4 --nodes=1 --ntasks-per-node=25 --time=1:00:00 --mem=100G --job-name=s2578 --export=ALL,SIMNO=2578,NJOBS=4,NSIMS=100,PSP=0.75,PPI=0.15 runsim.sh
-sbatch -p ckpt -A csde-ckpt --array=1-4 --nodes=1 --ntasks-per-node=25 --time=1:00:00 --mem=100G --job-name=s2579 --export=ALL,SIMNO=2579,NJOBS=4,NSIMS=100,PSP=0.8,PPI=0.15 runsim.sh
-sbatch -p ckpt -A csde-ckpt --array=1-4 --nodes=1 --ntasks-per-node=25 --time=1:00:00 --mem=100G --job-name=s2580 --export=ALL,SIMNO=2580,NJOBS=4,NSIMS=100,PSP=0.85,PPI=0.15 runsim.sh
-sbatch -p ckpt -A csde-ckpt --array=1-4 --nodes=1 --ntasks-per-node=25 --time=1:00:00 --mem=100G --job-name=s2581 --export=ALL,SIMNO=2581,NJOBS=4,NSIMS=100,PSP=0.9,PPI=0.15 runsim.sh
-sbatch -p ckpt -A csde-ckpt --array=1-4 --nodes=1 --ntasks-per-node=25 --time=1:00:00 --mem=100G --job-name=s2582 --export=ALL,SIMNO=2582,NJOBS=4,NSIMS=100,PSP=0.95,PPI=0.15 runsim.sh
-sbatch -p ckpt -A csde-ckpt --array=1-4 --nodes=1 --ntasks-per-node=25 --time=1:00:00 --mem=100G --job-name=s2583 --export=ALL,SIMNO=2583,NJOBS=4,NSIMS=100,PSP=1,PPI=0.15 runsim.sh
-sbatch -p ckpt -A csde-ckpt --array=1-4 --nodes=1 --ntasks-per-node=25 --time=1:00:00 --mem=100G --job-name=s2584 --export=ALL,SIMNO=2584,NJOBS=4,NSIMS=100,PSP=0,PPI=0.2 runsim.sh
-sbatch -p ckpt -A csde-ckpt --array=1-4 --nodes=1 --ntasks-per-node=25 --time=1:00:00 --mem=100G --job-name=s2585 --export=ALL,SIMNO=2585,NJOBS=4,NSIMS=100,PSP=0.05,PPI=0.2 runsim.sh
-sbatch -p ckpt -A csde-ckpt --array=1-4 --nodes=1 --ntasks-per-node=25 --time=1:00:00 --mem=100G --job-name=s2586 --export=ALL,SIMNO=2586,NJOBS=4,NSIMS=100,PSP=0.1,PPI=0.2 runsim.sh
-sbatch -p ckpt -A csde-ckpt --array=1-4 --nodes=1 --ntasks-per-node=25 --time=1:00:00 --mem=100G --job-name=s2587 --export=ALL,SIMNO=2587,NJOBS=4,NSIMS=100,PSP=0.15,PPI=0.2 runsim.sh
-sbatch -p ckpt -A csde-ckpt --array=1-4 --nodes=1 --ntasks-per-node=25 --time=1:00:00 --mem=100G --job-name=s2588 --export=ALL,SIMNO=2588,NJOBS=4,NSIMS=100,PSP=0.2,PPI=0.2 runsim.sh
-sbatch -p ckpt -A csde-ckpt --array=1-4 --nodes=1 --ntasks-per-node=25 --time=1:00:00 --mem=100G --job-name=s2589 --export=ALL,SIMNO=2589,NJOBS=4,NSIMS=100,PSP=0.25,PPI=0.2 runsim.sh
-sbatch -p ckpt -A csde-ckpt --array=1-4 --nodes=1 --ntasks-per-node=25 --time=1:00:00 --mem=100G --job-name=s2590 --export=ALL,SIMNO=2590,NJOBS=4,NSIMS=100,PSP=0.3,PPI=0.2 runsim.sh
-sbatch -p ckpt -A csde-ckpt --array=1-4 --nodes=1 --ntasks-per-node=25 --time=1:00:00 --mem=100G --job-name=s2591 --export=ALL,SIMNO=2591,NJOBS=4,NSIMS=100,PSP=0.35,PPI=0.2 runsim.sh
-sbatch -p ckpt -A csde-ckpt --array=1-4 --nodes=1 --ntasks-per-node=25 --time=1:00:00 --mem=100G --job-name=s2592 --export=ALL,SIMNO=2592,NJOBS=4,NSIMS=100,PSP=0.4,PPI=0.2 runsim.sh
-sbatch -p ckpt -A csde-ckpt --array=1-4 --nodes=1 --ntasks-per-node=25 --time=1:00:00 --mem=100G --job-name=s2593 --export=ALL,SIMNO=2593,NJOBS=4,NSIMS=100,PSP=0.45,PPI=0.2 runsim.sh
-sbatch -p ckpt -A csde-ckpt --array=1-4 --nodes=1 --ntasks-per-node=25 --time=1:00:00 --mem=100G --job-name=s2594 --export=ALL,SIMNO=2594,NJOBS=4,NSIMS=100,PSP=0.5,PPI=0.2 runsim.sh
-sbatch -p ckpt -A csde-ckpt --array=1-4 --nodes=1 --ntasks-per-node=25 --time=1:00:00 --mem=100G --job-name=s2595 --export=ALL,SIMNO=2595,NJOBS=4,NSIMS=100,PSP=0.55,PPI=0.2 runsim.sh
-sbatch -p ckpt -A csde-ckpt --array=1-4 --nodes=1 --ntasks-per-node=25 --time=1:00:00 --mem=100G --job-name=s2596 --export=ALL,SIMNO=2596,NJOBS=4,NSIMS=100,PSP=0.6,PPI=0.2 runsim.sh
-sbatch -p ckpt -A csde-ckpt --array=1-4 --nodes=1 --ntasks-per-node=25 --time=1:00:00 --mem=100G --job-name=s2597 --export=ALL,SIMNO=2597,NJOBS=4,NSIMS=100,PSP=0.65,PPI=0.2 runsim.sh
-sbatch -p ckpt -A csde-ckpt --array=1-4 --nodes=1 --ntasks-per-node=25 --time=1:00:00 --mem=100G --job-name=s2598 --export=ALL,SIMNO=2598,NJOBS=4,NSIMS=100,PSP=0.7,PPI=0.2 runsim.sh
-sbatch -p ckpt -A csde-ckpt --array=1-4 --nodes=1 --ntasks-per-node=25 --time=1:00:00 --mem=100G --job-name=s2599 --export=ALL,SIMNO=2599,NJOBS=4,NSIMS=100,PSP=0.75,PPI=0.2 runsim.sh
-sbatch -p ckpt -A csde-ckpt --array=1-4 --nodes=1 --ntasks-per-node=25 --time=1:00:00 --mem=100G --job-name=s2600 --export=ALL,SIMNO=2600,NJOBS=4,NSIMS=100,PSP=0.8,PPI=0.2 runsim.sh
-sbatch -p ckpt -A csde-ckpt --array=1-4 --nodes=1 --ntasks-per-node=25 --time=1:00:00 --mem=100G --job-name=s2601 --export=ALL,SIMNO=2601,NJOBS=4,NSIMS=100,PSP=0.85,PPI=0.2 runsim.sh
-sbatch -p ckpt -A csde-ckpt --array=1-4 --nodes=1 --ntasks-per-node=25 --time=1:00:00 --mem=100G --job-name=s2602 --export=ALL,SIMNO=2602,NJOBS=4,NSIMS=100,PSP=0.9,PPI=0.2 runsim.sh
-sbatch -p ckpt -A csde-ckpt --array=1-4 --nodes=1 --ntasks-per-node=25 --time=1:00:00 --mem=100G --job-name=s2603 --export=ALL,SIMNO=2603,NJOBS=4,NSIMS=100,PSP=0.95,PPI=0.2 runsim.sh
-sbatch -p ckpt -A csde-ckpt --array=1-4 --nodes=1 --ntasks-per-node=25 --time=1:00:00 --mem=100G --job-name=s2604 --export=ALL,SIMNO=2604,NJOBS=4,NSIMS=100,PSP=1,PPI=0.2 runsim.sh
-sbatch -p ckpt -A csde-ckpt --array=1-4 --nodes=1 --ntasks-per-node=25 --time=1:00:00 --mem=100G --job-name=s2605 --export=ALL,SIMNO=2605,NJOBS=4,NSIMS=100,PSP=0,PPI=0.25 runsim.sh
-sbatch -p ckpt -A csde-ckpt --array=1-4 --nodes=1 --ntasks-per-node=25 --time=1:00:00 --mem=100G --job-name=s2606 --export=ALL,SIMNO=2606,NJOBS=4,NSIMS=100,PSP=0.05,PPI=0.25 runsim.sh
-sbatch -p ckpt -A csde-ckpt --array=1-4 --nodes=1 --ntasks-per-node=25 --time=1:00:00 --mem=100G --job-name=s2607 --export=ALL,SIMNO=2607,NJOBS=4,NSIMS=100,PSP=0.1,PPI=0.25 runsim.sh
-sbatch -p ckpt -A csde-ckpt --array=1-4 --nodes=1 --ntasks-per-node=25 --time=1:00:00 --mem=100G --job-name=s2608 --export=ALL,SIMNO=2608,NJOBS=4,NSIMS=100,PSP=0.15,PPI=0.25 runsim.sh
-sbatch -p ckpt -A csde-ckpt --array=1-4 --nodes=1 --ntasks-per-node=25 --time=1:00:00 --mem=100G --job-name=s2609 --export=ALL,SIMNO=2609,NJOBS=4,NSIMS=100,PSP=0.2,PPI=0.25 runsim.sh
-sbatch -p ckpt -A csde-ckpt --array=1-4 --nodes=1 --ntasks-per-node=25 --time=1:00:00 --mem=100G --job-name=s2610 --export=ALL,SIMNO=2610,NJOBS=4,NSIMS=100,PSP=0.25,PPI=0.25 runsim.sh
-sbatch -p ckpt -A csde-ckpt --array=1-4 --nodes=1 --ntasks-per-node=25 --time=1:00:00 --mem=100G --job-name=s2611 --export=ALL,SIMNO=2611,NJOBS=4,NSIMS=100,PSP=0.3,PPI=0.25 runsim.sh
-sbatch -p ckpt -A csde-ckpt --array=1-4 --nodes=1 --ntasks-per-node=25 --time=1:00:00 --mem=100G --job-name=s2612 --export=ALL,SIMNO=2612,NJOBS=4,NSIMS=100,PSP=0.35,PPI=0.25 runsim.sh
-sbatch -p ckpt -A csde-ckpt --array=1-4 --nodes=1 --ntasks-per-node=25 --time=1:00:00 --mem=100G --job-name=s2613 --export=ALL,SIMNO=2613,NJOBS=4,NSIMS=100,PSP=0.4,PPI=0.25 runsim.sh
-sbatch -p ckpt -A csde-ckpt --array=1-4 --nodes=1 --ntasks-per-node=25 --time=1:00:00 --mem=100G --job-name=s2614 --export=ALL,SIMNO=2614,NJOBS=4,NSIMS=100,PSP=0.45,PPI=0.25 runsim.sh
-sbatch -p ckpt -A csde-ckpt --array=1-4 --nodes=1 --ntasks-per-node=25 --time=1:00:00 --mem=100G --job-name=s2615 --export=ALL,SIMNO=2615,NJOBS=4,NSIMS=100,PSP=0.5,PPI=0.25 runsim.sh
-sbatch -p ckpt -A csde-ckpt --array=1-4 --nodes=1 --ntasks-per-node=25 --time=1:00:00 --mem=100G --job-name=s2616 --export=ALL,SIMNO=2616,NJOBS=4,NSIMS=100,PSP=0.55,PPI=0.25 runsim.sh
-sbatch -p ckpt -A csde-ckpt --array=1-4 --nodes=1 --ntasks-per-node=25 --time=1:00:00 --mem=100G --job-name=s2617 --export=ALL,SIMNO=2617,NJOBS=4,NSIMS=100,PSP=0.6,PPI=0.25 runsim.sh
-sbatch -p ckpt -A csde-ckpt --array=1-4 --nodes=1 --ntasks-per-node=25 --time=1:00:00 --mem=100G --job-name=s2618 --export=ALL,SIMNO=2618,NJOBS=4,NSIMS=100,PSP=0.65,PPI=0.25 runsim.sh
-sbatch -p ckpt -A csde-ckpt --array=1-4 --nodes=1 --ntasks-per-node=25 --time=1:00:00 --mem=100G --job-name=s2619 --export=ALL,SIMNO=2619,NJOBS=4,NSIMS=100,PSP=0.7,PPI=0.25 runsim.sh
-sbatch -p ckpt -A csde-ckpt --array=1-4 --nodes=1 --ntasks-per-node=25 --time=1:00:00 --mem=100G --job-name=s2620 --export=ALL,SIMNO=2620,NJOBS=4,NSIMS=100,PSP=0.75,PPI=0.25 runsim.sh
-sbatch -p ckpt -A csde-ckpt --array=1-4 --nodes=1 --ntasks-per-node=25 --time=1:00:00 --mem=100G --job-name=s2621 --export=ALL,SIMNO=2621,NJOBS=4,NSIMS=100,PSP=0.8,PPI=0.25 runsim.sh
-sbatch -p ckpt -A csde-ckpt --array=1-4 --nodes=1 --ntasks-per-node=25 --time=1:00:00 --mem=100G --job-name=s2622 --export=ALL,SIMNO=2622,NJOBS=4,NSIMS=100,PSP=0.85,PPI=0.25 runsim.sh
-sbatch -p ckpt -A csde-ckpt --array=1-4 --nodes=1 --ntasks-per-node=25 --time=1:00:00 --mem=100G --job-name=s2623 --export=ALL,SIMNO=2623,NJOBS=4,NSIMS=100,PSP=0.9,PPI=0.25 runsim.sh
-sbatch -p ckpt -A csde-ckpt --array=1-4 --nodes=1 --ntasks-per-node=25 --time=1:00:00 --mem=100G --job-name=s2624 --export=ALL,SIMNO=2624,NJOBS=4,NSIMS=100,PSP=0.95,PPI=0.25 runsim.sh
-sbatch -p ckpt -A csde-ckpt --array=1-4 --nodes=1 --ntasks-per-node=25 --time=1:00:00 --mem=100G --job-name=s2625 --export=ALL,SIMNO=2625,NJOBS=4,NSIMS=100,PSP=1,PPI=0.25 runsim.sh
-sbatch -p ckpt -A csde-ckpt --array=1-4 --nodes=1 --ntasks-per-node=25 --time=1:00:00 --mem=100G --job-name=s2626 --export=ALL,SIMNO=2626,NJOBS=4,NSIMS=100,PSP=0,PPI=0.3 runsim.sh
-sbatch -p ckpt -A csde-ckpt --array=1-4 --nodes=1 --ntasks-per-node=25 --time=1:00:00 --mem=100G --job-name=s2627 --export=ALL,SIMNO=2627,NJOBS=4,NSIMS=100,PSP=0.05,PPI=0.3 runsim.sh
-sbatch -p ckpt -A csde-ckpt --array=1-4 --nodes=1 --ntasks-per-node=25 --time=1:00:00 --mem=100G --job-name=s2628 --export=ALL,SIMNO=2628,NJOBS=4,NSIMS=100,PSP=0.1,PPI=0.3 runsim.sh
-sbatch -p ckpt -A csde-ckpt --array=1-4 --nodes=1 --ntasks-per-node=25 --time=1:00:00 --mem=100G --job-name=s2629 --export=ALL,SIMNO=2629,NJOBS=4,NSIMS=100,PSP=0.15,PPI=0.3 runsim.sh
-sbatch -p ckpt -A csde-ckpt --array=1-4 --nodes=1 --ntasks-per-node=25 --time=1:00:00 --mem=100G --job-name=s2630 --export=ALL,SIMNO=2630,NJOBS=4,NSIMS=100,PSP=0.2,PPI=0.3 runsim.sh
-sbatch -p ckpt -A csde-ckpt --array=1-4 --nodes=1 --ntasks-per-node=25 --time=1:00:00 --mem=100G --job-name=s2631 --export=ALL,SIMNO=2631,NJOBS=4,NSIMS=100,PSP=0.25,PPI=0.3 runsim.sh
-sbatch -p ckpt -A csde-ckpt --array=1-4 --nodes=1 --ntasks-per-node=25 --time=1:00:00 --mem=100G --job-name=s2632 --export=ALL,SIMNO=2632,NJOBS=4,NSIMS=100,PSP=0.3,PPI=0.3 runsim.sh
-sbatch -p ckpt -A csde-ckpt --array=1-4 --nodes=1 --ntasks-per-node=25 --time=1:00:00 --mem=100G --job-name=s2633 --export=ALL,SIMNO=2633,NJOBS=4,NSIMS=100,PSP=0.35,PPI=0.3 runsim.sh
-sbatch -p ckpt -A csde-ckpt --array=1-4 --nodes=1 --ntasks-per-node=25 --time=1:00:00 --mem=100G --job-name=s2634 --export=ALL,SIMNO=2634,NJOBS=4,NSIMS=100,PSP=0.4,PPI=0.3 runsim.sh
-sbatch -p ckpt -A csde-ckpt --array=1-4 --nodes=1 --ntasks-per-node=25 --time=1:00:00 --mem=100G --job-name=s2635 --export=ALL,SIMNO=2635,NJOBS=4,NSIMS=100,PSP=0.45,PPI=0.3 runsim.sh
-sbatch -p ckpt -A csde-ckpt --array=1-4 --nodes=1 --ntasks-per-node=25 --time=1:00:00 --mem=100G --job-name=s2636 --export=ALL,SIMNO=2636,NJOBS=4,NSIMS=100,PSP=0.5,PPI=0.3 runsim.sh
-sbatch -p ckpt -A csde-ckpt --array=1-4 --nodes=1 --ntasks-per-node=25 --time=1:00:00 --mem=100G --job-name=s2637 --export=ALL,SIMNO=2637,NJOBS=4,NSIMS=100,PSP=0.55,PPI=0.3 runsim.sh
-sbatch -p ckpt -A csde-ckpt --array=1-4 --nodes=1 --ntasks-per-node=25 --time=1:00:00 --mem=100G --job-name=s2638 --export=ALL,SIMNO=2638,NJOBS=4,NSIMS=100,PSP=0.6,PPI=0.3 runsim.sh
-sbatch -p ckpt -A csde-ckpt --array=1-4 --nodes=1 --ntasks-per-node=25 --time=1:00:00 --mem=100G --job-name=s2639 --export=ALL,SIMNO=2639,NJOBS=4,NSIMS=100,PSP=0.65,PPI=0.3 runsim.sh
-sbatch -p ckpt -A csde-ckpt --array=1-4 --nodes=1 --ntasks-per-node=25 --time=1:00:00 --mem=100G --job-name=s2640 --export=ALL,SIMNO=2640,NJOBS=4,NSIMS=100,PSP=0.7,PPI=0.3 runsim.sh
-sbatch -p ckpt -A csde-ckpt --array=1-4 --nodes=1 --ntasks-per-node=25 --time=1:00:00 --mem=100G --job-name=s2641 --export=ALL,SIMNO=2641,NJOBS=4,NSIMS=100,PSP=0.75,PPI=0.3 runsim.sh
-sbatch -p ckpt -A csde-ckpt --array=1-4 --nodes=1 --ntasks-per-node=25 --time=1:00:00 --mem=100G --job-name=s2642 --export=ALL,SIMNO=2642,NJOBS=4,NSIMS=100,PSP=0.8,PPI=0.3 runsim.sh
-sbatch -p ckpt -A csde-ckpt --array=1-4 --nodes=1 --ntasks-per-node=25 --time=1:00:00 --mem=100G --job-name=s2643 --export=ALL,SIMNO=2643,NJOBS=4,NSIMS=100,PSP=0.85,PPI=0.3 runsim.sh
-sbatch -p ckpt -A csde-ckpt --array=1-4 --nodes=1 --ntasks-per-node=25 --time=1:00:00 --mem=100G --job-name=s2644 --export=ALL,SIMNO=2644,NJOBS=4,NSIMS=100,PSP=0.9,PPI=0.3 runsim.sh
-sbatch -p ckpt -A csde-ckpt --array=1-4 --nodes=1 --ntasks-per-node=25 --time=1:00:00 --mem=100G --job-name=s2645 --export=ALL,SIMNO=2645,NJOBS=4,NSIMS=100,PSP=0.95,PPI=0.3 runsim.sh
-sbatch -p ckpt -A csde-ckpt --array=1-4 --nodes=1 --ntasks-per-node=25 --time=1:00:00 --mem=100G --job-name=s2646 --export=ALL,SIMNO=2646,NJOBS=4,NSIMS=100,PSP=1,PPI=0.3 runsim.sh
-sbatch -p ckpt -A csde-ckpt --array=1-4 --nodes=1 --ntasks-per-node=25 --time=1:00:00 --mem=100G --job-name=s2647 --export=ALL,SIMNO=2647,NJOBS=4,NSIMS=100,PSP=0,PPI=0.35 runsim.sh
-sbatch -p ckpt -A csde-ckpt --array=1-4 --nodes=1 --ntasks-per-node=25 --time=1:00:00 --mem=100G --job-name=s2648 --export=ALL,SIMNO=2648,NJOBS=4,NSIMS=100,PSP=0.05,PPI=0.35 runsim.sh
-sbatch -p ckpt -A csde-ckpt --array=1-4 --nodes=1 --ntasks-per-node=25 --time=1:00:00 --mem=100G --job-name=s2649 --export=ALL,SIMNO=2649,NJOBS=4,NSIMS=100,PSP=0.1,PPI=0.35 runsim.sh
-sbatch -p ckpt -A csde-ckpt --array=1-4 --nodes=1 --ntasks-per-node=25 --time=1:00:00 --mem=100G --job-name=s2650 --export=ALL,SIMNO=2650,NJOBS=4,NSIMS=100,PSP=0.15,PPI=0.35 runsim.sh
-sbatch -p ckpt -A csde-ckpt --array=1-4 --nodes=1 --ntasks-per-node=25 --time=1:00:00 --mem=100G --job-name=s2651 --export=ALL,SIMNO=2651,NJOBS=4,NSIMS=100,PSP=0.2,PPI=0.35 runsim.sh
-sbatch -p ckpt -A csde-ckpt --array=1-4 --nodes=1 --ntasks-per-node=25 --time=1:00:00 --mem=100G --job-name=s2652 --export=ALL,SIMNO=2652,NJOBS=4,NSIMS=100,PSP=0.25,PPI=0.35 runsim.sh
-sbatch -p ckpt -A csde-ckpt --array=1-4 --nodes=1 --ntasks-per-node=25 --time=1:00:00 --mem=100G --job-name=s2653 --export=ALL,SIMNO=2653,NJOBS=4,NSIMS=100,PSP=0.3,PPI=0.35 runsim.sh
-sbatch -p ckpt -A csde-ckpt --array=1-4 --nodes=1 --ntasks-per-node=25 --time=1:00:00 --mem=100G --job-name=s2654 --export=ALL,SIMNO=2654,NJOBS=4,NSIMS=100,PSP=0.35,PPI=0.35 runsim.sh
-sbatch -p ckpt -A csde-ckpt --array=1-4 --nodes=1 --ntasks-per-node=25 --time=1:00:00 --mem=100G --job-name=s2655 --export=ALL,SIMNO=2655,NJOBS=4,NSIMS=100,PSP=0.4,PPI=0.35 runsim.sh
-sbatch -p ckpt -A csde-ckpt --array=1-4 --nodes=1 --ntasks-per-node=25 --time=1:00:00 --mem=100G --job-name=s2656 --export=ALL,SIMNO=2656,NJOBS=4,NSIMS=100,PSP=0.45,PPI=0.35 runsim.sh
-sbatch -p ckpt -A csde-ckpt --array=1-4 --nodes=1 --ntasks-per-node=25 --time=1:00:00 --mem=100G --job-name=s2657 --export=ALL,SIMNO=2657,NJOBS=4,NSIMS=100,PSP=0.5,PPI=0.35 runsim.sh
-sbatch -p ckpt -A csde-ckpt --array=1-4 --nodes=1 --ntasks-per-node=25 --time=1:00:00 --mem=100G --job-name=s2658 --export=ALL,SIMNO=2658,NJOBS=4,NSIMS=100,PSP=0.55,PPI=0.35 runsim.sh
-sbatch -p ckpt -A csde-ckpt --array=1-4 --nodes=1 --ntasks-per-node=25 --time=1:00:00 --mem=100G --job-name=s2659 --export=ALL,SIMNO=2659,NJOBS=4,NSIMS=100,PSP=0.6,PPI=0.35 runsim.sh
-sbatch -p ckpt -A csde-ckpt --array=1-4 --nodes=1 --ntasks-per-node=25 --time=1:00:00 --mem=100G --job-name=s2660 --export=ALL,SIMNO=2660,NJOBS=4,NSIMS=100,PSP=0.65,PPI=0.35 runsim.sh
-sbatch -p ckpt -A csde-ckpt --array=1-4 --nodes=1 --ntasks-per-node=25 --time=1:00:00 --mem=100G --job-name=s2661 --export=ALL,SIMNO=2661,NJOBS=4,NSIMS=100,PSP=0.7,PPI=0.35 runsim.sh
-sbatch -p ckpt -A csde-ckpt --array=1-4 --nodes=1 --ntasks-per-node=25 --time=1:00:00 --mem=100G --job-name=s2662 --export=ALL,SIMNO=2662,NJOBS=4,NSIMS=100,PSP=0.75,PPI=0.35 runsim.sh
-sbatch -p ckpt -A csde-ckpt --array=1-4 --nodes=1 --ntasks-per-node=25 --time=1:00:00 --mem=100G --job-name=s2663 --export=ALL,SIMNO=2663,NJOBS=4,NSIMS=100,PSP=0.8,PPI=0.35 runsim.sh
-sbatch -p ckpt -A csde-ckpt --array=1-4 --nodes=1 --ntasks-per-node=25 --time=1:00:00 --mem=100G --job-name=s2664 --export=ALL,SIMNO=2664,NJOBS=4,NSIMS=100,PSP=0.85,PPI=0.35 runsim.sh
-sbatch -p ckpt -A csde-ckpt --array=1-4 --nodes=1 --ntasks-per-node=25 --time=1:00:00 --mem=100G --job-name=s2665 --export=ALL,SIMNO=2665,NJOBS=4,NSIMS=100,PSP=0.9,PPI=0.35 runsim.sh
-sbatch -p ckpt -A csde-ckpt --array=1-4 --nodes=1 --ntasks-per-node=25 --time=1:00:00 --mem=100G --job-name=s2666 --export=ALL,SIMNO=2666,NJOBS=4,NSIMS=100,PSP=0.95,PPI=0.35 runsim.sh
-sbatch -p ckpt -A csde-ckpt --array=1-4 --nodes=1 --ntasks-per-node=25 --time=1:00:00 --mem=100G --job-name=s2667 --export=ALL,SIMNO=2667,NJOBS=4,NSIMS=100,PSP=1,PPI=0.35 runsim.sh
-sbatch -p ckpt -A csde-ckpt --array=1-4 --nodes=1 --ntasks-per-node=25 --time=1:00:00 --mem=100G --job-name=s2668 --export=ALL,SIMNO=2668,NJOBS=4,NSIMS=100,PSP=0,PPI=0.4 runsim.sh
-sbatch -p ckpt -A csde-ckpt --array=1-4 --nodes=1 --ntasks-per-node=25 --time=1:00:00 --mem=100G --job-name=s2669 --export=ALL,SIMNO=2669,NJOBS=4,NSIMS=100,PSP=0.05,PPI=0.4 runsim.sh
-sbatch -p ckpt -A csde-ckpt --array=1-4 --nodes=1 --ntasks-per-node=25 --time=1:00:00 --mem=100G --job-name=s2670 --export=ALL,SIMNO=2670,NJOBS=4,NSIMS=100,PSP=0.1,PPI=0.4 runsim.sh
-sbatch -p ckpt -A csde-ckpt --array=1-4 --nodes=1 --ntasks-per-node=25 --time=1:00:00 --mem=100G --job-name=s2671 --export=ALL,SIMNO=2671,NJOBS=4,NSIMS=100,PSP=0.15,PPI=0.4 runsim.sh
-sbatch -p ckpt -A csde-ckpt --array=1-4 --nodes=1 --ntasks-per-node=25 --time=1:00:00 --mem=100G --job-name=s2672 --export=ALL,SIMNO=2672,NJOBS=4,NSIMS=100,PSP=0.2,PPI=0.4 runsim.sh
-sbatch -p ckpt -A csde-ckpt --array=1-4 --nodes=1 --ntasks-per-node=25 --time=1:00:00 --mem=100G --job-name=s2673 --export=ALL,SIMNO=2673,NJOBS=4,NSIMS=100,PSP=0.25,PPI=0.4 runsim.sh
-sbatch -p ckpt -A csde-ckpt --array=1-4 --nodes=1 --ntasks-per-node=25 --time=1:00:00 --mem=100G --job-name=s2674 --export=ALL,SIMNO=2674,NJOBS=4,NSIMS=100,PSP=0.3,PPI=0.4 runsim.sh
-sbatch -p ckpt -A csde-ckpt --array=1-4 --nodes=1 --ntasks-per-node=25 --time=1:00:00 --mem=100G --job-name=s2675 --export=ALL,SIMNO=2675,NJOBS=4,NSIMS=100,PSP=0.35,PPI=0.4 runsim.sh
-sbatch -p ckpt -A csde-ckpt --array=1-4 --nodes=1 --ntasks-per-node=25 --time=1:00:00 --mem=100G --job-name=s2676 --export=ALL,SIMNO=2676,NJOBS=4,NSIMS=100,PSP=0.4,PPI=0.4 runsim.sh
-sbatch -p ckpt -A csde-ckpt --array=1-4 --nodes=1 --ntasks-per-node=25 --time=1:00:00 --mem=100G --job-name=s2677 --export=ALL,SIMNO=2677,NJOBS=4,NSIMS=100,PSP=0.45,PPI=0.4 runsim.sh
-sbatch -p ckpt -A csde-ckpt --array=1-4 --nodes=1 --ntasks-per-node=25 --time=1:00:00 --mem=100G --job-name=s2678 --export=ALL,SIMNO=2678,NJOBS=4,NSIMS=100,PSP=0.5,PPI=0.4 runsim.sh
-sbatch -p ckpt -A csde-ckpt --array=1-4 --nodes=1 --ntasks-per-node=25 --time=1:00:00 --mem=100G --job-name=s2679 --export=ALL,SIMNO=2679,NJOBS=4,NSIMS=100,PSP=0.55,PPI=0.4 runsim.sh
-sbatch -p ckpt -A csde-ckpt --array=1-4 --nodes=1 --ntasks-per-node=25 --time=1:00:00 --mem=100G --job-name=s2680 --export=ALL,SIMNO=2680,NJOBS=4,NSIMS=100,PSP=0.6,PPI=0.4 runsim.sh
-sbatch -p ckpt -A csde-ckpt --array=1-4 --nodes=1 --ntasks-per-node=25 --time=1:00:00 --mem=100G --job-name=s2681 --export=ALL,SIMNO=2681,NJOBS=4,NSIMS=100,PSP=0.65,PPI=0.4 runsim.sh
-sbatch -p ckpt -A csde-ckpt --array=1-4 --nodes=1 --ntasks-per-node=25 --time=1:00:00 --mem=100G --job-name=s2682 --export=ALL,SIMNO=2682,NJOBS=4,NSIMS=100,PSP=0.7,PPI=0.4 runsim.sh
-sbatch -p ckpt -A csde-ckpt --array=1-4 --nodes=1 --ntasks-per-node=25 --time=1:00:00 --mem=100G --job-name=s2683 --export=ALL,SIMNO=2683,NJOBS=4,NSIMS=100,PSP=0.75,PPI=0.4 runsim.sh
-sbatch -p ckpt -A csde-ckpt --array=1-4 --nodes=1 --ntasks-per-node=25 --time=1:00:00 --mem=100G --job-name=s2684 --export=ALL,SIMNO=2684,NJOBS=4,NSIMS=100,PSP=0.8,PPI=0.4 runsim.sh
-sbatch -p ckpt -A csde-ckpt --array=1-4 --nodes=1 --ntasks-per-node=25 --time=1:00:00 --mem=100G --job-name=s2685 --export=ALL,SIMNO=2685,NJOBS=4,NSIMS=100,PSP=0.85,PPI=0.4 runsim.sh
-sbatch -p ckpt -A csde-ckpt --array=1-4 --nodes=1 --ntasks-per-node=25 --time=1:00:00 --mem=100G --job-name=s2686 --export=ALL,SIMNO=2686,NJOBS=4,NSIMS=100,PSP=0.9,PPI=0.4 runsim.sh
-sbatch -p ckpt -A csde-ckpt --array=1-4 --nodes=1 --ntasks-per-node=25 --time=1:00:00 --mem=100G --job-name=s2687 --export=ALL,SIMNO=2687,NJOBS=4,NSIMS=100,PSP=0.95,PPI=0.4 runsim.sh
-sbatch -p ckpt -A csde-ckpt --array=1-4 --nodes=1 --ntasks-per-node=25 --time=1:00:00 --mem=100G --job-name=s2688 --export=ALL,SIMNO=2688,NJOBS=4,NSIMS=100,PSP=1,PPI=0.4 runsim.sh
-sbatch -p ckpt -A csde-ckpt --array=1-4 --nodes=1 --ntasks-per-node=25 --time=1:00:00 --mem=100G --job-name=s2689 --export=ALL,SIMNO=2689,NJOBS=4,NSIMS=100,PSP=0,PPI=0.45 runsim.sh
-sbatch -p ckpt -A csde-ckpt --array=1-4 --nodes=1 --ntasks-per-node=25 --time=1:00:00 --mem=100G --job-name=s2690 --export=ALL,SIMNO=2690,NJOBS=4,NSIMS=100,PSP=0.05,PPI=0.45 runsim.sh
-sbatch -p ckpt -A csde-ckpt --array=1-4 --nodes=1 --ntasks-per-node=25 --time=1:00:00 --mem=100G --job-name=s2691 --export=ALL,SIMNO=2691,NJOBS=4,NSIMS=100,PSP=0.1,PPI=0.45 runsim.sh
-sbatch -p ckpt -A csde-ckpt --array=1-4 --nodes=1 --ntasks-per-node=25 --time=1:00:00 --mem=100G --job-name=s2692 --export=ALL,SIMNO=2692,NJOBS=4,NSIMS=100,PSP=0.15,PPI=0.45 runsim.sh
-sbatch -p ckpt -A csde-ckpt --array=1-4 --nodes=1 --ntasks-per-node=25 --time=1:00:00 --mem=100G --job-name=s2693 --export=ALL,SIMNO=2693,NJOBS=4,NSIMS=100,PSP=0.2,PPI=0.45 runsim.sh
-sbatch -p ckpt -A csde-ckpt --array=1-4 --nodes=1 --ntasks-per-node=25 --time=1:00:00 --mem=100G --job-name=s2694 --export=ALL,SIMNO=2694,NJOBS=4,NSIMS=100,PSP=0.25,PPI=0.45 runsim.sh
-sbatch -p ckpt -A csde-ckpt --array=1-4 --nodes=1 --ntasks-per-node=25 --time=1:00:00 --mem=100G --job-name=s2695 --export=ALL,SIMNO=2695,NJOBS=4,NSIMS=100,PSP=0.3,PPI=0.45 runsim.sh
-sbatch -p ckpt -A csde-ckpt --array=1-4 --nodes=1 --ntasks-per-node=25 --time=1:00:00 --mem=100G --job-name=s2696 --export=ALL,SIMNO=2696,NJOBS=4,NSIMS=100,PSP=0.35,PPI=0.45 runsim.sh
-sbatch -p ckpt -A csde-ckpt --array=1-4 --nodes=1 --ntasks-per-node=25 --time=1:00:00 --mem=100G --job-name=s2697 --export=ALL,SIMNO=2697,NJOBS=4,NSIMS=100,PSP=0.4,PPI=0.45 runsim.sh
-sbatch -p ckpt -A csde-ckpt --array=1-4 --nodes=1 --ntasks-per-node=25 --time=1:00:00 --mem=100G --job-name=s2698 --export=ALL,SIMNO=2698,NJOBS=4,NSIMS=100,PSP=0.45,PPI=0.45 runsim.sh
-sbatch -p ckpt -A csde-ckpt --array=1-4 --nodes=1 --ntasks-per-node=25 --time=1:00:00 --mem=100G --job-name=s2699 --export=ALL,SIMNO=2699,NJOBS=4,NSIMS=100,PSP=0.5,PPI=0.45 runsim.sh
-sbatch -p ckpt -A csde-ckpt --array=1-4 --nodes=1 --ntasks-per-node=25 --time=1:00:00 --mem=100G --job-name=s2700 --export=ALL,SIMNO=2700,NJOBS=4,NSIMS=100,PSP=0.55,PPI=0.45 runsim.sh
-sbatch -p ckpt -A csde-ckpt --array=1-4 --nodes=1 --ntasks-per-node=25 --time=1:00:00 --mem=100G --job-name=s2701 --export=ALL,SIMNO=2701,NJOBS=4,NSIMS=100,PSP=0.6,PPI=0.45 runsim.sh
-sbatch -p ckpt -A csde-ckpt --array=1-4 --nodes=1 --ntasks-per-node=25 --time=1:00:00 --mem=100G --job-name=s2702 --export=ALL,SIMNO=2702,NJOBS=4,NSIMS=100,PSP=0.65,PPI=0.45 runsim.sh
-sbatch -p ckpt -A csde-ckpt --array=1-4 --nodes=1 --ntasks-per-node=25 --time=1:00:00 --mem=100G --job-name=s2703 --export=ALL,SIMNO=2703,NJOBS=4,NSIMS=100,PSP=0.7,PPI=0.45 runsim.sh
-sbatch -p ckpt -A csde-ckpt --array=1-4 --nodes=1 --ntasks-per-node=25 --time=1:00:00 --mem=100G --job-name=s2704 --export=ALL,SIMNO=2704,NJOBS=4,NSIMS=100,PSP=0.75,PPI=0.45 runsim.sh
-sbatch -p ckpt -A csde-ckpt --array=1-4 --nodes=1 --ntasks-per-node=25 --time=1:00:00 --mem=100G --job-name=s2705 --export=ALL,SIMNO=2705,NJOBS=4,NSIMS=100,PSP=0.8,PPI=0.45 runsim.sh
-sbatch -p ckpt -A csde-ckpt --array=1-4 --nodes=1 --ntasks-per-node=25 --time=1:00:00 --mem=100G --job-name=s2706 --export=ALL,SIMNO=2706,NJOBS=4,NSIMS=100,PSP=0.85,PPI=0.45 runsim.sh
-sbatch -p ckpt -A csde-ckpt --array=1-4 --nodes=1 --ntasks-per-node=25 --time=1:00:00 --mem=100G --job-name=s2707 --export=ALL,SIMNO=2707,NJOBS=4,NSIMS=100,PSP=0.9,PPI=0.45 runsim.sh
-sbatch -p ckpt -A csde-ckpt --array=1-4 --nodes=1 --ntasks-per-node=25 --time=1:00:00 --mem=100G --job-name=s2708 --export=ALL,SIMNO=2708,NJOBS=4,NSIMS=100,PSP=0.95,PPI=0.45 runsim.sh
-sbatch -p ckpt -A csde-ckpt --array=1-4 --nodes=1 --ntasks-per-node=25 --time=1:00:00 --mem=100G --job-name=s2709 --export=ALL,SIMNO=2709,NJOBS=4,NSIMS=100,PSP=1,PPI=0.45 runsim.sh
-sbatch -p ckpt -A csde-ckpt --array=1-4 --nodes=1 --ntasks-per-node=25 --time=1:00:00 --mem=100G --job-name=s2710 --export=ALL,SIMNO=2710,NJOBS=4,NSIMS=100,PSP=0,PPI=0.5 runsim.sh
-sbatch -p ckpt -A csde-ckpt --array=1-4 --nodes=1 --ntasks-per-node=25 --time=1:00:00 --mem=100G --job-name=s2711 --export=ALL,SIMNO=2711,NJOBS=4,NSIMS=100,PSP=0.05,PPI=0.5 runsim.sh
-sbatch -p ckpt -A csde-ckpt --array=1-4 --nodes=1 --ntasks-per-node=25 --time=1:00:00 --mem=100G --job-name=s2712 --export=ALL,SIMNO=2712,NJOBS=4,NSIMS=100,PSP=0.1,PPI=0.5 runsim.sh
-sbatch -p ckpt -A csde-ckpt --array=1-4 --nodes=1 --ntasks-per-node=25 --time=1:00:00 --mem=100G --job-name=s2713 --export=ALL,SIMNO=2713,NJOBS=4,NSIMS=100,PSP=0.15,PPI=0.5 runsim.sh
-sbatch -p ckpt -A csde-ckpt --array=1-4 --nodes=1 --ntasks-per-node=25 --time=1:00:00 --mem=100G --job-name=s2714 --export=ALL,SIMNO=2714,NJOBS=4,NSIMS=100,PSP=0.2,PPI=0.5 runsim.sh
-sbatch -p ckpt -A csde-ckpt --array=1-4 --nodes=1 --ntasks-per-node=25 --time=1:00:00 --mem=100G --job-name=s2715 --export=ALL,SIMNO=2715,NJOBS=4,NSIMS=100,PSP=0.25,PPI=0.5 runsim.sh
-sbatch -p ckpt -A csde-ckpt --array=1-4 --nodes=1 --ntasks-per-node=25 --time=1:00:00 --mem=100G --job-name=s2716 --export=ALL,SIMNO=2716,NJOBS=4,NSIMS=100,PSP=0.3,PPI=0.5 runsim.sh
-sbatch -p ckpt -A csde-ckpt --array=1-4 --nodes=1 --ntasks-per-node=25 --time=1:00:00 --mem=100G --job-name=s2717 --export=ALL,SIMNO=2717,NJOBS=4,NSIMS=100,PSP=0.35,PPI=0.5 runsim.sh
-sbatch -p ckpt -A csde-ckpt --array=1-4 --nodes=1 --ntasks-per-node=25 --time=1:00:00 --mem=100G --job-name=s2718 --export=ALL,SIMNO=2718,NJOBS=4,NSIMS=100,PSP=0.4,PPI=0.5 runsim.sh
-sbatch -p ckpt -A csde-ckpt --array=1-4 --nodes=1 --ntasks-per-node=25 --time=1:00:00 --mem=100G --job-name=s2719 --export=ALL,SIMNO=2719,NJOBS=4,NSIMS=100,PSP=0.45,PPI=0.5 runsim.sh
-sbatch -p ckpt -A csde-ckpt --array=1-4 --nodes=1 --ntasks-per-node=25 --time=1:00:00 --mem=100G --job-name=s2720 --export=ALL,SIMNO=2720,NJOBS=4,NSIMS=100,PSP=0.5,PPI=0.5 runsim.sh
-sbatch -p ckpt -A csde-ckpt --array=1-4 --nodes=1 --ntasks-per-node=25 --time=1:00:00 --mem=100G --job-name=s2721 --export=ALL,SIMNO=2721,NJOBS=4,NSIMS=100,PSP=0.55,PPI=0.5 runsim.sh
-sbatch -p ckpt -A csde-ckpt --array=1-4 --nodes=1 --ntasks-per-node=25 --time=1:00:00 --mem=100G --job-name=s2722 --export=ALL,SIMNO=2722,NJOBS=4,NSIMS=100,PSP=0.6,PPI=0.5 runsim.sh
-sbatch -p ckpt -A csde-ckpt --array=1-4 --nodes=1 --ntasks-per-node=25 --time=1:00:00 --mem=100G --job-name=s2723 --export=ALL,SIMNO=2723,NJOBS=4,NSIMS=100,PSP=0.65,PPI=0.5 runsim.sh
-sbatch -p ckpt -A csde-ckpt --array=1-4 --nodes=1 --ntasks-per-node=25 --time=1:00:00 --mem=100G --job-name=s2724 --export=ALL,SIMNO=2724,NJOBS=4,NSIMS=100,PSP=0.7,PPI=0.5 runsim.sh
-sbatch -p ckpt -A csde-ckpt --array=1-4 --nodes=1 --ntasks-per-node=25 --time=1:00:00 --mem=100G --job-name=s2725 --export=ALL,SIMNO=2725,NJOBS=4,NSIMS=100,PSP=0.75,PPI=0.5 runsim.sh
-sbatch -p ckpt -A csde-ckpt --array=1-4 --nodes=1 --ntasks-per-node=25 --time=1:00:00 --mem=100G --job-name=s2726 --export=ALL,SIMNO=2726,NJOBS=4,NSIMS=100,PSP=0.8,PPI=0.5 runsim.sh
-sbatch -p ckpt -A csde-ckpt --array=1-4 --nodes=1 --ntasks-per-node=25 --time=1:00:00 --mem=100G --job-name=s2727 --export=ALL,SIMNO=2727,NJOBS=4,NSIMS=100,PSP=0.85,PPI=0.5 runsim.sh
-sbatch -p ckpt -A csde-ckpt --array=1-4 --nodes=1 --ntasks-per-node=25 --time=1:00:00 --mem=100G --job-name=s2728 --export=ALL,SIMNO=2728,NJOBS=4,NSIMS=100,PSP=0.9,PPI=0.5 runsim.sh
-sbatch -p ckpt -A csde-ckpt --array=1-4 --nodes=1 --ntasks-per-node=25 --time=1:00:00 --mem=100G --job-name=s2729 --export=ALL,SIMNO=2729,NJOBS=4,NSIMS=100,PSP=0.95,PPI=0.5 runsim.sh
-sbatch -p ckpt -A csde-ckpt --array=1-4 --nodes=1 --ntasks-per-node=25 --time=1:00:00 --mem=100G --job-name=s2730 --export=ALL,SIMNO=2730,NJOBS=4,NSIMS=100,PSP=1,PPI=0.5 runsim.sh
-sbatch -p ckpt -A csde-ckpt --array=1-4 --nodes=1 --ntasks-per-node=25 --time=1:00:00 --mem=100G --job-name=s2731 --export=ALL,SIMNO=2731,NJOBS=4,NSIMS=100,PSP=0,PPI=0.55 runsim.sh
-sbatch -p ckpt -A csde-ckpt --array=1-4 --nodes=1 --ntasks-per-node=25 --time=1:00:00 --mem=100G --job-name=s2732 --export=ALL,SIMNO=2732,NJOBS=4,NSIMS=100,PSP=0.05,PPI=0.55 runsim.sh
-sbatch -p ckpt -A csde-ckpt --array=1-4 --nodes=1 --ntasks-per-node=25 --time=1:00:00 --mem=100G --job-name=s2733 --export=ALL,SIMNO=2733,NJOBS=4,NSIMS=100,PSP=0.1,PPI=0.55 runsim.sh
-sbatch -p ckpt -A csde-ckpt --array=1-4 --nodes=1 --ntasks-per-node=25 --time=1:00:00 --mem=100G --job-name=s2734 --export=ALL,SIMNO=2734,NJOBS=4,NSIMS=100,PSP=0.15,PPI=0.55 runsim.sh
-sbatch -p ckpt -A csde-ckpt --array=1-4 --nodes=1 --ntasks-per-node=25 --time=1:00:00 --mem=100G --job-name=s2735 --export=ALL,SIMNO=2735,NJOBS=4,NSIMS=100,PSP=0.2,PPI=0.55 runsim.sh
-sbatch -p ckpt -A csde-ckpt --array=1-4 --nodes=1 --ntasks-per-node=25 --time=1:00:00 --mem=100G --job-name=s2736 --export=ALL,SIMNO=2736,NJOBS=4,NSIMS=100,PSP=0.25,PPI=0.55 runsim.sh
-sbatch -p ckpt -A csde-ckpt --array=1-4 --nodes=1 --ntasks-per-node=25 --time=1:00:00 --mem=100G --job-name=s2737 --export=ALL,SIMNO=2737,NJOBS=4,NSIMS=100,PSP=0.3,PPI=0.55 runsim.sh
-sbatch -p ckpt -A csde-ckpt --array=1-4 --nodes=1 --ntasks-per-node=25 --time=1:00:00 --mem=100G --job-name=s2738 --export=ALL,SIMNO=2738,NJOBS=4,NSIMS=100,PSP=0.35,PPI=0.55 runsim.sh
-sbatch -p ckpt -A csde-ckpt --array=1-4 --nodes=1 --ntasks-per-node=25 --time=1:00:00 --mem=100G --job-name=s2739 --export=ALL,SIMNO=2739,NJOBS=4,NSIMS=100,PSP=0.4,PPI=0.55 runsim.sh
-sbatch -p ckpt -A csde-ckpt --array=1-4 --nodes=1 --ntasks-per-node=25 --time=1:00:00 --mem=100G --job-name=s2740 --export=ALL,SIMNO=2740,NJOBS=4,NSIMS=100,PSP=0.45,PPI=0.55 runsim.sh
-sbatch -p ckpt -A csde-ckpt --array=1-4 --nodes=1 --ntasks-per-node=25 --time=1:00:00 --mem=100G --job-name=s2741 --export=ALL,SIMNO=2741,NJOBS=4,NSIMS=100,PSP=0.5,PPI=0.55 runsim.sh
-sbatch -p ckpt -A csde-ckpt --array=1-4 --nodes=1 --ntasks-per-node=25 --time=1:00:00 --mem=100G --job-name=s2742 --export=ALL,SIMNO=2742,NJOBS=4,NSIMS=100,PSP=0.55,PPI=0.55 runsim.sh
-sbatch -p ckpt -A csde-ckpt --array=1-4 --nodes=1 --ntasks-per-node=25 --time=1:00:00 --mem=100G --job-name=s2743 --export=ALL,SIMNO=2743,NJOBS=4,NSIMS=100,PSP=0.6,PPI=0.55 runsim.sh
-sbatch -p ckpt -A csde-ckpt --array=1-4 --nodes=1 --ntasks-per-node=25 --time=1:00:00 --mem=100G --job-name=s2744 --export=ALL,SIMNO=2744,NJOBS=4,NSIMS=100,PSP=0.65,PPI=0.55 runsim.sh
-sbatch -p ckpt -A csde-ckpt --array=1-4 --nodes=1 --ntasks-per-node=25 --time=1:00:00 --mem=100G --job-name=s2745 --export=ALL,SIMNO=2745,NJOBS=4,NSIMS=100,PSP=0.7,PPI=0.55 runsim.sh
-sbatch -p ckpt -A csde-ckpt --array=1-4 --nodes=1 --ntasks-per-node=25 --time=1:00:00 --mem=100G --job-name=s2746 --export=ALL,SIMNO=2746,NJOBS=4,NSIMS=100,PSP=0.75,PPI=0.55 runsim.sh
-sbatch -p ckpt -A csde-ckpt --array=1-4 --nodes=1 --ntasks-per-node=25 --time=1:00:00 --mem=100G --job-name=s2747 --export=ALL,SIMNO=2747,NJOBS=4,NSIMS=100,PSP=0.8,PPI=0.55 runsim.sh
-sbatch -p ckpt -A csde-ckpt --array=1-4 --nodes=1 --ntasks-per-node=25 --time=1:00:00 --mem=100G --job-name=s2748 --export=ALL,SIMNO=2748,NJOBS=4,NSIMS=100,PSP=0.85,PPI=0.55 runsim.sh
-sbatch -p ckpt -A csde-ckpt --array=1-4 --nodes=1 --ntasks-per-node=25 --time=1:00:00 --mem=100G --job-name=s2749 --export=ALL,SIMNO=2749,NJOBS=4,NSIMS=100,PSP=0.9,PPI=0.55 runsim.sh
-sbatch -p ckpt -A csde-ckpt --array=1-4 --nodes=1 --ntasks-per-node=25 --time=1:00:00 --mem=100G --job-name=s2750 --export=ALL,SIMNO=2750,NJOBS=4,NSIMS=100,PSP=0.95,PPI=0.55 runsim.sh
-sbatch -p ckpt -A csde-ckpt --array=1-4 --nodes=1 --ntasks-per-node=25 --time=1:00:00 --mem=100G --job-name=s2751 --export=ALL,SIMNO=2751,NJOBS=4,NSIMS=100,PSP=1,PPI=0.55 runsim.sh
-sbatch -p ckpt -A csde-ckpt --array=1-4 --nodes=1 --ntasks-per-node=25 --time=1:00:00 --mem=100G --job-name=s2752 --export=ALL,SIMNO=2752,NJOBS=4,NSIMS=100,PSP=0,PPI=0.6 runsim.sh
-sbatch -p ckpt -A csde-ckpt --array=1-4 --nodes=1 --ntasks-per-node=25 --time=1:00:00 --mem=100G --job-name=s2753 --export=ALL,SIMNO=2753,NJOBS=4,NSIMS=100,PSP=0.05,PPI=0.6 runsim.sh
-sbatch -p ckpt -A csde-ckpt --array=1-4 --nodes=1 --ntasks-per-node=25 --time=1:00:00 --mem=100G --job-name=s2754 --export=ALL,SIMNO=2754,NJOBS=4,NSIMS=100,PSP=0.1,PPI=0.6 runsim.sh
-sbatch -p ckpt -A csde-ckpt --array=1-4 --nodes=1 --ntasks-per-node=25 --time=1:00:00 --mem=100G --job-name=s2755 --export=ALL,SIMNO=2755,NJOBS=4,NSIMS=100,PSP=0.15,PPI=0.6 runsim.sh
-sbatch -p ckpt -A csde-ckpt --array=1-4 --nodes=1 --ntasks-per-node=25 --time=1:00:00 --mem=100G --job-name=s2756 --export=ALL,SIMNO=2756,NJOBS=4,NSIMS=100,PSP=0.2,PPI=0.6 runsim.sh
-sbatch -p ckpt -A csde-ckpt --array=1-4 --nodes=1 --ntasks-per-node=25 --time=1:00:00 --mem=100G --job-name=s2757 --export=ALL,SIMNO=2757,NJOBS=4,NSIMS=100,PSP=0.25,PPI=0.6 runsim.sh
-sbatch -p ckpt -A csde-ckpt --array=1-4 --nodes=1 --ntasks-per-node=25 --time=1:00:00 --mem=100G --job-name=s2758 --export=ALL,SIMNO=2758,NJOBS=4,NSIMS=100,PSP=0.3,PPI=0.6 runsim.sh
-sbatch -p ckpt -A csde-ckpt --array=1-4 --nodes=1 --ntasks-per-node=25 --time=1:00:00 --mem=100G --job-name=s2759 --export=ALL,SIMNO=2759,NJOBS=4,NSIMS=100,PSP=0.35,PPI=0.6 runsim.sh
-sbatch -p ckpt -A csde-ckpt --array=1-4 --nodes=1 --ntasks-per-node=25 --time=1:00:00 --mem=100G --job-name=s2760 --export=ALL,SIMNO=2760,NJOBS=4,NSIMS=100,PSP=0.4,PPI=0.6 runsim.sh
-sbatch -p ckpt -A csde-ckpt --array=1-4 --nodes=1 --ntasks-per-node=25 --time=1:00:00 --mem=100G --job-name=s2761 --export=ALL,SIMNO=2761,NJOBS=4,NSIMS=100,PSP=0.45,PPI=0.6 runsim.sh
-sbatch -p ckpt -A csde-ckpt --array=1-4 --nodes=1 --ntasks-per-node=25 --time=1:00:00 --mem=100G --job-name=s2762 --export=ALL,SIMNO=2762,NJOBS=4,NSIMS=100,PSP=0.5,PPI=0.6 runsim.sh
-sbatch -p ckpt -A csde-ckpt --array=1-4 --nodes=1 --ntasks-per-node=25 --time=1:00:00 --mem=100G --job-name=s2763 --export=ALL,SIMNO=2763,NJOBS=4,NSIMS=100,PSP=0.55,PPI=0.6 runsim.sh
-sbatch -p ckpt -A csde-ckpt --array=1-4 --nodes=1 --ntasks-per-node=25 --time=1:00:00 --mem=100G --job-name=s2764 --export=ALL,SIMNO=2764,NJOBS=4,NSIMS=100,PSP=0.6,PPI=0.6 runsim.sh
-sbatch -p ckpt -A csde-ckpt --array=1-4 --nodes=1 --ntasks-per-node=25 --time=1:00:00 --mem=100G --job-name=s2765 --export=ALL,SIMNO=2765,NJOBS=4,NSIMS=100,PSP=0.65,PPI=0.6 runsim.sh
-sbatch -p ckpt -A csde-ckpt --array=1-4 --nodes=1 --ntasks-per-node=25 --time=1:00:00 --mem=100G --job-name=s2766 --export=ALL,SIMNO=2766,NJOBS=4,NSIMS=100,PSP=0.7,PPI=0.6 runsim.sh
-sbatch -p ckpt -A csde-ckpt --array=1-4 --nodes=1 --ntasks-per-node=25 --time=1:00:00 --mem=100G --job-name=s2767 --export=ALL,SIMNO=2767,NJOBS=4,NSIMS=100,PSP=0.75,PPI=0.6 runsim.sh
-sbatch -p ckpt -A csde-ckpt --array=1-4 --nodes=1 --ntasks-per-node=25 --time=1:00:00 --mem=100G --job-name=s2768 --export=ALL,SIMNO=2768,NJOBS=4,NSIMS=100,PSP=0.8,PPI=0.6 runsim.sh
-sbatch -p ckpt -A csde-ckpt --array=1-4 --nodes=1 --ntasks-per-node=25 --time=1:00:00 --mem=100G --job-name=s2769 --export=ALL,SIMNO=2769,NJOBS=4,NSIMS=100,PSP=0.85,PPI=0.6 runsim.sh
-sbatch -p ckpt -A csde-ckpt --array=1-4 --nodes=1 --ntasks-per-node=25 --time=1:00:00 --mem=100G --job-name=s2770 --export=ALL,SIMNO=2770,NJOBS=4,NSIMS=100,PSP=0.9,PPI=0.6 runsim.sh
-sbatch -p ckpt -A csde-ckpt --array=1-4 --nodes=1 --ntasks-per-node=25 --time=1:00:00 --mem=100G --job-name=s2771 --export=ALL,SIMNO=2771,NJOBS=4,NSIMS=100,PSP=0.95,PPI=0.6 runsim.sh
-sbatch -p ckpt -A csde-ckpt --array=1-4 --nodes=1 --ntasks-per-node=25 --time=1:00:00 --mem=100G --job-name=s2772 --export=ALL,SIMNO=2772,NJOBS=4,NSIMS=100,PSP=1,PPI=0.6 runsim.sh
-sbatch -p ckpt -A csde-ckpt --array=1-4 --nodes=1 --ntasks-per-node=25 --time=1:00:00 --mem=100G --job-name=s2773 --export=ALL,SIMNO=2773,NJOBS=4,NSIMS=100,PSP=0,PPI=0.65 runsim.sh
-sbatch -p ckpt -A csde-ckpt --array=1-4 --nodes=1 --ntasks-per-node=25 --time=1:00:00 --mem=100G --job-name=s2774 --export=ALL,SIMNO=2774,NJOBS=4,NSIMS=100,PSP=0.05,PPI=0.65 runsim.sh
-sbatch -p ckpt -A csde-ckpt --array=1-4 --nodes=1 --ntasks-per-node=25 --time=1:00:00 --mem=100G --job-name=s2775 --export=ALL,SIMNO=2775,NJOBS=4,NSIMS=100,PSP=0.1,PPI=0.65 runsim.sh
-sbatch -p ckpt -A csde-ckpt --array=1-4 --nodes=1 --ntasks-per-node=25 --time=1:00:00 --mem=100G --job-name=s2776 --export=ALL,SIMNO=2776,NJOBS=4,NSIMS=100,PSP=0.15,PPI=0.65 runsim.sh
-sbatch -p ckpt -A csde-ckpt --array=1-4 --nodes=1 --ntasks-per-node=25 --time=1:00:00 --mem=100G --job-name=s2777 --export=ALL,SIMNO=2777,NJOBS=4,NSIMS=100,PSP=0.2,PPI=0.65 runsim.sh
-sbatch -p ckpt -A csde-ckpt --array=1-4 --nodes=1 --ntasks-per-node=25 --time=1:00:00 --mem=100G --job-name=s2778 --export=ALL,SIMNO=2778,NJOBS=4,NSIMS=100,PSP=0.25,PPI=0.65 runsim.sh
-sbatch -p ckpt -A csde-ckpt --array=1-4 --nodes=1 --ntasks-per-node=25 --time=1:00:00 --mem=100G --job-name=s2779 --export=ALL,SIMNO=2779,NJOBS=4,NSIMS=100,PSP=0.3,PPI=0.65 runsim.sh
-sbatch -p ckpt -A csde-ckpt --array=1-4 --nodes=1 --ntasks-per-node=25 --time=1:00:00 --mem=100G --job-name=s2780 --export=ALL,SIMNO=2780,NJOBS=4,NSIMS=100,PSP=0.35,PPI=0.65 runsim.sh
-sbatch -p ckpt -A csde-ckpt --array=1-4 --nodes=1 --ntasks-per-node=25 --time=1:00:00 --mem=100G --job-name=s2781 --export=ALL,SIMNO=2781,NJOBS=4,NSIMS=100,PSP=0.4,PPI=0.65 runsim.sh
-sbatch -p ckpt -A csde-ckpt --array=1-4 --nodes=1 --ntasks-per-node=25 --time=1:00:00 --mem=100G --job-name=s2782 --export=ALL,SIMNO=2782,NJOBS=4,NSIMS=100,PSP=0.45,PPI=0.65 runsim.sh
-sbatch -p ckpt -A csde-ckpt --array=1-4 --nodes=1 --ntasks-per-node=25 --time=1:00:00 --mem=100G --job-name=s2783 --export=ALL,SIMNO=2783,NJOBS=4,NSIMS=100,PSP=0.5,PPI=0.65 runsim.sh
-sbatch -p ckpt -A csde-ckpt --array=1-4 --nodes=1 --ntasks-per-node=25 --time=1:00:00 --mem=100G --job-name=s2784 --export=ALL,SIMNO=2784,NJOBS=4,NSIMS=100,PSP=0.55,PPI=0.65 runsim.sh
-sbatch -p ckpt -A csde-ckpt --array=1-4 --nodes=1 --ntasks-per-node=25 --time=1:00:00 --mem=100G --job-name=s2785 --export=ALL,SIMNO=2785,NJOBS=4,NSIMS=100,PSP=0.6,PPI=0.65 runsim.sh
-sbatch -p ckpt -A csde-ckpt --array=1-4 --nodes=1 --ntasks-per-node=25 --time=1:00:00 --mem=100G --job-name=s2786 --export=ALL,SIMNO=2786,NJOBS=4,NSIMS=100,PSP=0.65,PPI=0.65 runsim.sh
-sbatch -p ckpt -A csde-ckpt --array=1-4 --nodes=1 --ntasks-per-node=25 --time=1:00:00 --mem=100G --job-name=s2787 --export=ALL,SIMNO=2787,NJOBS=4,NSIMS=100,PSP=0.7,PPI=0.65 runsim.sh
-sbatch -p ckpt -A csde-ckpt --array=1-4 --nodes=1 --ntasks-per-node=25 --time=1:00:00 --mem=100G --job-name=s2788 --export=ALL,SIMNO=2788,NJOBS=4,NSIMS=100,PSP=0.75,PPI=0.65 runsim.sh
-sbatch -p ckpt -A csde-ckpt --array=1-4 --nodes=1 --ntasks-per-node=25 --time=1:00:00 --mem=100G --job-name=s2789 --export=ALL,SIMNO=2789,NJOBS=4,NSIMS=100,PSP=0.8,PPI=0.65 runsim.sh
-sbatch -p ckpt -A csde-ckpt --array=1-4 --nodes=1 --ntasks-per-node=25 --time=1:00:00 --mem=100G --job-name=s2790 --export=ALL,SIMNO=2790,NJOBS=4,NSIMS=100,PSP=0.85,PPI=0.65 runsim.sh
-sbatch -p ckpt -A csde-ckpt --array=1-4 --nodes=1 --ntasks-per-node=25 --time=1:00:00 --mem=100G --job-name=s2791 --export=ALL,SIMNO=2791,NJOBS=4,NSIMS=100,PSP=0.9,PPI=0.65 runsim.sh
-sbatch -p ckpt -A csde-ckpt --array=1-4 --nodes=1 --ntasks-per-node=25 --time=1:00:00 --mem=100G --job-name=s2792 --export=ALL,SIMNO=2792,NJOBS=4,NSIMS=100,PSP=0.95,PPI=0.65 runsim.sh
-sbatch -p ckpt -A csde-ckpt --array=1-4 --nodes=1 --ntasks-per-node=25 --time=1:00:00 --mem=100G --job-name=s2793 --export=ALL,SIMNO=2793,NJOBS=4,NSIMS=100,PSP=1,PPI=0.65 runsim.sh
-sbatch -p ckpt -A csde-ckpt --array=1-4 --nodes=1 --ntasks-per-node=25 --time=1:00:00 --mem=100G --job-name=s2794 --export=ALL,SIMNO=2794,NJOBS=4,NSIMS=100,PSP=0,PPI=0.7 runsim.sh
-sbatch -p ckpt -A csde-ckpt --array=1-4 --nodes=1 --ntasks-per-node=25 --time=1:00:00 --mem=100G --job-name=s2795 --export=ALL,SIMNO=2795,NJOBS=4,NSIMS=100,PSP=0.05,PPI=0.7 runsim.sh
-sbatch -p ckpt -A csde-ckpt --array=1-4 --nodes=1 --ntasks-per-node=25 --time=1:00:00 --mem=100G --job-name=s2796 --export=ALL,SIMNO=2796,NJOBS=4,NSIMS=100,PSP=0.1,PPI=0.7 runsim.sh
-sbatch -p ckpt -A csde-ckpt --array=1-4 --nodes=1 --ntasks-per-node=25 --time=1:00:00 --mem=100G --job-name=s2797 --export=ALL,SIMNO=2797,NJOBS=4,NSIMS=100,PSP=0.15,PPI=0.7 runsim.sh
-sbatch -p ckpt -A csde-ckpt --array=1-4 --nodes=1 --ntasks-per-node=25 --time=1:00:00 --mem=100G --job-name=s2798 --export=ALL,SIMNO=2798,NJOBS=4,NSIMS=100,PSP=0.2,PPI=0.7 runsim.sh
-sbatch -p ckpt -A csde-ckpt --array=1-4 --nodes=1 --ntasks-per-node=25 --time=1:00:00 --mem=100G --job-name=s2799 --export=ALL,SIMNO=2799,NJOBS=4,NSIMS=100,PSP=0.25,PPI=0.7 runsim.sh
-sbatch -p ckpt -A csde-ckpt --array=1-4 --nodes=1 --ntasks-per-node=25 --time=1:00:00 --mem=100G --job-name=s2800 --export=ALL,SIMNO=2800,NJOBS=4,NSIMS=100,PSP=0.3,PPI=0.7 runsim.sh
-sbatch -p ckpt -A csde-ckpt --array=1-4 --nodes=1 --ntasks-per-node=25 --time=1:00:00 --mem=100G --job-name=s2801 --export=ALL,SIMNO=2801,NJOBS=4,NSIMS=100,PSP=0.35,PPI=0.7 runsim.sh
-sbatch -p ckpt -A csde-ckpt --array=1-4 --nodes=1 --ntasks-per-node=25 --time=1:00:00 --mem=100G --job-name=s2802 --export=ALL,SIMNO=2802,NJOBS=4,NSIMS=100,PSP=0.4,PPI=0.7 runsim.sh
-sbatch -p ckpt -A csde-ckpt --array=1-4 --nodes=1 --ntasks-per-node=25 --time=1:00:00 --mem=100G --job-name=s2803 --export=ALL,SIMNO=2803,NJOBS=4,NSIMS=100,PSP=0.45,PPI=0.7 runsim.sh
-sbatch -p ckpt -A csde-ckpt --array=1-4 --nodes=1 --ntasks-per-node=25 --time=1:00:00 --mem=100G --job-name=s2804 --export=ALL,SIMNO=2804,NJOBS=4,NSIMS=100,PSP=0.5,PPI=0.7 runsim.sh
-sbatch -p ckpt -A csde-ckpt --array=1-4 --nodes=1 --ntasks-per-node=25 --time=1:00:00 --mem=100G --job-name=s2805 --export=ALL,SIMNO=2805,NJOBS=4,NSIMS=100,PSP=0.55,PPI=0.7 runsim.sh
-sbatch -p ckpt -A csde-ckpt --array=1-4 --nodes=1 --ntasks-per-node=25 --time=1:00:00 --mem=100G --job-name=s2806 --export=ALL,SIMNO=2806,NJOBS=4,NSIMS=100,PSP=0.6,PPI=0.7 runsim.sh
-sbatch -p ckpt -A csde-ckpt --array=1-4 --nodes=1 --ntasks-per-node=25 --time=1:00:00 --mem=100G --job-name=s2807 --export=ALL,SIMNO=2807,NJOBS=4,NSIMS=100,PSP=0.65,PPI=0.7 runsim.sh
-sbatch -p ckpt -A csde-ckpt --array=1-4 --nodes=1 --ntasks-per-node=25 --time=1:00:00 --mem=100G --job-name=s2808 --export=ALL,SIMNO=2808,NJOBS=4,NSIMS=100,PSP=0.7,PPI=0.7 runsim.sh
-sbatch -p ckpt -A csde-ckpt --array=1-4 --nodes=1 --ntasks-per-node=25 --time=1:00:00 --mem=100G --job-name=s2809 --export=ALL,SIMNO=2809,NJOBS=4,NSIMS=100,PSP=0.75,PPI=0.7 runsim.sh
-sbatch -p ckpt -A csde-ckpt --array=1-4 --nodes=1 --ntasks-per-node=25 --time=1:00:00 --mem=100G --job-name=s2810 --export=ALL,SIMNO=2810,NJOBS=4,NSIMS=100,PSP=0.8,PPI=0.7 runsim.sh
-sbatch -p ckpt -A csde-ckpt --array=1-4 --nodes=1 --ntasks-per-node=25 --time=1:00:00 --mem=100G --job-name=s2811 --export=ALL,SIMNO=2811,NJOBS=4,NSIMS=100,PSP=0.85,PPI=0.7 runsim.sh
-sbatch -p ckpt -A csde-ckpt --array=1-4 --nodes=1 --ntasks-per-node=25 --time=1:00:00 --mem=100G --job-name=s2812 --export=ALL,SIMNO=2812,NJOBS=4,NSIMS=100,PSP=0.9,PPI=0.7 runsim.sh
-sbatch -p ckpt -A csde-ckpt --array=1-4 --nodes=1 --ntasks-per-node=25 --time=1:00:00 --mem=100G --job-name=s2813 --export=ALL,SIMNO=2813,NJOBS=4,NSIMS=100,PSP=0.95,PPI=0.7 runsim.sh
-sbatch -p ckpt -A csde-ckpt --array=1-4 --nodes=1 --ntasks-per-node=25 --time=1:00:00 --mem=100G --job-name=s2814 --export=ALL,SIMNO=2814,NJOBS=4,NSIMS=100,PSP=1,PPI=0.7 runsim.sh
-sbatch -p ckpt -A csde-ckpt --array=1-4 --nodes=1 --ntasks-per-node=25 --time=1:00:00 --mem=100G --job-name=s2815 --export=ALL,SIMNO=2815,NJOBS=4,NSIMS=100,PSP=0,PPI=0.75 runsim.sh
-sbatch -p ckpt -A csde-ckpt --array=1-4 --nodes=1 --ntasks-per-node=25 --time=1:00:00 --mem=100G --job-name=s2816 --export=ALL,SIMNO=2816,NJOBS=4,NSIMS=100,PSP=0.05,PPI=0.75 runsim.sh
-sbatch -p ckpt -A csde-ckpt --array=1-4 --nodes=1 --ntasks-per-node=25 --time=1:00:00 --mem=100G --job-name=s2817 --export=ALL,SIMNO=2817,NJOBS=4,NSIMS=100,PSP=0.1,PPI=0.75 runsim.sh
-sbatch -p ckpt -A csde-ckpt --array=1-4 --nodes=1 --ntasks-per-node=25 --time=1:00:00 --mem=100G --job-name=s2818 --export=ALL,SIMNO=2818,NJOBS=4,NSIMS=100,PSP=0.15,PPI=0.75 runsim.sh
-sbatch -p ckpt -A csde-ckpt --array=1-4 --nodes=1 --ntasks-per-node=25 --time=1:00:00 --mem=100G --job-name=s2819 --export=ALL,SIMNO=2819,NJOBS=4,NSIMS=100,PSP=0.2,PPI=0.75 runsim.sh
-sbatch -p ckpt -A csde-ckpt --array=1-4 --nodes=1 --ntasks-per-node=25 --time=1:00:00 --mem=100G --job-name=s2820 --export=ALL,SIMNO=2820,NJOBS=4,NSIMS=100,PSP=0.25,PPI=0.75 runsim.sh
-sbatch -p ckpt -A csde-ckpt --array=1-4 --nodes=1 --ntasks-per-node=25 --time=1:00:00 --mem=100G --job-name=s2821 --export=ALL,SIMNO=2821,NJOBS=4,NSIMS=100,PSP=0.3,PPI=0.75 runsim.sh
-sbatch -p ckpt -A csde-ckpt --array=1-4 --nodes=1 --ntasks-per-node=25 --time=1:00:00 --mem=100G --job-name=s2822 --export=ALL,SIMNO=2822,NJOBS=4,NSIMS=100,PSP=0.35,PPI=0.75 runsim.sh
-sbatch -p ckpt -A csde-ckpt --array=1-4 --nodes=1 --ntasks-per-node=25 --time=1:00:00 --mem=100G --job-name=s2823 --export=ALL,SIMNO=2823,NJOBS=4,NSIMS=100,PSP=0.4,PPI=0.75 runsim.sh
-sbatch -p ckpt -A csde-ckpt --array=1-4 --nodes=1 --ntasks-per-node=25 --time=1:00:00 --mem=100G --job-name=s2824 --export=ALL,SIMNO=2824,NJOBS=4,NSIMS=100,PSP=0.45,PPI=0.75 runsim.sh
-sbatch -p ckpt -A csde-ckpt --array=1-4 --nodes=1 --ntasks-per-node=25 --time=1:00:00 --mem=100G --job-name=s2825 --export=ALL,SIMNO=2825,NJOBS=4,NSIMS=100,PSP=0.5,PPI=0.75 runsim.sh
-sbatch -p ckpt -A csde-ckpt --array=1-4 --nodes=1 --ntasks-per-node=25 --time=1:00:00 --mem=100G --job-name=s2826 --export=ALL,SIMNO=2826,NJOBS=4,NSIMS=100,PSP=0.55,PPI=0.75 runsim.sh
-sbatch -p ckpt -A csde-ckpt --array=1-4 --nodes=1 --ntasks-per-node=25 --time=1:00:00 --mem=100G --job-name=s2827 --export=ALL,SIMNO=2827,NJOBS=4,NSIMS=100,PSP=0.6,PPI=0.75 runsim.sh
-sbatch -p ckpt -A csde-ckpt --array=1-4 --nodes=1 --ntasks-per-node=25 --time=1:00:00 --mem=100G --job-name=s2828 --export=ALL,SIMNO=2828,NJOBS=4,NSIMS=100,PSP=0.65,PPI=0.75 runsim.sh
-sbatch -p ckpt -A csde-ckpt --array=1-4 --nodes=1 --ntasks-per-node=25 --time=1:00:00 --mem=100G --job-name=s2829 --export=ALL,SIMNO=2829,NJOBS=4,NSIMS=100,PSP=0.7,PPI=0.75 runsim.sh
-sbatch -p ckpt -A csde-ckpt --array=1-4 --nodes=1 --ntasks-per-node=25 --time=1:00:00 --mem=100G --job-name=s2830 --export=ALL,SIMNO=2830,NJOBS=4,NSIMS=100,PSP=0.75,PPI=0.75 runsim.sh
-sbatch -p ckpt -A csde-ckpt --array=1-4 --nodes=1 --ntasks-per-node=25 --time=1:00:00 --mem=100G --job-name=s2831 --export=ALL,SIMNO=2831,NJOBS=4,NSIMS=100,PSP=0.8,PPI=0.75 runsim.sh
-sbatch -p ckpt -A csde-ckpt --array=1-4 --nodes=1 --ntasks-per-node=25 --time=1:00:00 --mem=100G --job-name=s2832 --export=ALL,SIMNO=2832,NJOBS=4,NSIMS=100,PSP=0.85,PPI=0.75 runsim.sh
-sbatch -p ckpt -A csde-ckpt --array=1-4 --nodes=1 --ntasks-per-node=25 --time=1:00:00 --mem=100G --job-name=s2833 --export=ALL,SIMNO=2833,NJOBS=4,NSIMS=100,PSP=0.9,PPI=0.75 runsim.sh
-sbatch -p ckpt -A csde-ckpt --array=1-4 --nodes=1 --ntasks-per-node=25 --time=1:00:00 --mem=100G --job-name=s2834 --export=ALL,SIMNO=2834,NJOBS=4,NSIMS=100,PSP=0.95,PPI=0.75 runsim.sh
-sbatch -p ckpt -A csde-ckpt --array=1-4 --nodes=1 --ntasks-per-node=25 --time=1:00:00 --mem=100G --job-name=s2835 --export=ALL,SIMNO=2835,NJOBS=4,NSIMS=100,PSP=1,PPI=0.75 runsim.sh
-sbatch -p ckpt -A csde-ckpt --array=1-4 --nodes=1 --ntasks-per-node=25 --time=1:00:00 --mem=100G --job-name=s2836 --export=ALL,SIMNO=2836,NJOBS=4,NSIMS=100,PSP=0,PPI=0.8 runsim.sh
-sbatch -p ckpt -A csde-ckpt --array=1-4 --nodes=1 --ntasks-per-node=25 --time=1:00:00 --mem=100G --job-name=s2837 --export=ALL,SIMNO=2837,NJOBS=4,NSIMS=100,PSP=0.05,PPI=0.8 runsim.sh
-sbatch -p ckpt -A csde-ckpt --array=1-4 --nodes=1 --ntasks-per-node=25 --time=1:00:00 --mem=100G --job-name=s2838 --export=ALL,SIMNO=2838,NJOBS=4,NSIMS=100,PSP=0.1,PPI=0.8 runsim.sh
-sbatch -p ckpt -A csde-ckpt --array=1-4 --nodes=1 --ntasks-per-node=25 --time=1:00:00 --mem=100G --job-name=s2839 --export=ALL,SIMNO=2839,NJOBS=4,NSIMS=100,PSP=0.15,PPI=0.8 runsim.sh
-sbatch -p ckpt -A csde-ckpt --array=1-4 --nodes=1 --ntasks-per-node=25 --time=1:00:00 --mem=100G --job-name=s2840 --export=ALL,SIMNO=2840,NJOBS=4,NSIMS=100,PSP=0.2,PPI=0.8 runsim.sh
-sbatch -p ckpt -A csde-ckpt --array=1-4 --nodes=1 --ntasks-per-node=25 --time=1:00:00 --mem=100G --job-name=s2841 --export=ALL,SIMNO=2841,NJOBS=4,NSIMS=100,PSP=0.25,PPI=0.8 runsim.sh
-sbatch -p ckpt -A csde-ckpt --array=1-4 --nodes=1 --ntasks-per-node=25 --time=1:00:00 --mem=100G --job-name=s2842 --export=ALL,SIMNO=2842,NJOBS=4,NSIMS=100,PSP=0.3,PPI=0.8 runsim.sh
-sbatch -p ckpt -A csde-ckpt --array=1-4 --nodes=1 --ntasks-per-node=25 --time=1:00:00 --mem=100G --job-name=s2843 --export=ALL,SIMNO=2843,NJOBS=4,NSIMS=100,PSP=0.35,PPI=0.8 runsim.sh
-sbatch -p ckpt -A csde-ckpt --array=1-4 --nodes=1 --ntasks-per-node=25 --time=1:00:00 --mem=100G --job-name=s2844 --export=ALL,SIMNO=2844,NJOBS=4,NSIMS=100,PSP=0.4,PPI=0.8 runsim.sh
-sbatch -p ckpt -A csde-ckpt --array=1-4 --nodes=1 --ntasks-per-node=25 --time=1:00:00 --mem=100G --job-name=s2845 --export=ALL,SIMNO=2845,NJOBS=4,NSIMS=100,PSP=0.45,PPI=0.8 runsim.sh
-sbatch -p ckpt -A csde-ckpt --array=1-4 --nodes=1 --ntasks-per-node=25 --time=1:00:00 --mem=100G --job-name=s2846 --export=ALL,SIMNO=2846,NJOBS=4,NSIMS=100,PSP=0.5,PPI=0.8 runsim.sh
-sbatch -p ckpt -A csde-ckpt --array=1-4 --nodes=1 --ntasks-per-node=25 --time=1:00:00 --mem=100G --job-name=s2847 --export=ALL,SIMNO=2847,NJOBS=4,NSIMS=100,PSP=0.55,PPI=0.8 runsim.sh
-sbatch -p ckpt -A csde-ckpt --array=1-4 --nodes=1 --ntasks-per-node=25 --time=1:00:00 --mem=100G --job-name=s2848 --export=ALL,SIMNO=2848,NJOBS=4,NSIMS=100,PSP=0.6,PPI=0.8 runsim.sh
-sbatch -p ckpt -A csde-ckpt --array=1-4 --nodes=1 --ntasks-per-node=25 --time=1:00:00 --mem=100G --job-name=s2849 --export=ALL,SIMNO=2849,NJOBS=4,NSIMS=100,PSP=0.65,PPI=0.8 runsim.sh
-sbatch -p ckpt -A csde-ckpt --array=1-4 --nodes=1 --ntasks-per-node=25 --time=1:00:00 --mem=100G --job-name=s2850 --export=ALL,SIMNO=2850,NJOBS=4,NSIMS=100,PSP=0.7,PPI=0.8 runsim.sh
-sbatch -p ckpt -A csde-ckpt --array=1-4 --nodes=1 --ntasks-per-node=25 --time=1:00:00 --mem=100G --job-name=s2851 --export=ALL,SIMNO=2851,NJOBS=4,NSIMS=100,PSP=0.75,PPI=0.8 runsim.sh
-sbatch -p ckpt -A csde-ckpt --array=1-4 --nodes=1 --ntasks-per-node=25 --time=1:00:00 --mem=100G --job-name=s2852 --export=ALL,SIMNO=2852,NJOBS=4,NSIMS=100,PSP=0.8,PPI=0.8 runsim.sh
-sbatch -p ckpt -A csde-ckpt --array=1-4 --nodes=1 --ntasks-per-node=25 --time=1:00:00 --mem=100G --job-name=s2853 --export=ALL,SIMNO=2853,NJOBS=4,NSIMS=100,PSP=0.85,PPI=0.8 runsim.sh
-sbatch -p ckpt -A csde-ckpt --array=1-4 --nodes=1 --ntasks-per-node=25 --time=1:00:00 --mem=100G --job-name=s2854 --export=ALL,SIMNO=2854,NJOBS=4,NSIMS=100,PSP=0.9,PPI=0.8 runsim.sh
-sbatch -p ckpt -A csde-ckpt --array=1-4 --nodes=1 --ntasks-per-node=25 --time=1:00:00 --mem=100G --job-name=s2855 --export=ALL,SIMNO=2855,NJOBS=4,NSIMS=100,PSP=0.95,PPI=0.8 runsim.sh
-sbatch -p ckpt -A csde-ckpt --array=1-4 --nodes=1 --ntasks-per-node=25 --time=1:00:00 --mem=100G --job-name=s2856 --export=ALL,SIMNO=2856,NJOBS=4,NSIMS=100,PSP=1,PPI=0.8 runsim.sh
-sbatch -p ckpt -A csde-ckpt --array=1-4 --nodes=1 --ntasks-per-node=25 --time=1:00:00 --mem=100G --job-name=s2857 --export=ALL,SIMNO=2857,NJOBS=4,NSIMS=100,PSP=0,PPI=0.85 runsim.sh
-sbatch -p ckpt -A csde-ckpt --array=1-4 --nodes=1 --ntasks-per-node=25 --time=1:00:00 --mem=100G --job-name=s2858 --export=ALL,SIMNO=2858,NJOBS=4,NSIMS=100,PSP=0.05,PPI=0.85 runsim.sh
-sbatch -p ckpt -A csde-ckpt --array=1-4 --nodes=1 --ntasks-per-node=25 --time=1:00:00 --mem=100G --job-name=s2859 --export=ALL,SIMNO=2859,NJOBS=4,NSIMS=100,PSP=0.1,PPI=0.85 runsim.sh
-sbatch -p ckpt -A csde-ckpt --array=1-4 --nodes=1 --ntasks-per-node=25 --time=1:00:00 --mem=100G --job-name=s2860 --export=ALL,SIMNO=2860,NJOBS=4,NSIMS=100,PSP=0.15,PPI=0.85 runsim.sh
-sbatch -p ckpt -A csde-ckpt --array=1-4 --nodes=1 --ntasks-per-node=25 --time=1:00:00 --mem=100G --job-name=s2861 --export=ALL,SIMNO=2861,NJOBS=4,NSIMS=100,PSP=0.2,PPI=0.85 runsim.sh
-sbatch -p ckpt -A csde-ckpt --array=1-4 --nodes=1 --ntasks-per-node=25 --time=1:00:00 --mem=100G --job-name=s2862 --export=ALL,SIMNO=2862,NJOBS=4,NSIMS=100,PSP=0.25,PPI=0.85 runsim.sh
-sbatch -p ckpt -A csde-ckpt --array=1-4 --nodes=1 --ntasks-per-node=25 --time=1:00:00 --mem=100G --job-name=s2863 --export=ALL,SIMNO=2863,NJOBS=4,NSIMS=100,PSP=0.3,PPI=0.85 runsim.sh
-sbatch -p ckpt -A csde-ckpt --array=1-4 --nodes=1 --ntasks-per-node=25 --time=1:00:00 --mem=100G --job-name=s2864 --export=ALL,SIMNO=2864,NJOBS=4,NSIMS=100,PSP=0.35,PPI=0.85 runsim.sh
-sbatch -p ckpt -A csde-ckpt --array=1-4 --nodes=1 --ntasks-per-node=25 --time=1:00:00 --mem=100G --job-name=s2865 --export=ALL,SIMNO=2865,NJOBS=4,NSIMS=100,PSP=0.4,PPI=0.85 runsim.sh
-sbatch -p ckpt -A csde-ckpt --array=1-4 --nodes=1 --ntasks-per-node=25 --time=1:00:00 --mem=100G --job-name=s2866 --export=ALL,SIMNO=2866,NJOBS=4,NSIMS=100,PSP=0.45,PPI=0.85 runsim.sh
-sbatch -p ckpt -A csde-ckpt --array=1-4 --nodes=1 --ntasks-per-node=25 --time=1:00:00 --mem=100G --job-name=s2867 --export=ALL,SIMNO=2867,NJOBS=4,NSIMS=100,PSP=0.5,PPI=0.85 runsim.sh
-sbatch -p ckpt -A csde-ckpt --array=1-4 --nodes=1 --ntasks-per-node=25 --time=1:00:00 --mem=100G --job-name=s2868 --export=ALL,SIMNO=2868,NJOBS=4,NSIMS=100,PSP=0.55,PPI=0.85 runsim.sh
-sbatch -p ckpt -A csde-ckpt --array=1-4 --nodes=1 --ntasks-per-node=25 --time=1:00:00 --mem=100G --job-name=s2869 --export=ALL,SIMNO=2869,NJOBS=4,NSIMS=100,PSP=0.6,PPI=0.85 runsim.sh
-sbatch -p ckpt -A csde-ckpt --array=1-4 --nodes=1 --ntasks-per-node=25 --time=1:00:00 --mem=100G --job-name=s2870 --export=ALL,SIMNO=2870,NJOBS=4,NSIMS=100,PSP=0.65,PPI=0.85 runsim.sh
-sbatch -p ckpt -A csde-ckpt --array=1-4 --nodes=1 --ntasks-per-node=25 --time=1:00:00 --mem=100G --job-name=s2871 --export=ALL,SIMNO=2871,NJOBS=4,NSIMS=100,PSP=0.7,PPI=0.85 runsim.sh
-sbatch -p ckpt -A csde-ckpt --array=1-4 --nodes=1 --ntasks-per-node=25 --time=1:00:00 --mem=100G --job-name=s2872 --export=ALL,SIMNO=2872,NJOBS=4,NSIMS=100,PSP=0.75,PPI=0.85 runsim.sh
-sbatch -p ckpt -A csde-ckpt --array=1-4 --nodes=1 --ntasks-per-node=25 --time=1:00:00 --mem=100G --job-name=s2873 --export=ALL,SIMNO=2873,NJOBS=4,NSIMS=100,PSP=0.8,PPI=0.85 runsim.sh
-sbatch -p ckpt -A csde-ckpt --array=1-4 --nodes=1 --ntasks-per-node=25 --time=1:00:00 --mem=100G --job-name=s2874 --export=ALL,SIMNO=2874,NJOBS=4,NSIMS=100,PSP=0.85,PPI=0.85 runsim.sh
-sbatch -p ckpt -A csde-ckpt --array=1-4 --nodes=1 --ntasks-per-node=25 --time=1:00:00 --mem=100G --job-name=s2875 --export=ALL,SIMNO=2875,NJOBS=4,NSIMS=100,PSP=0.9,PPI=0.85 runsim.sh
-sbatch -p ckpt -A csde-ckpt --array=1-4 --nodes=1 --ntasks-per-node=25 --time=1:00:00 --mem=100G --job-name=s2876 --export=ALL,SIMNO=2876,NJOBS=4,NSIMS=100,PSP=0.95,PPI=0.85 runsim.sh
-sbatch -p ckpt -A csde-ckpt --array=1-4 --nodes=1 --ntasks-per-node=25 --time=1:00:00 --mem=100G --job-name=s2877 --export=ALL,SIMNO=2877,NJOBS=4,NSIMS=100,PSP=1,PPI=0.85 runsim.sh
-sbatch -p ckpt -A csde-ckpt --array=1-4 --nodes=1 --ntasks-per-node=25 --time=1:00:00 --mem=100G --job-name=s2878 --export=ALL,SIMNO=2878,NJOBS=4,NSIMS=100,PSP=0,PPI=0.9 runsim.sh
-sbatch -p ckpt -A csde-ckpt --array=1-4 --nodes=1 --ntasks-per-node=25 --time=1:00:00 --mem=100G --job-name=s2879 --export=ALL,SIMNO=2879,NJOBS=4,NSIMS=100,PSP=0.05,PPI=0.9 runsim.sh
-sbatch -p ckpt -A csde-ckpt --array=1-4 --nodes=1 --ntasks-per-node=25 --time=1:00:00 --mem=100G --job-name=s2880 --export=ALL,SIMNO=2880,NJOBS=4,NSIMS=100,PSP=0.1,PPI=0.9 runsim.sh
-sbatch -p ckpt -A csde-ckpt --array=1-4 --nodes=1 --ntasks-per-node=25 --time=1:00:00 --mem=100G --job-name=s2881 --export=ALL,SIMNO=2881,NJOBS=4,NSIMS=100,PSP=0.15,PPI=0.9 runsim.sh
-sbatch -p ckpt -A csde-ckpt --array=1-4 --nodes=1 --ntasks-per-node=25 --time=1:00:00 --mem=100G --job-name=s2882 --export=ALL,SIMNO=2882,NJOBS=4,NSIMS=100,PSP=0.2,PPI=0.9 runsim.sh
-sbatch -p ckpt -A csde-ckpt --array=1-4 --nodes=1 --ntasks-per-node=25 --time=1:00:00 --mem=100G --job-name=s2883 --export=ALL,SIMNO=2883,NJOBS=4,NSIMS=100,PSP=0.25,PPI=0.9 runsim.sh
-sbatch -p ckpt -A csde-ckpt --array=1-4 --nodes=1 --ntasks-per-node=25 --time=1:00:00 --mem=100G --job-name=s2884 --export=ALL,SIMNO=2884,NJOBS=4,NSIMS=100,PSP=0.3,PPI=0.9 runsim.sh
-sbatch -p ckpt -A csde-ckpt --array=1-4 --nodes=1 --ntasks-per-node=25 --time=1:00:00 --mem=100G --job-name=s2885 --export=ALL,SIMNO=2885,NJOBS=4,NSIMS=100,PSP=0.35,PPI=0.9 runsim.sh
-sbatch -p ckpt -A csde-ckpt --array=1-4 --nodes=1 --ntasks-per-node=25 --time=1:00:00 --mem=100G --job-name=s2886 --export=ALL,SIMNO=2886,NJOBS=4,NSIMS=100,PSP=0.4,PPI=0.9 runsim.sh
-sbatch -p ckpt -A csde-ckpt --array=1-4 --nodes=1 --ntasks-per-node=25 --time=1:00:00 --mem=100G --job-name=s2887 --export=ALL,SIMNO=2887,NJOBS=4,NSIMS=100,PSP=0.45,PPI=0.9 runsim.sh
-sbatch -p ckpt -A csde-ckpt --array=1-4 --nodes=1 --ntasks-per-node=25 --time=1:00:00 --mem=100G --job-name=s2888 --export=ALL,SIMNO=2888,NJOBS=4,NSIMS=100,PSP=0.5,PPI=0.9 runsim.sh
-sbatch -p ckpt -A csde-ckpt --array=1-4 --nodes=1 --ntasks-per-node=25 --time=1:00:00 --mem=100G --job-name=s2889 --export=ALL,SIMNO=2889,NJOBS=4,NSIMS=100,PSP=0.55,PPI=0.9 runsim.sh
-sbatch -p ckpt -A csde-ckpt --array=1-4 --nodes=1 --ntasks-per-node=25 --time=1:00:00 --mem=100G --job-name=s2890 --export=ALL,SIMNO=2890,NJOBS=4,NSIMS=100,PSP=0.6,PPI=0.9 runsim.sh
-sbatch -p ckpt -A csde-ckpt --array=1-4 --nodes=1 --ntasks-per-node=25 --time=1:00:00 --mem=100G --job-name=s2891 --export=ALL,SIMNO=2891,NJOBS=4,NSIMS=100,PSP=0.65,PPI=0.9 runsim.sh
-sbatch -p ckpt -A csde-ckpt --array=1-4 --nodes=1 --ntasks-per-node=25 --time=1:00:00 --mem=100G --job-name=s2892 --export=ALL,SIMNO=2892,NJOBS=4,NSIMS=100,PSP=0.7,PPI=0.9 runsim.sh
-sbatch -p ckpt -A csde-ckpt --array=1-4 --nodes=1 --ntasks-per-node=25 --time=1:00:00 --mem=100G --job-name=s2893 --export=ALL,SIMNO=2893,NJOBS=4,NSIMS=100,PSP=0.75,PPI=0.9 runsim.sh
-sbatch -p ckpt -A csde-ckpt --array=1-4 --nodes=1 --ntasks-per-node=25 --time=1:00:00 --mem=100G --job-name=s2894 --export=ALL,SIMNO=2894,NJOBS=4,NSIMS=100,PSP=0.8,PPI=0.9 runsim.sh
-sbatch -p ckpt -A csde-ckpt --array=1-4 --nodes=1 --ntasks-per-node=25 --time=1:00:00 --mem=100G --job-name=s2895 --export=ALL,SIMNO=2895,NJOBS=4,NSIMS=100,PSP=0.85,PPI=0.9 runsim.sh
-sbatch -p ckpt -A csde-ckpt --array=1-4 --nodes=1 --ntasks-per-node=25 --time=1:00:00 --mem=100G --job-name=s2896 --export=ALL,SIMNO=2896,NJOBS=4,NSIMS=100,PSP=0.9,PPI=0.9 runsim.sh
-sbatch -p ckpt -A csde-ckpt --array=1-4 --nodes=1 --ntasks-per-node=25 --time=1:00:00 --mem=100G --job-name=s2897 --export=ALL,SIMNO=2897,NJOBS=4,NSIMS=100,PSP=0.95,PPI=0.9 runsim.sh
-sbatch -p ckpt -A csde-ckpt --array=1-4 --nodes=1 --ntasks-per-node=25 --time=1:00:00 --mem=100G --job-name=s2898 --export=ALL,SIMNO=2898,NJOBS=4,NSIMS=100,PSP=1,PPI=0.9 runsim.sh
-sbatch -p ckpt -A csde-ckpt --array=1-4 --nodes=1 --ntasks-per-node=25 --time=1:00:00 --mem=100G --job-name=s2899 --export=ALL,SIMNO=2899,NJOBS=4,NSIMS=100,PSP=0,PPI=0.95 runsim.sh
-sbatch -p ckpt -A csde-ckpt --array=1-4 --nodes=1 --ntasks-per-node=25 --time=1:00:00 --mem=100G --job-name=s2900 --export=ALL,SIMNO=2900,NJOBS=4,NSIMS=100,PSP=0.05,PPI=0.95 runsim.sh
-sbatch -p ckpt -A csde-ckpt --array=1-4 --nodes=1 --ntasks-per-node=25 --time=1:00:00 --mem=100G --job-name=s2901 --export=ALL,SIMNO=2901,NJOBS=4,NSIMS=100,PSP=0.1,PPI=0.95 runsim.sh
-sbatch -p ckpt -A csde-ckpt --array=1-4 --nodes=1 --ntasks-per-node=25 --time=1:00:00 --mem=100G --job-name=s2902 --export=ALL,SIMNO=2902,NJOBS=4,NSIMS=100,PSP=0.15,PPI=0.95 runsim.sh
-sbatch -p ckpt -A csde-ckpt --array=1-4 --nodes=1 --ntasks-per-node=25 --time=1:00:00 --mem=100G --job-name=s2903 --export=ALL,SIMNO=2903,NJOBS=4,NSIMS=100,PSP=0.2,PPI=0.95 runsim.sh
-sbatch -p ckpt -A csde-ckpt --array=1-4 --nodes=1 --ntasks-per-node=25 --time=1:00:00 --mem=100G --job-name=s2904 --export=ALL,SIMNO=2904,NJOBS=4,NSIMS=100,PSP=0.25,PPI=0.95 runsim.sh
-sbatch -p ckpt -A csde-ckpt --array=1-4 --nodes=1 --ntasks-per-node=25 --time=1:00:00 --mem=100G --job-name=s2905 --export=ALL,SIMNO=2905,NJOBS=4,NSIMS=100,PSP=0.3,PPI=0.95 runsim.sh
-sbatch -p ckpt -A csde-ckpt --array=1-4 --nodes=1 --ntasks-per-node=25 --time=1:00:00 --mem=100G --job-name=s2906 --export=ALL,SIMNO=2906,NJOBS=4,NSIMS=100,PSP=0.35,PPI=0.95 runsim.sh
-sbatch -p ckpt -A csde-ckpt --array=1-4 --nodes=1 --ntasks-per-node=25 --time=1:00:00 --mem=100G --job-name=s2907 --export=ALL,SIMNO=2907,NJOBS=4,NSIMS=100,PSP=0.4,PPI=0.95 runsim.sh
-sbatch -p ckpt -A csde-ckpt --array=1-4 --nodes=1 --ntasks-per-node=25 --time=1:00:00 --mem=100G --job-name=s2908 --export=ALL,SIMNO=2908,NJOBS=4,NSIMS=100,PSP=0.45,PPI=0.95 runsim.sh
-sbatch -p ckpt -A csde-ckpt --array=1-4 --nodes=1 --ntasks-per-node=25 --time=1:00:00 --mem=100G --job-name=s2909 --export=ALL,SIMNO=2909,NJOBS=4,NSIMS=100,PSP=0.5,PPI=0.95 runsim.sh
-sbatch -p ckpt -A csde-ckpt --array=1-4 --nodes=1 --ntasks-per-node=25 --time=1:00:00 --mem=100G --job-name=s2910 --export=ALL,SIMNO=2910,NJOBS=4,NSIMS=100,PSP=0.55,PPI=0.95 runsim.sh
-sbatch -p ckpt -A csde-ckpt --array=1-4 --nodes=1 --ntasks-per-node=25 --time=1:00:00 --mem=100G --job-name=s2911 --export=ALL,SIMNO=2911,NJOBS=4,NSIMS=100,PSP=0.6,PPI=0.95 runsim.sh
-sbatch -p ckpt -A csde-ckpt --array=1-4 --nodes=1 --ntasks-per-node=25 --time=1:00:00 --mem=100G --job-name=s2912 --export=ALL,SIMNO=2912,NJOBS=4,NSIMS=100,PSP=0.65,PPI=0.95 runsim.sh
-sbatch -p ckpt -A csde-ckpt --array=1-4 --nodes=1 --ntasks-per-node=25 --time=1:00:00 --mem=100G --job-name=s2913 --export=ALL,SIMNO=2913,NJOBS=4,NSIMS=100,PSP=0.7,PPI=0.95 runsim.sh
-sbatch -p ckpt -A csde-ckpt --array=1-4 --nodes=1 --ntasks-per-node=25 --time=1:00:00 --mem=100G --job-name=s2914 --export=ALL,SIMNO=2914,NJOBS=4,NSIMS=100,PSP=0.75,PPI=0.95 runsim.sh
-sbatch -p ckpt -A csde-ckpt --array=1-4 --nodes=1 --ntasks-per-node=25 --time=1:00:00 --mem=100G --job-name=s2915 --export=ALL,SIMNO=2915,NJOBS=4,NSIMS=100,PSP=0.8,PPI=0.95 runsim.sh
-sbatch -p ckpt -A csde-ckpt --array=1-4 --nodes=1 --ntasks-per-node=25 --time=1:00:00 --mem=100G --job-name=s2916 --export=ALL,SIMNO=2916,NJOBS=4,NSIMS=100,PSP=0.85,PPI=0.95 runsim.sh
-sbatch -p ckpt -A csde-ckpt --array=1-4 --nodes=1 --ntasks-per-node=25 --time=1:00:00 --mem=100G --job-name=s2917 --export=ALL,SIMNO=2917,NJOBS=4,NSIMS=100,PSP=0.9,PPI=0.95 runsim.sh
-sbatch -p ckpt -A csde-ckpt --array=1-4 --nodes=1 --ntasks-per-node=25 --time=1:00:00 --mem=100G --job-name=s2918 --export=ALL,SIMNO=2918,NJOBS=4,NSIMS=100,PSP=0.95,PPI=0.95 runsim.sh
-sbatch -p ckpt -A csde-ckpt --array=1-4 --nodes=1 --ntasks-per-node=25 --time=1:00:00 --mem=100G --job-name=s2919 --export=ALL,SIMNO=2919,NJOBS=4,NSIMS=100,PSP=1,PPI=0.95 runsim.sh
-sbatch -p ckpt -A csde-ckpt --array=1-4 --nodes=1 --ntasks-per-node=25 --time=1:00:00 --mem=100G --job-name=s2920 --export=ALL,SIMNO=2920,NJOBS=4,NSIMS=100,PSP=0,PPI=1 runsim.sh
-sbatch -p ckpt -A csde-ckpt --array=1-4 --nodes=1 --ntasks-per-node=25 --time=1:00:00 --mem=100G --job-name=s2921 --export=ALL,SIMNO=2921,NJOBS=4,NSIMS=100,PSP=0.05,PPI=1 runsim.sh
-sbatch -p ckpt -A csde-ckpt --array=1-4 --nodes=1 --ntasks-per-node=25 --time=1:00:00 --mem=100G --job-name=s2922 --export=ALL,SIMNO=2922,NJOBS=4,NSIMS=100,PSP=0.1,PPI=1 runsim.sh
-sbatch -p ckpt -A csde-ckpt --array=1-4 --nodes=1 --ntasks-per-node=25 --time=1:00:00 --mem=100G --job-name=s2923 --export=ALL,SIMNO=2923,NJOBS=4,NSIMS=100,PSP=0.15,PPI=1 runsim.sh
-sbatch -p ckpt -A csde-ckpt --array=1-4 --nodes=1 --ntasks-per-node=25 --time=1:00:00 --mem=100G --job-name=s2924 --export=ALL,SIMNO=2924,NJOBS=4,NSIMS=100,PSP=0.2,PPI=1 runsim.sh
-sbatch -p ckpt -A csde-ckpt --array=1-4 --nodes=1 --ntasks-per-node=25 --time=1:00:00 --mem=100G --job-name=s2925 --export=ALL,SIMNO=2925,NJOBS=4,NSIMS=100,PSP=0.25,PPI=1 runsim.sh
-sbatch -p ckpt -A csde-ckpt --array=1-4 --nodes=1 --ntasks-per-node=25 --time=1:00:00 --mem=100G --job-name=s2926 --export=ALL,SIMNO=2926,NJOBS=4,NSIMS=100,PSP=0.3,PPI=1 runsim.sh
-sbatch -p ckpt -A csde-ckpt --array=1-4 --nodes=1 --ntasks-per-node=25 --time=1:00:00 --mem=100G --job-name=s2927 --export=ALL,SIMNO=2927,NJOBS=4,NSIMS=100,PSP=0.35,PPI=1 runsim.sh
-sbatch -p ckpt -A csde-ckpt --array=1-4 --nodes=1 --ntasks-per-node=25 --time=1:00:00 --mem=100G --job-name=s2928 --export=ALL,SIMNO=2928,NJOBS=4,NSIMS=100,PSP=0.4,PPI=1 runsim.sh
-sbatch -p ckpt -A csde-ckpt --array=1-4 --nodes=1 --ntasks-per-node=25 --time=1:00:00 --mem=100G --job-name=s2929 --export=ALL,SIMNO=2929,NJOBS=4,NSIMS=100,PSP=0.45,PPI=1 runsim.sh
-sbatch -p ckpt -A csde-ckpt --array=1-4 --nodes=1 --ntasks-per-node=25 --time=1:00:00 --mem=100G --job-name=s2930 --export=ALL,SIMNO=2930,NJOBS=4,NSIMS=100,PSP=0.5,PPI=1 runsim.sh
-sbatch -p ckpt -A csde-ckpt --array=1-4 --nodes=1 --ntasks-per-node=25 --time=1:00:00 --mem=100G --job-name=s2931 --export=ALL,SIMNO=2931,NJOBS=4,NSIMS=100,PSP=0.55,PPI=1 runsim.sh
-sbatch -p ckpt -A csde-ckpt --array=1-4 --nodes=1 --ntasks-per-node=25 --time=1:00:00 --mem=100G --job-name=s2932 --export=ALL,SIMNO=2932,NJOBS=4,NSIMS=100,PSP=0.6,PPI=1 runsim.sh
-sbatch -p ckpt -A csde-ckpt --array=1-4 --nodes=1 --ntasks-per-node=25 --time=1:00:00 --mem=100G --job-name=s2933 --export=ALL,SIMNO=2933,NJOBS=4,NSIMS=100,PSP=0.65,PPI=1 runsim.sh
-sbatch -p ckpt -A csde-ckpt --array=1-4 --nodes=1 --ntasks-per-node=25 --time=1:00:00 --mem=100G --job-name=s2934 --export=ALL,SIMNO=2934,NJOBS=4,NSIMS=100,PSP=0.7,PPI=1 runsim.sh
-sbatch -p ckpt -A csde-ckpt --array=1-4 --nodes=1 --ntasks-per-node=25 --time=1:00:00 --mem=100G --job-name=s2935 --export=ALL,SIMNO=2935,NJOBS=4,NSIMS=100,PSP=0.75,PPI=1 runsim.sh
-sbatch -p ckpt -A csde-ckpt --array=1-4 --nodes=1 --ntasks-per-node=25 --time=1:00:00 --mem=100G --job-name=s2936 --export=ALL,SIMNO=2936,NJOBS=4,NSIMS=100,PSP=0.8,PPI=1 runsim.sh
-sbatch -p ckpt -A csde-ckpt --array=1-4 --nodes=1 --ntasks-per-node=25 --time=1:00:00 --mem=100G --job-name=s2937 --export=ALL,SIMNO=2937,NJOBS=4,NSIMS=100,PSP=0.85,PPI=1 runsim.sh
-sbatch -p ckpt -A csde-ckpt --array=1-4 --nodes=1 --ntasks-per-node=25 --time=1:00:00 --mem=100G --job-name=s2938 --export=ALL,SIMNO=2938,NJOBS=4,NSIMS=100,PSP=0.9,PPI=1 runsim.sh
-sbatch -p ckpt -A csde-ckpt --array=1-4 --nodes=1 --ntasks-per-node=25 --time=1:00:00 --mem=100G --job-name=s2939 --export=ALL,SIMNO=2939,NJOBS=4,NSIMS=100,PSP=0.95,PPI=1 runsim.sh
-sbatch -p ckpt -A csde-ckpt --array=1-4 --nodes=1 --ntasks-per-node=25 --time=1:00:00 --mem=100G --job-name=s2940 --export=ALL,SIMNO=2940,NJOBS=4,NSIMS=100,PSP=1,PPI=1 runsim.sh
+sbatch -p ckpt -A csde-ckpt --array=1-9 --nodes=1 --ntasks-per-node=28 --time=1:00:00 --mem=100G --job-name=s5000 --export=ALL,SIMNO=5000,NJOBS=9,NSIMS=250,PSP=0.104,PPI=0.5,PICPT=3.59,PHALF=35,RELHR=0.666666666666667,LOWP=0.215,DCREL=1 runsim.sh
+sbatch -p ckpt -A csde-ckpt --array=1-9 --nodes=1 --ntasks-per-node=28 --time=1:00:00 --mem=100G --job-name=s5001 --export=ALL,SIMNO=5001,NJOBS=9,NSIMS=250,PSP=0.104,PPI=0.5,PICPT=3.59,PHALF=35,RELHR=0.8,LOWP=0.215,DCREL=1 runsim.sh
+sbatch -p ckpt -A csde-ckpt --array=1-9 --nodes=1 --ntasks-per-node=28 --time=1:00:00 --mem=100G --job-name=s5002 --export=ALL,SIMNO=5002,NJOBS=9,NSIMS=250,PSP=0.104,PPI=0.5,PICPT=3.59,PHALF=35,RELHR=0.909090909090909,LOWP=0.215,DCREL=1 runsim.sh
+sbatch -p ckpt -A csde-ckpt --array=1-9 --nodes=1 --ntasks-per-node=28 --time=1:00:00 --mem=100G --job-name=s5003 --export=ALL,SIMNO=5003,NJOBS=9,NSIMS=250,PSP=0.104,PPI=0.5,PICPT=3.59,PHALF=35,RELHR=0.952380952380952,LOWP=0.215,DCREL=1 runsim.sh
+sbatch -p ckpt -A csde-ckpt --array=1-9 --nodes=1 --ntasks-per-node=28 --time=1:00:00 --mem=100G --job-name=s5004 --export=ALL,SIMNO=5004,NJOBS=9,NSIMS=250,PSP=0.104,PPI=0.5,PICPT=3.59,PHALF=35,RELHR=1.05,LOWP=0.215,DCREL=1 runsim.sh
+sbatch -p ckpt -A csde-ckpt --array=1-9 --nodes=1 --ntasks-per-node=28 --time=1:00:00 --mem=100G --job-name=s5005 --export=ALL,SIMNO=5005,NJOBS=9,NSIMS=250,PSP=0.104,PPI=0.5,PICPT=3.59,PHALF=35,RELHR=1.1,LOWP=0.215,DCREL=1 runsim.sh
+sbatch -p ckpt -A csde-ckpt --array=1-9 --nodes=1 --ntasks-per-node=28 --time=1:00:00 --mem=100G --job-name=s5006 --export=ALL,SIMNO=5006,NJOBS=9,NSIMS=250,PSP=0.104,PPI=0.5,PICPT=3.59,PHALF=35,RELHR=1.25,LOWP=0.215,DCREL=1 runsim.sh
+sbatch -p ckpt -A csde-ckpt --array=1-9 --nodes=1 --ntasks-per-node=28 --time=1:00:00 --mem=100G --job-name=s5007 --export=ALL,SIMNO=5007,NJOBS=9,NSIMS=250,PSP=0.104,PPI=0.5,PICPT=3.59,PHALF=35,RELHR=1.5,LOWP=0.215,DCREL=1 runsim.sh
+
+sbatch -p ckpt -A csde-ckpt --array=1-9 --nodes=1 --ntasks-per-node=28 --time=1:00:00 --mem=100G --job-name=s6000 --export=ALL,SIMNO=6000,NJOBS=9,NSIMS=250,PSP=0.104,PPI=0.5,PICPT=3.59,PHALF=35,RELHR=1,LOWP=0,DCREL=1.5 runsim.sh
+sbatch -p ckpt -A csde-ckpt --array=1-9 --nodes=1 --ntasks-per-node=28 --time=1:00:00 --mem=100G --job-name=s6001 --export=ALL,SIMNO=6001,NJOBS=9,NSIMS=250,PSP=0.104,PPI=0.5,PICPT=3.59,PHALF=35,RELHR=1,LOWP=0.25,DCREL=1.5 runsim.sh
+sbatch -p ckpt -A csde-ckpt --array=1-9 --nodes=1 --ntasks-per-node=28 --time=1:00:00 --mem=100G --job-name=s6002 --export=ALL,SIMNO=6002,NJOBS=9,NSIMS=250,PSP=0.104,PPI=0.5,PICPT=3.59,PHALF=35,RELHR=1,LOWP=0.5,DCREL=1.5 runsim.sh
+sbatch -p ckpt -A csde-ckpt --array=1-9 --nodes=1 --ntasks-per-node=28 --time=1:00:00 --mem=100G --job-name=s6003 --export=ALL,SIMNO=6003,NJOBS=9,NSIMS=250,PSP=0.104,PPI=0.5,PICPT=3.59,PHALF=35,RELHR=1,LOWP=0.75,DCREL=1.5 runsim.sh
+sbatch -p ckpt -A csde-ckpt --array=1-9 --nodes=1 --ntasks-per-node=28 --time=1:00:00 --mem=100G --job-name=s6004 --export=ALL,SIMNO=6004,NJOBS=9,NSIMS=250,PSP=0.104,PPI=0.5,PICPT=3.59,PHALF=35,RELHR=1,LOWP=100,DCREL=1.5 runsim.sh
+sbatch -p ckpt -A csde-ckpt --array=1-9 --nodes=1 --ntasks-per-node=28 --time=1:00:00 --mem=100G --job-name=s6005 --export=ALL,SIMNO=6005,NJOBS=9,NSIMS=250,PSP=0.104,PPI=0.5,PICPT=3.59,PHALF=35,RELHR=1,LOWP=0,DCREL=2 runsim.sh
+sbatch -p ckpt -A csde-ckpt --array=1-9 --nodes=1 --ntasks-per-node=28 --time=1:00:00 --mem=100G --job-name=s6006 --export=ALL,SIMNO=6006,NJOBS=9,NSIMS=250,PSP=0.104,PPI=0.5,PICPT=3.59,PHALF=35,RELHR=1,LOWP=0.25,DCREL=2 runsim.sh
+sbatch -p ckpt -A csde-ckpt --array=1-9 --nodes=1 --ntasks-per-node=28 --time=1:00:00 --mem=100G --job-name=s6007 --export=ALL,SIMNO=6007,NJOBS=9,NSIMS=250,PSP=0.104,PPI=0.5,PICPT=3.59,PHALF=35,RELHR=1,LOWP=0.5,DCREL=2 runsim.sh
+sbatch -p ckpt -A csde-ckpt --array=1-9 --nodes=1 --ntasks-per-node=28 --time=1:00:00 --mem=100G --job-name=s6008 --export=ALL,SIMNO=6008,NJOBS=9,NSIMS=250,PSP=0.104,PPI=0.5,PICPT=3.59,PHALF=35,RELHR=1,LOWP=0.75,DCREL=2 runsim.sh
+sbatch -p ckpt -A csde-ckpt --array=1-9 --nodes=1 --ntasks-per-node=28 --time=1:00:00 --mem=100G --job-name=s6009 --export=ALL,SIMNO=6009,NJOBS=9,NSIMS=250,PSP=0.104,PPI=0.5,PICPT=3.59,PHALF=35,RELHR=1,LOWP=100,DCREL=2 runsim.sh
+sbatch -p ckpt -A csde-ckpt --array=1-9 --nodes=1 --ntasks-per-node=28 --time=1:00:00 --mem=100G --job-name=s6010 --export=ALL,SIMNO=6010,NJOBS=9,NSIMS=250,PSP=0.104,PPI=0.5,PICPT=3.59,PHALF=35,RELHR=1,LOWP=0,DCREL=2.5 runsim.sh
+sbatch -p ckpt -A csde-ckpt --array=1-9 --nodes=1 --ntasks-per-node=28 --time=1:00:00 --mem=100G --job-name=s6011 --export=ALL,SIMNO=6011,NJOBS=9,NSIMS=250,PSP=0.104,PPI=0.5,PICPT=3.59,PHALF=35,RELHR=1,LOWP=0.25,DCREL=2.5 runsim.sh
+sbatch -p ckpt -A csde-ckpt --array=1-9 --nodes=1 --ntasks-per-node=28 --time=1:00:00 --mem=100G --job-name=s6012 --export=ALL,SIMNO=6012,NJOBS=9,NSIMS=250,PSP=0.104,PPI=0.5,PICPT=3.59,PHALF=35,RELHR=1,LOWP=0.5,DCREL=2.5 runsim.sh
+sbatch -p ckpt -A csde-ckpt --array=1-9 --nodes=1 --ntasks-per-node=28 --time=1:00:00 --mem=100G --job-name=s6013 --export=ALL,SIMNO=6013,NJOBS=9,NSIMS=250,PSP=0.104,PPI=0.5,PICPT=3.59,PHALF=35,RELHR=1,LOWP=0.75,DCREL=2.5 runsim.sh
+sbatch -p ckpt -A csde-ckpt --array=1-9 --nodes=1 --ntasks-per-node=28 --time=1:00:00 --mem=100G --job-name=s6014 --export=ALL,SIMNO=6014,NJOBS=9,NSIMS=250,PSP=0.104,PPI=0.5,PICPT=3.59,PHALF=35,RELHR=1,LOWP=100,DCREL=2.5 runsim.sh
+sbatch -p ckpt -A csde-ckpt --array=1-9 --nodes=1 --ntasks-per-node=28 --time=1:00:00 --mem=100G --job-name=s6015 --export=ALL,SIMNO=6015,NJOBS=9,NSIMS=250,PSP=0.104,PPI=0.5,PICPT=3.59,PHALF=35,RELHR=1,LOWP=0,DCREL=3 runsim.sh
+sbatch -p ckpt -A csde-ckpt --array=1-9 --nodes=1 --ntasks-per-node=28 --time=1:00:00 --mem=100G --job-name=s6016 --export=ALL,SIMNO=6016,NJOBS=9,NSIMS=250,PSP=0.104,PPI=0.5,PICPT=3.59,PHALF=35,RELHR=1,LOWP=0.25,DCREL=3 runsim.sh
+sbatch -p ckpt -A csde-ckpt --array=1-9 --nodes=1 --ntasks-per-node=28 --time=1:00:00 --mem=100G --job-name=s6017 --export=ALL,SIMNO=6017,NJOBS=9,NSIMS=250,PSP=0.104,PPI=0.5,PICPT=3.59,PHALF=35,RELHR=1,LOWP=0.5,DCREL=3 runsim.sh
+sbatch -p ckpt -A csde-ckpt --array=1-9 --nodes=1 --ntasks-per-node=28 --time=1:00:00 --mem=100G --job-name=s6018 --export=ALL,SIMNO=6018,NJOBS=9,NSIMS=250,PSP=0.104,PPI=0.5,PICPT=3.59,PHALF=35,RELHR=1,LOWP=0.75,DCREL=3 runsim.sh
+sbatch -p ckpt -A csde-ckpt --array=1-9 --nodes=1 --ntasks-per-node=28 --time=1:00:00 --mem=100G --job-name=s6019 --export=ALL,SIMNO=6019,NJOBS=9,NSIMS=250,PSP=0.104,PPI=0.5,PICPT=3.59,PHALF=35,RELHR=1,LOWP=100,DCREL=3 runsim.sh

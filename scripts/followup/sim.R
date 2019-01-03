@@ -4,11 +4,8 @@ library("methods")
 suppressMessages(library("EpiModelHIV"))
 
 ## Environmental Arguments
-pull_env_vars(num.vars = c("PSP", "PPI"))
-
-cat(fsimno)
-cat(PSP)
-cat(PPI)
+pull_env_vars(num.vars = c("PSP", "PPI", "PICPT", "PHALF",
+                           "RELHR", "LOWP", "DCREL"))
 
 ## Parameters
 load("est/nwstats.rda")
@@ -19,23 +16,23 @@ param <- param_msm(nwstats = st,
                    prep.start = 2601,
                    prep.la.start = 2861,
 
-                   prep.start.prob = PSP,
-                   prep.prob.oral = 1 - PPI,
+                   prep.start.prob = PSP, # 0.104
+                   prep.prob.oral = 1 - PPI, # 0.5
 
                    prep.adhr.dist = c(0.089, 0.127, 0.785),
                    prep.adhr.hr = c(0.69, 0.19, 0.02),
 
-                   prep.discont.rate = 1 - (2^(-1/224.4237)),
-                   prepla.discont.rate = 1 - (2^(-1/224.4237)),
+                   prep.discont.rate = 1 - (2^(-1/(224.4237))),
+                   prepla.discont.rate = 1 - (2^(-1/(224.4237*DCREL))), # 1
 
                    prep.inj.int = 8 * 7,
 
-                   prep.adhr.dist.la = c(0.215, 0.785),
-                   prepla.dlevel.icpt = 3.59,
+                   prep.adhr.dist.la = c(LOWP, 1-LOWP), # c(0.215, 0.785)
+                   prepla.dlevel.icpt = PICPT, # 3.59
                    prepla.dlevel.icpt.err = 2,
-                   prepla.dlevel.halflife.int = 35,
+                   prepla.dlevel.halflife.int = PHALF, # 35
                    prep.la.hr.beta = -9.0599,
-                   prep.la.hr.rel = 1,
+                   prep.la.hr.rel = RELHR, #1
 
                    prep.tst.int = 90,
                    prep.risk.int = 182,

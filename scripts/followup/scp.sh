@@ -11,5 +11,4 @@ scp hyak:/gscratch/csde/sjenness/lap/data/sim.n*.rda data/
 # scp est/*.rda mox:/gscratch/csde/sjenness/lap/est
 scp scripts/followup/*.[Rs]* mox:/gscratch/csde/sjenness/lap
 
-zip f1.zip *.rda
-scp mox:/gscratch/csde/sjenness/lap/data/f1.zip data/
+scp mox:/gscratch/csde/sjenness/lap/data/*.zip data/
