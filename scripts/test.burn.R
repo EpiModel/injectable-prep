@@ -11,29 +11,36 @@ load(file.path(scr.dir, "est/fit.rda"))
 
 param <- param_msm(nwstats = st,
                    race.method = 1,
-                   riskh.start = 1,
-                   prep.start = 26,
-                   prep.la.start = 26,
-                   prep.replace.mod = "curr.oral",
-                   prep.class.hr = c(0.69, 0.19, 0.02),
-                   prep.coverage = 0.2,
-                   prep.coverage.la = 0.1,
+                   riskh.start = 2500,
+
+                   prep.start = 2601,
+                   prep.la.start = 2861,
+
+                   prep.start.prob = psp,
+                   prep.prob.oral = 1 - ppi,
+
                    prep.adhr.dist = c(0.089, 0.127, 0.785),
-                   prep.adhr.dist.la = c(0.20, 0.80),
-                   prep.discont.rate = 1-(2^(-1/781)),
-                   prep.hadr.int = 8 * 7,
-                   prep.ladr.int = 16 * 7,
-                   prepla.dlevel.icpt = 4.5,
-                   prepla.dlevel.icpt.err = 2.5/3,
-                   prepla.dlevel.slope = 25,
-                   prep.la.hr = c(0.75, 0.50, 0.02),
+                   prep.adhr.hr = c(0.69, 0.19, 0.02),
+
+                   prep.discont.rate = 1 - (2^(-1/781)),
+                   prepla.discont.rate = 1 - (2^(-1/781)),
+
+                   prep.inj.int = 8 * 7,
+
+                   prep.adhr.dist.la = c(0.215, 0.785),
+                   prepla.dlevel.icpt = 3.98,
+                   prepla.dlevel.icpt.err = 2,
+                   prepla.dlevel.halflife.int = 40,
+                   prep.la.hr.beta = -9.0599,
+                   prep.la.hr.rel = 1,
+
                    prep.tst.int = 90,
                    prep.risk.int = 182,
                    prep.risk.reassess.method = "year",
-                   rcomp.prob = 0.41,
-                   rcomp.adh.groups = 2:3,
-                   rcomp.main.only = FALSE,
-                   rcomp.discl.only = FALSE)
+
+                   prep.sti.screen.int = 182,
+                   prep.la.sti.screen.int = 121,
+                   prep.sti.prob.tx = 1)
 init <- init_msm(nwstats = st,
                  prev.B = 0.260,
                  prev.W = 0.260)

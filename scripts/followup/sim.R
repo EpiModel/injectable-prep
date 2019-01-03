@@ -25,15 +25,15 @@ param <- param_msm(nwstats = st,
                    prep.adhr.dist = c(0.089, 0.127, 0.785),
                    prep.adhr.hr = c(0.69, 0.19, 0.02),
 
-                   prep.discont.rate = 1 - (2^(-1/781)),
-                   prepla.discont.rate = 1 - (2^(-1/781)),
+                   prep.discont.rate = 1 - (2^(-1/224.4237)),
+                   prepla.discont.rate = 1 - (2^(-1/224.4237)),
 
                    prep.inj.int = 8 * 7,
 
                    prep.adhr.dist.la = c(0.215, 0.785),
-                   prepla.dlevel.icpt = 3.98,
+                   prepla.dlevel.icpt = 3.59,
                    prepla.dlevel.icpt.err = 2,
-                   prepla.dlevel.halflife.int = 40,
+                   prepla.dlevel.halflife.int = 35,
                    prep.la.hr.beta = -9.0599,
                    prep.la.hr.rel = 1,
 
