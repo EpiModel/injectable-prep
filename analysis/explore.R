@@ -1,13 +1,14 @@
 
 ## LA PrEP Exploratory
 
-load("../../data/sim.n1000.rda")
+library(EpiModel)
+load("data/sim.n0.rda")
 
 df <- as.data.frame(sim)
 names(df)
 
 par(mar = c(3,3,1,1), mgp = c(2,1,0), mfrow = c(1,1))
-plot(sim, y = "i.prev", ylim = c(0.1, 0.3), qnts = 0.5, mean.lwd = 1)
+plot(sim, y = "i.prev", ylim = c(0.1, 0.3), qnts = 0.95, mean.lwd = 1)
 abline(h = 0.26, lty = 2)
 text(x = 0, y = 0.28, round(mean(tail(df$i.prev, 100)), 3))
 
@@ -19,6 +20,9 @@ plot(sim, y = "ir100", mean.smooth = TRUE, mean.lwd = 1.25, ylim = c(0, 10))
 abline(h = 3.4, lty = 2)
 text(0, 1, round(mean(tail(df$ir100, 520)), 2))
 
+plot(sim, y = "ir100.gc", mean.smooth = TRUE, mean.lwd = 1.25, ylim = c(0, 10))
+plot(sim, y = "ir100.ct", mean.smooth = TRUE, mean.lwd = 1.25, ylim = c(0, 20))
+
 names(df)
 plot(sim, y = "prepCurr")
 plot(sim, y = "prepCurr.la")
@@ -28,6 +32,10 @@ plot(sim, y = "pFrac")
 abline(v = 52*5)
 stat <- as.numeric(sim$epi$pFrac[52*5, ])
 summary(stat)
+
+sim <- mutate_epi(sim, pFrac.la = prepCurr.la / prepElig.la)
+plot(sim, y = "pFrac.la")
+plot(sim, y = "prepElig.la")
 
 load("data/t1/sim.n2000.rda")
 ref <- sim
