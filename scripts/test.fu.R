@@ -5,13 +5,11 @@ devtools::load_all("~/Dropbox/Dev/EpiModelHIV/EpiModelHIV-p")
 
 # Main Test Script ----------------------------------------------------
 
-setwd("~/Box Sync/Injectable PrEP ABM study/injectable-prep/")
-
 ## Parameters
 load("est/nwstats.rda")
 
-psp <- 0.295
-ppi <- 0.5
+psp <- 0.5
+ppi <- 1
 
 param <- param_msm(nwstats = st,
                    race.method = 1,
@@ -67,6 +65,8 @@ s2 <- mutate_epi(s2, prepCurr.tot = prepCurr + prepCurr.la)
 s2 <- mutate_epi(s2, pfrac.tot = prepCurr.tot / num,
                      pfrac.oral = prepCurr / num,
                      pfrac.inj = prepCurr.la / num)
+s2 <- mutate_epi(s2, pfracE.oral = prepCurr / prepElig,
+                     pfracE.inj = prepCurr.la / prepElig.la)
 
 par(mar = c(3,3,2,1), mgp = c(2,1,0))
 plot(s2, y = "prepElig", main = "elig for Oral PrEP")
@@ -74,6 +74,8 @@ plot(s2, y = "prepCurr", mean.smooth = FALSE, mean.lwd = 1, main = "on Oral PrEP
 plot(s2, y = "prepElig.la", main = "elig for Inj PrEP")
 plot(s2, y = "prepCurr.la", mean.smooth = FALSE, mean.lwd = 1, main = "on Inj PrEP")
 plot(s2, y = "prepCurr.tot", mean.smooth = FALSE, mean.lwd = 1, main = "on Inj PrEP")
+
+plot(s2, y = "pfracE.inj", main = "elig for Inj PrEP")
 
 plot(s2, y = "ir100")
 plot(s2, y = "i.prev")

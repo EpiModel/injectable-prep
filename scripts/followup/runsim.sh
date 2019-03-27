@@ -1,4 +1,6 @@
 #!/bin/bash
- 
-source ~/loadR.sh 
+
+#SBATCH -o ./out/%x_%a.out
+
+source ~/loadR.sh
 Rscript sim.R

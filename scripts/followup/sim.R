@@ -43,8 +43,8 @@ param <- param_msm(nwstats = st,
                    prep.sti.prob.tx = 1)
 init <- init_msm(st)
 control <- control_msm(simno = fsimno,
-                       start = 2601,
-                       nsteps = 3380,
+                       start = (52*50)+1,
+                       nsteps = 52*65,
                        nsims = ncores,
                        ncores = ncores,
                        initialize.FUN = reinit_msm,
@@ -54,4 +54,7 @@ control <- control_msm(simno = fsimno,
 netsim_hpc("est/lap.burnin.rda", param, init, control,
            compress = FALSE, verbose = FALSE)
 
-process_simfiles(simno = simno, min.n = njobs, nsims = nsims, truncate.at = 2600)
+vars <- c("prepCurr", "prepCurr.8w.la", "prepElig", "prepElig.la", "num",
+          "i.prev", "ir100", "incid")
+process_simfiles(simno = simno, min.n = njobs, nsims = nsims, truncate.at = 52*55,
+                 vars = vars, delete.sub = TRUE)
