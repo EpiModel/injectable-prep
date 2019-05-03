@@ -145,8 +145,8 @@ vars <- list(PSP = 0.21,
              PICPT = 3.59,
              PHALF = 35,
              RELHR = 1,
-             LOWP = c(0, 0.25, 0.50, 0.75, 100),
-             DCREL = c(1.5, 2, 2.5, 3))
+             LOWP = c(0, 0.215, 0.25, 0.50, 0.75, 1),
+             DCREL = c(0.5, 1, 1.5, 2, 2.5, 3))
 sbatch_master(vars,
               master.file = "scripts/followup/master.sh",
               build.runsim = FALSE,
