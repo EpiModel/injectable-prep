@@ -158,3 +158,25 @@ sbatch_master(vars,
               nsims = 500,
               ncores = 28,
               mem = "100G")
+
+
+# Figure 3 -----------------------------------------------------------------
+
+vars <- list(PSP = 0.21,
+             PPI = 0.50,
+             PICPT = 3.59,
+             PHALF = 35,
+             RELHR = 1,
+             LOWP = seq(0, 1, 0.05),
+             DCREL = seq(0.25, 3, 0.25))
+sbatch_master(vars,
+              master.file = "scripts/followup/master.sh",
+              build.runsim = FALSE,
+              param.sheet = "scripts/followup/params.csv",
+              param.tag = "Figure3",
+              append = TRUE,
+              simno.start = 6500,
+              ckpt = TRUE,
+              nsims = 500,
+              ncores = 28,
+              mem = "100G")
