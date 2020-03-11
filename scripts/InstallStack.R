@@ -1,5 +1,3 @@
-
-
 # Install EpiModel Stack
 install.packages("EpiModel")
 
