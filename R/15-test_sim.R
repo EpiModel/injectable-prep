@@ -6,7 +6,7 @@ netstats <- readRDS("out/est/netstats.rds")
 epistats <- readRDS("out/est/epistats.rds")
 
 full_tx_eff <- c(0.55, 0.60, 0.72) # .55 roughly gets 65% supp
-ppi <- 0
+ppi <- 0.5
 
 param <- param_msm(
   netstats = netstats,
@@ -31,13 +31,13 @@ param <- param_msm(
   acts.scale = 1.00,
   acts.aids.vl = 5.75,
 
-  prep.start = 52 * 25, #(52*60)+1,
+  prep.start = 52 * 2, #(52*60)+1,
   riskh.start = 1, #52*59,
   prep.start.prob = 0.03, #0.66,
   prep.require.lnt = FALSE, #TRUE,
   prep.risk.reassess.method = "year",
   # params from test.burn.R
-  prep.la.start = 52 * 25, #(52*60)+1,
+  prep.la.start = 52 * 5, #(52*60)+1,
 
   prep.prob.oral = 1 - ppi,
 
@@ -73,7 +73,7 @@ init <- init_msm(
 
 control <- control_msm(
   simno = 1,
-  nsteps = 52*50,
+  nsteps = 52*10,
   nsims = 1,
   ncores = 1,
   save.nwstats = FALSE,
@@ -86,6 +86,9 @@ df <- as.data.frame(sim)
 
 library(ggplot2)
 theme_set(theme_light())
+
+ggplot(df, aes(x = time, y = waning_laprep)) +
+  geom_line()
 
 ggplot(df, aes(x = time, y = prepCurr)) +
   geom_line()
