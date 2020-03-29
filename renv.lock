@@ -372,6 +372,20 @@
       "Repository": "CRAN",
       "Hash": "77cefb9b0bb109ec5ce526e6948c91aa"
     },
+    "future": {
+      "Package": "future",
+      "Version": "1.16.0",
+      "Source": "Repository",
+      "Repository": "CRAN",
+      "Hash": "20c20385da360f28c07364f2d099a6d7"
+    },
+    "future.apply": {
+      "Package": "future.apply",
+      "Version": "1.4.0",
+      "Source": "Repository",
+      "Repository": "CRAN",
+      "Hash": "a690d4bb5e287dc499229617a944dc39"
+    },
     "ggplot2": {
       "Package": "ggplot2",
       "Version": "3.3.0",
@@ -392,6 +406,13 @@
       "Source": "Repository",
       "Repository": "CRAN",
       "Hash": "135db4dbc94ed18f629ff8843a8064b7"
+    },
+    "globals": {
+      "Package": "globals",
+      "Version": "0.12.5",
+      "Source": "Repository",
+      "Repository": "CRAN",
+      "Hash": "e9e529fb7a579ad4b4ff65e052e76ed8"
     },
     "glue": {
       "Package": "glue",
@@ -497,6 +518,13 @@
       "Source": "Repository",
       "Repository": "CRAN",
       "Hash": "361811f31f71f8a617a9a68bf63f1f42"
+    },
+    "listenv": {
+      "Package": "listenv",
+      "Version": "0.8.0",
+      "Source": "Repository",
+      "Repository": "CRAN",
+      "Hash": "0bde42ee282efb18c7c4e63822f5b4f7"
     },
     "lpSolve": {
       "Package": "lpSolve",
