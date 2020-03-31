@@ -5,6 +5,11 @@ theme_set(theme_light())
 source("R/utils-simeval.R")
 
 targets <- c(
+  # CombPrev appendix 8.2.2
+  i.prev.dx.B = 0.33,
+  i.prev.dx.H = 0.127,
+  i.prev.dx.W = 0.084,
+  # google sheet: https://docs.google.com/spreadsheets/d/1GWFrDqvTpdK24f6Lzqg3xdzCobbvOXj7Bpalq7xLUX4/edit?ts=5defba8b#gid=0
   cc.dx.B = 0.804,
   cc.dx.H = 0.799,
   cc.dx.W = 0.88,
@@ -13,10 +18,7 @@ targets <- c(
   cc.linked1m.W = 0.76,
   cc.vsupp.B = 0.55,
   cc.vsupp.H = 0.60,
-  cc.vsupp.W = 0.72,
-  cc.vsupp.dur1y.B = 0.41,
-  cc.vsupp.dur1y.H = 0.49,
-  cc.vsupp.dur1y.W = 0.63
+  cc.vsupp.W = 0.72
 )
 
 funs <- list(
@@ -57,7 +59,10 @@ if (file.exists("out/calib/big_sim.rds")) {
 
 # Target plot 2013
 sim_plot_targets(dt, targets, 52 * 60)
+
 ggsave("out/plot/calib1.png", width = 16, height = 9)
+
+sim_plot_targets(dt[param_grp == 5], targets, 52 * 60)
 
 sums <- target_sum(
   dt,

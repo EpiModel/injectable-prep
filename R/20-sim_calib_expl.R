@@ -18,13 +18,15 @@ param$riskh.start = burnin1_lgth - 2 * 52
 # tested values
 trial_vals <- list()
 
-trial_vals[["tt.full.supp"]] <- list(
-  c(rep(0.526, 2), 0.566),
-  c(rep(0.525, 2), 0.565)
+trial_vals[["trans.scale"]] <- list(
+  c(2.68, 0.4, 0.27),
+  c(2.68, 0.4, 0.27)
 )
 
+## set to NULL if no modifications is to be made to the parameters
 trial_vals <- NULL
 
+n_repl <- 100 # number of replications per groups
 
 # Template part ----------------------------------------------------------------
 
@@ -40,11 +42,10 @@ shared_res <- list(
   memory = 4 * 1e3 # in Mb and PER CPU
 )
 
-jobs_grp <- 50 # Define number of jobs per grp
-grps <- 1  # number of folders / params to test
+grps <- max(1, length(trial_vals[[1]]))  # number of folders / params to test
 
-seq_jobs <- rep(seq_len(jobs_grp),  grps)
-seq_grps <- vapply(seq_len(grps), rep, times = jobs_grp, numeric(jobs_grp))
+seq_jobs <- rep(seq_len(n_repl),  grps)
+seq_grps <- vapply(seq_len(grps), rep, times = n_repl, numeric(n_repl))
 seq_grps <- as.vector(as.vector(seq_grps))
 
 slurm_wf_Map(

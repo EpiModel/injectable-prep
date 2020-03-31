@@ -25,7 +25,7 @@ param <- param_msm(
   max.time.on.tx.part.int = 52 * 10,
   max.time.off.tx.part.int = 52 * 10,
   aids.mr = 1 / 250,
-  trans.scale = c(2.21, 0.405, 0.255),
+  trans.scale = c(2.68, 0.4, 0.27), #c(2.21, 0.405, 0.255),
   acts.scale = 1.00,
   acts.aids.vl = 5.75,
   prep.start = (52 * 60) + 1,
