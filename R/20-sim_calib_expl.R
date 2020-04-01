@@ -1,7 +1,8 @@
+lnt <- TRUE # if FALSE: set `require.lnt` to FALSE and adjust ` prep.start.prob`
 source("R/utils-sim_calib_params.R")
 
 burnin1_lgth <- 52 * 60
-burnin2_lgth <- 0 #52 * 20
+burnin2_lgth <- 52 * 5
 
 control <- control_msm(
   nsteps = burnin1_lgth + burnin2_lgth,
@@ -13,20 +14,19 @@ control <- control_msm(
 )
 
 param$prep.start = burnin1_lgth + 1
-param$riskh.start = burnin1_lgth - 2 * 52
+param$riskh.start = burnin1_lgth - 1 * 52
 
 # tested values
 trial_vals <- list()
 
-trial_vals[["trans.scale"]] <- list(
-  c(2.68, 0.4, 0.27),
-  c(2.68, 0.4, 0.27)
+trial_vals[["prep.start.prob"]] <- list(
+   0.71,
 )
 
 ## set to NULL if no modifications is to be made to the parameters
-trial_vals <- NULL
+## trial_vals <- NULL
 
-n_repl <- 100 # number of replications per groups
+n_repl <- 10 # number of replications per groups
 
 # Template part ----------------------------------------------------------------
 

@@ -18,8 +18,10 @@ targets <- c(
   cc.linked1m.W = 0.76,
   cc.vsupp.B = 0.55,
   cc.vsupp.H = 0.60,
-  cc.vsupp.W = 0.72
+  cc.vsupp.W = 0.72,
+  prep_prop = 0.15
 )
+
 
 funs <- list(
   mean    =  function(x) round(mean(x, na.rm = T), 3),
@@ -57,12 +59,17 @@ if (file.exists("out/calib/big_sim.rds")) {
   dt <- readRDS("out/calib/uncompressed_sims.rds")
 }
 
+## Calculate prop_prop (by reference so no assignement)
+dt[, prep_prop := prepCurr / prepElig]
+
 # Target plot 2013
 sim_plot_targets(dt, targets, 52 * 60)
 
+sim_plot_targets(dt, targets, 52 * 65)
+
 ggsave("out/plot/calib1.png", width = 16, height = 9)
 
-sim_plot_targets(dt[param_grp == 5], targets, 52 * 60)
+sim_plot_targets(dt[param_grp == 6], targets, 52 * 65)
 
 sums <- target_sum(
   dt,

@@ -50,7 +50,8 @@ process_sim <- function(file, n_steps, sims_path) {
 
   dt <- as.data.table(readRDS(file))
   dt[, .SD[(.N - n_steps + 1):.N] , by = "sim"
-     ][, c("sim_id", "param_grp") := .(paste0(..file_id, "--", sim), file_grp)][]
+     ][, c("sim_id", "param_grp") := .(paste0(..file_id, "--", sim), file_grp)
+       ][]
 }
 
 create_big_sim_df <- function(sims_path, n_steps = 52) {

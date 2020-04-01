@@ -28,11 +28,13 @@ param <- param_msm(
   trans.scale = c(2.68, 0.4, 0.27), #c(2.21, 0.405, 0.255),
   acts.scale = 1.00,
   acts.aids.vl = 5.75,
+  circ.prob = c(0.874, 0.874, 0.918),
+  a.rate = 0.00052,
   prep.start = (52 * 60) + 1,
   riskh.start = 52 * 59,
   prep.adhr.dist = c(0.089, 0.127, 0.784),
   prep.adhr.hr = c(0.69, 0.19, 0.01),
-  prep.start.prob =  0.00896,,
+  prep.start.prob =  0.71, # 0.00896,
   prep.discont.rate = 0.02138792,
   ## prep.tst.int = 90/7,         # do I need that?
   ## prep.risk.int = 182/7,       # do I need that?
@@ -40,9 +42,26 @@ param <- param_msm(
   ## prep.sti.prob.tx = 1,
   prep.risk.reassess.method = "year",
   prep.require.lnt = TRUE, # FALSE -> start with random PrEP initiation
-  circ.prob = c(0.874, 0.874, 0.918),
-  a.rate = 0.00052
+
+  # Injectable PrEP specific
+  prep.la.start = Inf, #(52*60)+1,
+  prepla.discont.rate = 1 - (2^(-1/781)),
+  prep.prob.oral = 1,
+  prep.inj.int = 8 * 7,
+
+  prep.adhr.dist.la = c(0.215, 0.785), # only 2 adherence classes
+  prepla.dlevel.icpt = 3.98,
+  prepla.dlevel.icpt.err = 2,
+  prepla.dlevel.halflife.int = 40,
+  prep.la.hr.beta = -9.0599,
+  prep.la.hr.rel = 1
 )
+
+## must be set by the calling script
+if (lnt == FALSE) {
+  param$require.lnt = FALSE
+  param$prep.start.prob = 0.00896
+}
 
 init <- init_msm(
   prev.ugc = 0,
