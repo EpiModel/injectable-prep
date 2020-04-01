@@ -59,7 +59,7 @@ param <- param_msm(
 
 ## must be set by the calling script
 if (lnt == FALSE) {
-  param$require.lnt = FALSE
+  param$prep.require.lnt = FALSE
   param$prep.start.prob = 0.00896
 }
 

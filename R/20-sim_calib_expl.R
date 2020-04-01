@@ -1,4 +1,4 @@
-lnt <- TRUE # if FALSE: set `require.lnt` to FALSE and adjust ` prep.start.prob`
+lnt <- FALSE # if FALSE: set `require.lnt` to FALSE and adjust ` prep.start.prob`
 source("R/utils-sim_calib_params.R")
 
 burnin1_lgth <- 52 * 60
@@ -21,12 +21,13 @@ trial_vals <- list()
 
 trial_vals[["prep.start.prob"]] <- list(
    0.71,
+   0.71
 )
 
 ## set to NULL if no modifications is to be made to the parameters
-## trial_vals <- NULL
+trial_vals <- NULL
 
-n_repl <- 10 # number of replications per groups
+n_repl <- 30 # number of replications per groups
 
 # Template part ----------------------------------------------------------------
 

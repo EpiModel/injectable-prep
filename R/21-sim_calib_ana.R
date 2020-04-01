@@ -69,7 +69,7 @@ sim_plot_targets(dt, targets, 52 * 65)
 
 ggsave("out/plot/calib1.png", width = 16, height = 9)
 
-sim_plot_targets(dt[param_grp == 6], targets, 52 * 65)
+sim_plot_targets(dt[param_grp == 4], targets, 52 * 65)
 
 sums <- target_sum(
   dt,
