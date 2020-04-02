@@ -69,7 +69,7 @@ sim_plot_targets(dt, targets, 52 * 65)
 
 ggsave("out/plot/calib1.png", width = 16, height = 9)
 
-sim_plot_targets(dt[param_grp == 4], targets, 52 * 65)
+sim_plot_targets(dt[param_grp == 5], targets, 52 * 65)
 
 sums <- target_sum(
   dt,
@@ -101,91 +101,8 @@ print(sums[grep("sup", variable)])
 
 print(sums, nrows = 200)
 
-p <- ggplot(dt, aes(x = time, col = param_grp)) +
-  geom_vline(xintercept = 52*65) +
-  geom_vline(xintercept = 52 * 69)
+p <- ggplot(dt[param_grp == 6], aes(x = time, col = param_grp)) +
+  geom_vline(xintercept = 52 * 60) +
+  geom_vline(xintercept = 52 * 65)
 
-p1 <- p + geom_smooth(aes(y = dx_prep))
-p2 <- p + geom_smooth(aes(y = incid_prep))
-p3 <- p + geom_smooth(aes(y = dx))
-p4 <- p + geom_smooth(aes(y = inftime_prep))
-
-(p3 / p1) |  (p4 / p2)
-ggsave("out/plots/prep_eval.png")
-
-p + geom_smooth(aes(y = incid))
-
-p + geom_smooth(aes(y = dx))
-p + geom_smooth(aes(y = prep))
-p + geom_smooth(aes(y = prep_any12m))
-p + geom_smooth(aes(y = linked1m_new), se = F)
-p + geom_smooth(aes(y = linked3m))
-p + geom_smooth(aes(y = tx))
-p + geom_smooth(aes(y = sup_dx))
-p + geom_smooth(aes(y = sup_dx.B))
-p + geom_smooth(aes(y = sup_dx.H))
-p + geom_smooth(aes(y = sup_dx.W))
-p + geom_smooth(aes(y = sup_tx))
-p + geom_smooth(aes(y = sup_tx.W))
-
-p <- ggplot(dt[time < 5408], aes(x = time, col = param_grp)) +
-  geom_vline(xintercept = 4160) +
-  geom_vline(xintercept = 4888) +
-  geom_vline(xintercept = 4368)
-
-
-int_cols <- c("prev", "tx.W", "dx", "prep", "linked1m_new",
-              "sup_tx.W", "sup_dx.W")
-dt_plots <- dt[, lapply(.SD, median), by = c("time", "param_grp"),
-               .SDcols = int_cols]
-
-p <- ggplot(dt_plots, aes(x = time, col = param_grp)) +
-  geom_vline(xintercept = 4160) +
-  geom_vline(xintercept = 4888) +
-  geom_vline(xintercept = 4368)
-
-
-for(n in syms(int_cols)) {
-  pl <- p + geom_line(aes(y = !!n)) # + geom_smooth(aes(y = !!n), se = F) + geom_line(aes(y = !!n), alpha = 0.5)
-  ggsave(paste0("out/plots/", n, ".png"), plot = pl, width = 16, height = 9)
-}
-
-p + geom_smooth(aes_string(y = "tx.W"), se = F) + geom_line(aes(y = tx.W))
-p + geom_smooth(aes(y = dx.W), se = F)
-p + geom_smooth(aes(y = prep))
-p + geom_line(aes(y = prep_any12m))
-p + geom_smooth(aes(y = linked1m_new), se = F)
-p + geom_smooth(aes(y = linked3m.W), se = F)
-p + geom_line(aes(y = tx.W))
-p + geom_smooth(aes(y = sup_dx.W))
-p + geom_line(aes(y = sup_tx.W))
-
-dt[time == 4161, lapply(.SD, median),
-   by = "param_grp", .SDcols = c("tx.W", "tx.B", "tx.H")]
-
-dt[time == 4368, lapply(.SD, median),
-   by = "param_grp", .SDcols = c("tx.W", "tx.B", "tx.H")]
-
-dt[time == 4472, lapply(.SD, median),
-   by = "param_grp", .SDcols = c("tx.W", "tx.B", "tx.H")]
-
-## Choice
-source("R/utils-sim_choice.R")
-target_names <- c("prev.B", "tx.B", "prev.H", "tx.H", "prev.W", "tx.W", "prep",
-                  "dx", "sup_dx.B", "sup_dx.H", "sup_dx.W")
-
-targets <- dt[time == max(time), lapply(.SD, median, na.rm = TRUE),
-              .SDcols = target_names]
-
-dt_choice <- dt[time == max(time), c(c("sim_id", ..target_names))
-                  ][, Map(`-`, .SD, targets), by = "sim_id"]
-
-best_sim <- dt_choice[, .(score = dist_squ(as.numeric(.SD), 0)), by = "sim_id"
-                      ][which.min(score), sim_id]
-
-as.list(dt_choice[sim_id == best_sim])
-
-best_sim # "1/sim333.rds--17"
-sim <- readRDS("out/sim333.rds")
-orig <- EpiModel::get_sims(sim, 17)
-saveRDS(orig, "out/est/restart.rds")
+p + geom_smooth(aes(y = prepCurr / s.num))

@@ -2,7 +2,7 @@ lnt <- FALSE # if FALSE: set `require.lnt` to FALSE and adjust ` prep.start.prob
 source("R/utils-sim_calib_params.R")
 
 burnin1_lgth <- 52 * 60
-burnin2_lgth <- 52 * 5
+burnin2_lgth <- 0 #52 * 5
 
 control <- control_msm(
   nsteps = burnin1_lgth + burnin2_lgth,
@@ -20,14 +20,15 @@ param$riskh.start = burnin1_lgth - 1 * 52
 trial_vals <- list()
 
 trial_vals[["prep.start.prob"]] <- list(
-   0.71,
-   0.71
+  0.0041,
+  0.0038
 )
 
 ## set to NULL if no modifications is to be made to the parameters
 trial_vals <- NULL
 
-n_repl <- 30 # number of replications per groups
+n_repl <- 200 # number of replications per groups
+output_n_steps <- 52
 
 # Template part ----------------------------------------------------------------
 
@@ -70,4 +71,4 @@ slurm_wf_do.call(
     afterany = "sim_injec_aleguil"
   )),
   what = slurm_combine,
-  args = list(sims_path = "slurm_wf/out", n_steps = 1.5 * burnin2_lgth ))
+  args = list(sims_path = "slurm_wf/out", n_steps = output_n_steps ))
