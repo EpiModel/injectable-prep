@@ -19,15 +19,15 @@ param$riskh.start = burnin1_lgth - 1 * 52
 # tested values
 trial_vals <- list()
 
-trial_vals[["prep.start.prob"]] <- list(
-  0.0041,
-  0.0038
+trial_vals[["tx.halt.part.prob"]] <- list(
+  c(0.0065, 0.0053, 0.003),
+  c(0.0065, 0.0052, 0.003)
 )
 
 ## set to NULL if no modifications is to be made to the parameters
 trial_vals <- NULL
 
-n_repl <- 200 # number of replications per groups
+n_repl <- 414 # number of replications per groups
 output_n_steps <- 52
 
 # Template part ----------------------------------------------------------------

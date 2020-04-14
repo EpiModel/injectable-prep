@@ -9,6 +9,7 @@ targets <- c(
   i.prev.dx.B = 0.33,
   i.prev.dx.H = 0.127,
   i.prev.dx.W = 0.084,
+  #prep_prop = 0.15,
   # google sheet: https://docs.google.com/spreadsheets/d/1GWFrDqvTpdK24f6Lzqg3xdzCobbvOXj7Bpalq7xLUX4/edit?ts=5defba8b#gid=0
   cc.dx.B = 0.804,
   cc.dx.H = 0.799,
@@ -18,8 +19,7 @@ targets <- c(
   cc.linked1m.W = 0.76,
   cc.vsupp.B = 0.55,
   cc.vsupp.H = 0.60,
-  cc.vsupp.W = 0.72,
-  prep_prop = 0.15
+  cc.vsupp.W = 0.72
 )
 
 
@@ -59,50 +59,39 @@ if (file.exists("out/calib/big_sim.rds")) {
   dt <- readRDS("out/calib/uncompressed_sims.rds")
 }
 
+## # Choose among downloaed sims
+## sims <- lapply(c("out/calib/sim42.rds",
+##                  "out/calib/sim148.rds",
+##                  "out/calib/sim48.rds"), function(x) {
+##   sim <- readRDS(x)
+##   dt <- as.data.table(sim)
+##   dt[, sim_id := paste0(..x, sim)]
+## })
+
+## dt <- rbindlist(sims)
+
 ## Calculate prop_prop (by reference so no assignement)
 dt[, prep_prop := prepCurr / prepElig]
 
 # Target plot 2013
 sim_plot_targets(dt, targets, 52 * 60)
 
-sim_plot_targets(dt, targets, 52 * 65)
 
-ggsave("out/plot/calib1.png", width = 16, height = 9)
+## Choice 2013
+cols <- c("sim_id", names(targets))
 
-sim_plot_targets(dt[param_grp == 5], targets, 52 * 65)
+dt_choice <- dt[time == 52 * 60
+   ][, `:=`(
+    ok = all(abs(.SD - targets) < 0.02),
+    score = sum((.SD - targets)^2)),
+     .SDcols = names(targets), by = "sim_id"
+     ][(ok)][order(score)]
 
-sums <- target_sum(
-  dt,
-  names(targets), funs, targets,
-  nsteps = 1, grp ="param_grp"
-)
+dt_choice[1:10, c(..cols, "ok", "score")][order(score)]
 
-sums <- target_sum(
-  ## dt[time < 52 * 80 + 52 * 5],
-  dt[time < 52 * 60 + 5],
-  names(targets), funs, targets,
-  nsteps = 1, grp ="param_grp"
-)
+sim <- readRDS("out/calib/sim148.rds")
+sim <- EpiModel::get_sims(sim, 23)
 
-sums <- target_sum(
-  ## dt[time < 52 * 80 + 52 * 4.5 & param_grp == 5],
-  dt[time < 52 * 60 + 52 * 4.5 & param_grp == 5],
-  names(targets),
-  funs, targets, nsteps = 26
-)
+saveRDS(sim, "out/est/restart_base.rds")
 
-print(sums[order(param_grp, as.character(variable))], nrows = 200)
-print(sums[grep("^dx.W", variable)])
-print(sums[grep("prep", variable)])
-print(sums[grep("prev", variable)])
 
-print(sums[grep("linked", variable)])
-print(sums[grep("sup", variable)])
-
-print(sums, nrows = 200)
-
-p <- ggplot(dt[param_grp == 6], aes(x = time, col = param_grp)) +
-  geom_vline(xintercept = 52 * 60) +
-  geom_vline(xintercept = 52 * 65)
-
-p + geom_smooth(aes(y = prepCurr / s.num))

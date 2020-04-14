@@ -15,7 +15,7 @@ param <- param_msm(
   tt.part.supp = 1 - full_tx_eff,
   tt.full.supp = full_tx_eff,
   tt.dur.supp = rep(0, 3),
-  tx.halt.part.prob = c(0.0062, 0.0055, 0.0031),
+  tx.halt.part.prob = c(0.0065, 0.0053, 0.003),
   tx.halt.full.rr = rep(0.45, 3),
   tx.halt.dur.rr = rep(0.45, 3),
   tx.reinit.part.prob = rep(0.00255, 3),
