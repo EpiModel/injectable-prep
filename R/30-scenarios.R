@@ -2,10 +2,10 @@ library(EpiModelHIV)
 library(readxl)
 source("R/utils-slurm_sim_funs.R")
 
-n_repl <- 18 # number of replication per scenarios (time 28)
+n_repl <- 6 # number of replication per scenarios (time 28)
 n_years_burnin <- 5 # number of years before la.prep
 n_years_scenario <- 10 # number of years to simulate the scenario periode
-n_years_output <- 10  # number of years to keep as output
+n_years_output <- 15  # number of years to keep as output
 
 shared_res <- list(
   partition = "ckpt", #"csde", #"ckpt",
@@ -62,7 +62,7 @@ df_scenarios[, chr_cols] <- lapply(df_scenarios[, chr_cols], function(x) {
 slurm_wf_tmpl_dir("inst/slurm_wf/", "slurm_wf", force = T)
 
 ## Prepare arguments to slurm_wf_Map
-repl_nums <- rep(seq_len(nrow(df_scenarios)), each = n_repl)
+repl_nums <- rep(seq_len(n_repl), nrow(df_scenarios))
 
 slurm_wf_Map(
   "slurm_wf",
@@ -71,14 +71,14 @@ slurm_wf_Map(
     walltime = 60
   )),
   FUN = slurm_injec_scenario,
-  SIMNO = df_scenarios$SIMNO,
-  PSP = df_scenarios$PSP,
-  PPI = df_scenarios$PPI,
-  PICPT = df_scenarios$PICPT,
-  PHALF = df_scenarios$PHALF,
-  RELHR = df_scenarios$RELHR,
-  LOWP = df_scenarios$LOWP,
-  DCREL = df_scenarios$DCREL,
+  SIMNO = rep(df_scenarios$SIMNO, each = n_repl),
+  PSP = rep(df_scenarios$PSP, each = n_repl),
+  PPI = rep(df_scenarios$PPI, each = n_repl),
+  PICPT = rep(df_scenarios$PICPT, each = n_repl),
+  PHALF = rep(df_scenarios$PHALF, each = n_repl),
+  RELHR = rep(df_scenarios$RELHR, each = n_repl),
+  LOWP = rep(df_scenarios$LOWP, each = n_repl),
+  DCREL = rep(df_scenarios$DCREL, each = n_repl),
   repl_num = repl_nums,
   MoreArgs = list(orig = orig, param = param, init = init, control = control,
                   n_steps = n_years_output * 52)
@@ -94,6 +94,22 @@ slurm_wf_do.call(
   what = slurm_scenario_combine,
   args = list(sims_path = "slurm_wf/out")
 )
+
+params_lst <- Map(
+  f = scenarios_params,
+  SIMNO = df_scenarios$SIMNO,
+  PSP = df_scenarios$PSP,
+  PPI = df_scenarios$PPI,
+  PICPT = df_scenarios$PICPT,
+  PHALF = df_scenarios$PHALF,
+  RELHR = df_scenarios$RELHR,
+  LOWP = df_scenarios$LOWP,
+  DCREL = df_scenarios$DCREL,
+  MoreArgs = list(param = param)
+)
+
+params_dt <- data.table::rbindlist(params_lst)
+data.table::fwrite(params_dt, "out/params_scenarios.csv")
 
 ## ### Tests ----------------------------------------------------------------------
 ## control$nsims <- 1

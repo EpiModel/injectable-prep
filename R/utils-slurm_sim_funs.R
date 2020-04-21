@@ -37,6 +37,7 @@ slurm_injec_scenario <- function(orig, param, init, control, n_steps = 52,
                                  SIMNO, PSP, PPI, PICPT, PHALF, RELHR, LOWP,
                                  DCREL, repl_num) {
 
+  library(EpiModelHIV)
   param$prep.start.prob <- PSP
   param$prep.prob.oral <- 1 - PPI
   param$prepla.dlevel.icpt <- PICPT
@@ -77,4 +78,26 @@ slurm_scenario_combine <- function(sims_path = "slurm_wf/out") {
 
   saveRDS(out, paste0(sims_path, "/scenarios_out.rds"))
   file_delete(rdss)
+}
+
+scenarios_params <- function(param, SIMNO, PSP, PPI, PICPT, PHALF, RELHR, LOWP,
+                             DCREL) {
+  prep.start.prob <- PSP
+  prep.prob.oral <- 1 - PPI
+  prepla.dlevel.icpt <- PICPT
+  prepla.dlevel.halflife.int <- PHALF
+  prep.la.hr.rel <- RELHR
+  prep.adhr.dist.la = c(LOWP, 1 - LOWP)
+  prepla.discont.rate <- param$prep.discont.rate * DCREL
+
+  data.frame(
+    SIMNO = SIMNO,
+    prep.start.prob = PSP,
+    prep.prob.oral = 1 - PPI,
+    prepla.dlevel.icpt = PICPT,
+    prepla.dlevel.halflife.int = PHALF,
+    prep.la.hr.rel = RELHR,
+    prep.adhr.dist.la = paste(LOWP, " - ", 1 - LOWP),
+    prepla.discont.rate = param$prep.discont.rate * DCREL
+  )
 }
