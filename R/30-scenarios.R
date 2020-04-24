@@ -1,4 +1,5 @@
 library(EpiModelHIV)
+## devtools::load_all("EpiModelHIV-p/")
 library(readxl)
 source("R/utils-slurm_sim_funs.R")
 
@@ -47,6 +48,8 @@ param <- orig$param
 param$prep.start <- control$start
 param$riskh.start <- param$prep.start - 52
 param$prep.la.start <- control$start + n_years_burnin * 52
+param$prep.require.lnt <- TRUE
+param$prep.start.prob <- 0.71
 
 # Scenarios preparation --------------------------------------------------------
 ## Read scenarios excel
@@ -68,7 +71,7 @@ slurm_wf_Map(
   "slurm_wf",
   resources = c(shared_res, list(
     job_name = "scenarios_injec",
-    walltime = 60
+    walltime = 15
   )),
   FUN = slurm_injec_scenario,
   SIMNO = rep(df_scenarios$SIMNO, each = n_repl),
@@ -111,24 +114,24 @@ params_lst <- Map(
 params_dt <- data.table::rbindlist(params_lst)
 data.table::fwrite(params_dt, "out/params_scenarios.csv")
 
-## ### Tests ----------------------------------------------------------------------
-## control$nsims <- 1
-## control$ncores <- 1
-## control$verbose <- TRUE
+### Tests ----------------------------------------------------------------------
+control$nsims <- 1
+control$ncores <- 1
+control$verbose <- TRUE
 
-## test_num <- 10
-## SIMNO <- df_scenarios$SIMNO[test_num]
-## PSP <- df_scenarios$PSP[test_num]
-## PPI <- df_scenarios$PPI[test_num]
-## PICPT <- df_scenarios$PICPT[test_num]
-## PHALF <- df_scenarios$PHALF[test_num]
-## RELHR <- df_scenarios$RELHR[test_num]
-## LOWP <- df_scenarios$LOWP[test_num]
-## DCREL <- df_scenarios$DCREL[test_num]
-## repl_num <- repl_nums[test_num]
-## n_steps <- 52
+test_num <- 10
+SIMNO <- df_scenarios$SIMNO[test_num]
+PSP <- df_scenarios$PSP[test_num]
+PPI <- df_scenarios$PPI[test_num]
+PICPT <- df_scenarios$PICPT[test_num]
+PHALF <- df_scenarios$PHALF[test_num]
+RELHR <- df_scenarios$RELHR[test_num]
+LOWP <- df_scenarios$LOWP[test_num]
+DCREL <- df_scenarios$DCREL[test_num]
+repl_num <- repl_nums[test_num]
+n_steps <- 52
 
-## ## callr::r(slurm_scenario, list(
+## allr::r(slurm_scenario, list(
 ##   orig, param, init, control,
 ##   scenarios_content[[1]], scenarios_names[[1]], 1, 2 * 52)
 ## )

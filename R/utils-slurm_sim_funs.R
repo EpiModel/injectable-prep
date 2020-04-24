@@ -38,14 +38,22 @@ slurm_injec_scenario <- function(orig, param, init, control, n_steps = 52,
                                  DCREL, repl_num) {
 
   library(EpiModelHIV)
-  param$prep.start.prob <- PSP
-  param$prep.prob.oral <- 1 - PPI
-  param$prepla.dlevel.icpt <- PICPT
-  param$prepla.dlevel.halflife.int <- PHALF
 
-  param$prep.la.hr.rel <- RELHR
-  param$prep.adhr.dist.la = c(LOWP, 1 - LOWP)
-  param$prepla.discont.rate <- param$prep.discont.rate * DCREL
+  scenario_changer <- list(
+    at = param$prep.la.start,
+    params = list(
+      prep.start.prob = PSP,
+      prep.prob.oral = 1 - PPI,
+      prepla.dlevel.icpt = PICPT,
+      prepla.dlevel.halflife.int = PHALF,
+      prep.la.hr.rel = RELHR,
+      prep.adhr.dist.la = c(LOWP, 1 - LOWP),
+      prepla.discont.rate = 1 - 2^(log2(1 - param$prep.discont.rate)/DCREL)
+    )
+  )
+
+  param$param_updaters <- list()
+  param$param_updaters[[1]] <- scenario_changer
 
   sim <- netsim(orig, param, init, control)
 
@@ -98,6 +106,6 @@ scenarios_params <- function(param, SIMNO, PSP, PPI, PICPT, PHALF, RELHR, LOWP,
     prepla.dlevel.halflife.int = PHALF,
     prep.la.hr.rel = RELHR,
     prep.adhr.dist.la = paste(LOWP, " - ", 1 - LOWP),
-    prepla.discont.rate = param$prep.discont.rate * DCREL
+    prepla.discont.rate = 1 - 2^(log2(1 - param$prep.discont.rate)/DCREL)
   )
 }
