@@ -3,7 +3,7 @@ library(EpiModelHIV)
 library(readxl)
 source("R/utils-slurm_sim_funs.R")
 
-n_repl <- 6 # number of replication per scenarios (time 28)
+n_repl <- 3 # number of replication per scenarios (time 28)
 n_years_burnin <- 5 # number of years before la.prep
 n_years_scenario <- 10 # number of years to simulate the scenario periode
 n_years_output <- 15  # number of years to keep as output
@@ -12,7 +12,7 @@ shared_res <- list(
   partition = "ckpt", #"csde", #"ckpt",
   account = "csde-ckpt", #"csde", #"csde-ckpt",
   n_cpus = 28,
-  memory = 4 * 1e3 # in Mb and PER CPU
+  memory = 5 * 1e3 # in Mb and PER CPU
 )
 
 
@@ -48,12 +48,13 @@ param <- orig$param
 param$prep.start <- control$start
 param$riskh.start <- param$prep.start - 52
 param$prep.la.start <- control$start + n_years_burnin * 52
-param$prep.require.lnt <- TRUE
-param$prep.start.prob <- 0.71
+param$prep.require.lnt <- FALSE
+param$prep.start.prob <- 0.00411
+param$prep.inj.int <- 8
 
 # Scenarios preparation --------------------------------------------------------
 ## Read scenarios excel
-df_scenarios <- read_excel("out/est/params3.xlsx")
+df_scenarios <- read_excel("out/est/params_new.xlsx")
 
 ## Put the char cols to numeric
 chr_cols <- c("PHALF", "RELHR", "DCREL")
@@ -91,11 +92,13 @@ slurm_wf_do.call(
   "slurm_wf",
   resources = c(shared_res, list(
     job_name = "combine_injec ",
-    walltime = 60,
-    afterany = "scenarios_injec"
+    ## afterany = "scenarios_injec",
+    walltime = 15
   )),
   what = slurm_scenario_combine,
-  args = list(sims_path = "slurm_wf/out")
+  args = list(
+    sims_path = "slurm_wf_raw",
+    scenarios_no = df_scenarios$SIMNO)
 )
 
 params_lst <- Map(
@@ -115,23 +118,23 @@ params_dt <- data.table::rbindlist(params_lst)
 data.table::fwrite(params_dt, "out/params_scenarios.csv")
 
 ### Tests ----------------------------------------------------------------------
-control$nsims <- 1
-control$ncores <- 1
-control$verbose <- TRUE
+## control$nsims <- 1
+## control$ncores <- 1
+## control$verbose <- TRUE
 
-test_num <- 10
-SIMNO <- df_scenarios$SIMNO[test_num]
-PSP <- df_scenarios$PSP[test_num]
-PPI <- df_scenarios$PPI[test_num]
-PICPT <- df_scenarios$PICPT[test_num]
-PHALF <- df_scenarios$PHALF[test_num]
-RELHR <- df_scenarios$RELHR[test_num]
-LOWP <- df_scenarios$LOWP[test_num]
-DCREL <- df_scenarios$DCREL[test_num]
-repl_num <- repl_nums[test_num]
-n_steps <- 52
+## test_num <- 10
+## SIMNO <- df_scenarios$SIMNO[test_num]
+## PSP <- df_scenarios$PSP[test_num]
+## PPI <- df_scenarios$PPI[test_num]
+## PICPT <- df_scenarios$PICPT[test_num]
+## PHALF <- df_scenarios$PHALF[test_num]
+## RELHR <- df_scenarios$RELHR[test_num]
+## LOWP <- df_scenarios$LOWP[test_num]
+## DCREL <- df_scenarios$DCREL[test_num]
+## repl_num <- repl_nums[test_num]
+## n_steps <- 52
 
-## allr::r(slurm_scenario, list(
+## ## allr::r(slurm_scenario, list(
 ##   orig, param, init, control,
 ##   scenarios_content[[1]], scenarios_names[[1]], 1, 2 * 52)
 ## )
@@ -152,7 +155,6 @@ n_steps <- 52
 ## )
 
 ## callr::r(slurm_scenario_combine, list("slurm_wf/out"))
-
 
 ## dt <- readRDS("slurm_wf/out/scenarios_out.rds")
 ## dt <- dt[names(param$epi_funs)]

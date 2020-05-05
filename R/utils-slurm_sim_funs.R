@@ -42,7 +42,7 @@ slurm_injec_scenario <- function(orig, param, init, control, n_steps = 52,
   scenario_changer <- list(
     at = param$prep.la.start,
     params = list(
-      prep.start.prob = PSP,
+      prep.start.prob = param$prep.start.prob * PSP,
       prep.prob.oral = 1 - PPI,
       prepla.dlevel.icpt = PICPT,
       prepla.dlevel.halflife.int = PHALF,
@@ -64,28 +64,44 @@ slurm_injec_scenario <- function(orig, param, init, control, n_steps = 52,
   if (! file.exists(out_dir))
     dir.create(out_dir, recursive = TRUE)
 
-  dt <- as.data.table(sim)
-  dt <- dt[, .SD[(.N - n_steps + 1):.N] , by = "sim"
-     ][, c("sim_id", "param_grp") :=
-           .(paste0(..repl_num, "--", sim), SIMNO)][]
+  sim <- truncate_sim(sim, 3380)
+  sim$network <- NULL
+  sim$attr <- NULL
+  sim$temp <- NULL
+  sim$el <- NULL
+  sim$p <- NULL
 
-  saveRDS(dt, paste0(out_dir, "sim", repl_num, ".rds"))
+  saveRDS(sim, paste0(out_dir, "sim", repl_num, ".rds"))
+
+  ## dt <- as.data.table(sim)
+  ## dt <- dt[, .SD[(.N - n_steps + 1):.N] , by = "sim"
+  ##    ][, c("sim_id", "param_grp") :=
+  ##          .(paste0(..repl_num, "--", sim), SIMNO)][]
+
+  ## saveRDS(dt, paste0(out_dir, "sim", repl_num, ".rds"))
 
 }
 
-slurm_scenario_combine <- function(sims_path = "slurm_wf/out") {
-  library(data.table)
-  library(fs)
-  library(future.apply)
-  plan(multiprocess)
+slurm_scenario_combine <- function(sims_path = "slurm_wf/", scenarios_no) {
+  library(EpiModel)
 
-  rdss <- dir_ls(sims_path, regexp = "[.]rds$", recurse = TRUE)
-  dts <- future_lapply(rdss, readRDS)
+  for (scen_no in scenarios_no) {
+  sim_files <- paste0(sims_path, "/", scen_no, "/sim", rep(1:18), ".rds")
 
-  out <- rbindlist(dts)
+    sims <- lapply(sim_files, readRDS(x))
 
-  saveRDS(out, paste0(sims_path, "/scenarios_out.rds"))
-  file_delete(rdss)
+    for (i in seq_along(sims)) {
+      sim <- sims[[i]]
+
+      if (i == 1) {
+        out <- sim
+      } else {
+        out <- merge(out, sim, param.error = FALSE)
+      }
+    }
+
+    saveRDS(out, paste0("slurm_wf/out/sim_", scen_no, ".rds"), compress = "xz")
+  }
 }
 
 scenarios_params <- function(param, SIMNO, PSP, PPI, PICPT, PHALF, RELHR, LOWP,

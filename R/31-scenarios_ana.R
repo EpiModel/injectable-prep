@@ -3,7 +3,9 @@ library(ggplot2)
 library(patchwork)
 theme_set(theme_light())
 
-dt <- readRDS("out/scenarios/scenarios_out.rds")
+for (f in list.files("out/scenarios/", pattern = "dt_tmp.*")) {
+  dt_tmp <- readRDS(paste0("out/scenarios/", f))
+}
 
 # hiv prev / hiv inci (last year) / cum PIA
 dt[, scenarios_grp := tstrsplit(param_grp, "-" , keep = 1L, fixed = TRUE)

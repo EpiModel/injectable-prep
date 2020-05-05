@@ -47,7 +47,7 @@ param <- param_msm(
   prep.la.start = Inf, #(52*60)+1,
   prepla.discont.rate = 1 - (2^(-1/781)),
   prep.prob.oral = 1,
-  prep.inj.int = 8 * 7,
+  prep.inj.int = 8,
 
   prep.adhr.dist.la = c(0.215, 0.785), # only 2 adherence classes
   prepla.dlevel.icpt = 3.98,
