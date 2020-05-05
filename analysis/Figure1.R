@@ -1,5 +1,4 @@
 
-## PrEP Race Figure 3
 rm(list = ls())
 library("EpiModelHIV")
 library("dplyr")
