@@ -1,14 +1,17 @@
 library(EpiModelHIV)
 library(data.table)
 
-sim <- readRDS("out/scenarios/out_comb/sim_2015.rds")
+sim <- readRDS("out/scenarios/out/2015.rds")
 
 dt <- as.data.table(sim)
 
 names(dt)
 
-dt[time == max(time), lapply(.SD, mean), .SDcols = c("prepCurr", "prep.laCurr", "prepElig")
-   ][, .(do = prepCurr / prepElig, la = prep.laCurr / prepElig)]
+dt[time == max(time), lapply(.SD, mean),
+   .SDcols = c("prepCurr", "prep.laCurr", "prepElig", "prepCurr.8w.la")
+   ][, .(do = prepCurr / prepElig,
+         la = prep.laCurr / prepElig,
+         w8 = prepCurr.8w.la / prepElig)]
 
 
 library(tidyverse)

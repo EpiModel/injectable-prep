@@ -3,17 +3,19 @@ library(EpiModelHIV)
 library(readxl)
 source("R/utils-slurm_sim_funs.R")
 
-n_repl <- 3 # number of replication per scenarios (time 28)
+n_repl <- 18 # number of replication per scenarios (time 28)
 n_years_burnin <- 5 # number of years before la.prep
 n_years_scenario <- 10 # number of years to simulate the scenario periode
 n_years_output <- 15  # number of years to keep as output
 
 shared_res <- list(
-  partition = "ckpt", #"csde", #"ckpt",
-  account = "csde-ckpt", #"csde", #"csde-ckpt",
+  partition = "csde", #"csde", #"ckpt",
+  account = "csde", #"csde", #"csde-ckpt",
   n_cpus = 28,
   memory = 5 * 1e3 # in Mb and PER CPU
 )
+
+rows <- 1:10 # 94:186, 187:280
 
 
 ### Template part ----------------------------------------------------------------
@@ -54,7 +56,8 @@ param$prep.inj.int <- 8
 
 # Scenarios preparation --------------------------------------------------------
 ## Read scenarios excel
-df_scenarios <- read_excel("out/est/params_new.xlsx")
+df_scenarios <- read_excel("out/est/params4.xlsx")
+df_scenarios <- df_scenarios[rows,]
 
 ## Put the char cols to numeric
 chr_cols <- c("PHALF", "RELHR", "DCREL")
@@ -92,8 +95,8 @@ slurm_wf_do.call(
   "slurm_wf",
   resources = c(shared_res, list(
     job_name = "combine_injec ",
-    ## afterany = "scenarios_injec",
-    walltime = 15
+    afterany = "scenarios_injec",
+    walltime = 60
   )),
   what = slurm_scenario_combine,
   args = list(

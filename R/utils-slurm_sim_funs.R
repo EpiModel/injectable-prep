@@ -38,6 +38,11 @@ slurm_injec_scenario <- function(orig, param, init, control, n_steps = 52,
                                  DCREL, repl_num) {
 
   library(EpiModelHIV)
+  out_dir <- paste0("slurm_wf/out/", SIMNO, "/")
+
+  if (! file.exists(out_dir))
+    dir.create(out_dir, recursive = TRUE)
+
 
   scenario_changer <- list(
     at = param$prep.la.start,
@@ -57,13 +62,6 @@ slurm_injec_scenario <- function(orig, param, init, control, n_steps = 52,
 
   sim <- netsim(orig, param, init, control)
 
-  library(data.table)
-  library(fs)
-
-  out_dir <- paste0("slurm_wf/out/", SIMNO, "/")
-  if (! file.exists(out_dir))
-    dir.create(out_dir, recursive = TRUE)
-
   sim <- truncate_sim(sim, 3380)
   sim$network <- NULL
   sim$attr <- NULL
@@ -72,27 +70,16 @@ slurm_injec_scenario <- function(orig, param, init, control, n_steps = 52,
   sim$p <- NULL
 
   saveRDS(sim, paste0(out_dir, "sim", repl_num, ".rds"))
-
-  ## dt <- as.data.table(sim)
-  ## dt <- dt[, .SD[(.N - n_steps + 1):.N] , by = "sim"
-  ##    ][, c("sim_id", "param_grp") :=
-  ##          .(paste0(..repl_num, "--", sim), SIMNO)][]
-
-  ## saveRDS(dt, paste0(out_dir, "sim", repl_num, ".rds"))
-
 }
 
 slurm_scenario_combine <- function(sims_path = "slurm_wf/", scenarios_no) {
   library(EpiModel)
 
   for (scen_no in scenarios_no) {
-  sim_files <- paste0(sims_path, "/", scen_no, "/sim", rep(1:18), ".rds")
+    sim_files <- paste0(sims_path, "/", scen_no, "/sim", rep(1:18), ".rds")
 
-    sims <- lapply(sim_files, readRDS(x))
-
-    for (i in seq_along(sims)) {
-      sim <- sims[[i]]
-
+    for (i in seq_along(sim_files)) {
+      sim <- readRDS(sim_files[[i]])
       if (i == 1) {
         out <- sim
       } else {
@@ -106,7 +93,7 @@ slurm_scenario_combine <- function(sims_path = "slurm_wf/", scenarios_no) {
 
 scenarios_params <- function(param, SIMNO, PSP, PPI, PICPT, PHALF, RELHR, LOWP,
                              DCREL) {
-  prep.start.prob <- PSP
+  prep.start.prob <-  param$prep.start.prob * PSP
   prep.prob.oral <- 1 - PPI
   prepla.dlevel.icpt <- PICPT
   prepla.dlevel.halflife.int <- PHALF
