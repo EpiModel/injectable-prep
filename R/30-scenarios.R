@@ -15,7 +15,7 @@ shared_res <- list(
   memory = 5 * 1e3 # in Mb and PER CPU
 )
 
-rows <- 1:10 # 94:186, 187:280
+rows <- 21:40 # 94:186, 187:280
 
 
 ### Template part ----------------------------------------------------------------
@@ -96,11 +96,11 @@ slurm_wf_do.call(
   resources = c(shared_res, list(
     job_name = "combine_injec ",
     afterany = "scenarios_injec",
-    walltime = 60
+    walltime = 90
   )),
   what = slurm_scenario_combine,
   args = list(
-    sims_path = "slurm_wf_raw",
+    sims_path = "slurm_wf",
     scenarios_no = df_scenarios$SIMNO)
 )
 

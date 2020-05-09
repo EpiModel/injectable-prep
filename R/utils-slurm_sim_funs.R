@@ -76,7 +76,7 @@ slurm_scenario_combine <- function(sims_path = "slurm_wf/", scenarios_no) {
   library(EpiModel)
 
   for (scen_no in scenarios_no) {
-    sim_files <- paste0(sims_path, "/", scen_no, "/sim", rep(1:18), ".rds")
+    sim_files <- paste0(sims_path, "/out/", scen_no, "/sim", rep(1:18), ".rds")
 
     for (i in seq_along(sim_files)) {
       sim <- readRDS(sim_files[[i]])
