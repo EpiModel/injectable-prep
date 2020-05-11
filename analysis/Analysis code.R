@@ -20,7 +20,6 @@ epi_stats(sim.base, at = 520, qnt.low = 0.025, qnt.high = 0.975)
 
 # Counterfactual scenarios
 
-# P(LAI | PrEP) = 25%
 ### Initiation Rate = 0.5x
 # P(LAI | PrEP) = 0%
 sim <- readRDS("data/sim_2000.rds")
