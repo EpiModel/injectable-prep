@@ -11,33 +11,17 @@ library("gridExtra")
 source("analysis/fx.R")
 
 ### TABLE 2  --------------------------------------------------------
-# Varying P(Initiate|Indication) & P(LAI vs Oral)
+# Varying Rate of PrEP Initiation & P(LAI vs Oral)
 
 # Base scenario -- No LAI PrEP
 
-sim.base <- readRDS("data/sim_2003.rds")
+sim.base <- readRDS("data/sim_2001.rds")
 epi_stats(sim.base, at = 520, qnt.low = 0.025, qnt.high = 0.975)
 
 # Counterfactual scenarios
 
-# P(PrEP | Indication) = 71%
 # P(LAI | PrEP) = 25%
-sim <- readRDS("data/sim_2009.rds")
-epi_stats(sim.base, sim, at = 520, qnt.low = 0.025, qnt.high = 0.975)
-
-# P(LAI | PrEP) = 50%
-sim <- readRDS("data/sim_2015.rds")
-epi_stats(sim.base, sim, at = 520, qnt.low = 0.025, qnt.high = 0.975)
-
-# P(LAI | PrEP) = 75%
-sim <- readRDS("data/sim_2021.rds")
-epi_stats(sim.base, sim, at = 520, qnt.low = 0.025, qnt.high = 0.975)
-
-# P(LAI | PrEP) = 100%
-sim <- readRDS("data/sim_2027.rds")
-epi_stats(sim.base, sim, at = 520, qnt.low = 0.025, qnt.high = 0.975)
-
-# P(PrEP | Indication) = 50%
+### Initiation Rate = 0.5x
 # P(LAI | PrEP) = 0%
 sim <- readRDS("data/sim_2000.rds")
 epi_stats(sim.base, sim, at = 520, qnt.low = 0.025, qnt.high = 0.975)
@@ -58,11 +42,8 @@ epi_stats(sim.base, sim, at = 520, qnt.low = 0.025, qnt.high = 0.975)
 sim <- readRDS("data/sim_2024.rds")
 epi_stats(sim.base, sim, at = 520, qnt.low = 0.025, qnt.high = 0.975)
 
-# P(PrEP | Indication) = 60%
-# P(LAI | PrEP) = 0%
-sim <- readRDS("data/sim_2001.rds")
-epi_stats(sim.base, sim, at = 520, qnt.low = 0.025, qnt.high = 0.975)
 
+### Initiation Rate = 1x
 # P(LAI | PrEP) = 25%
 sim <- readRDS("data/sim_2007.rds")
 epi_stats(sim.base, sim, at = 520, qnt.low = 0.025, qnt.high = 0.975)
@@ -79,7 +60,8 @@ epi_stats(sim.base, sim, at = 520, qnt.low = 0.025, qnt.high = 0.975)
 sim <- readRDS("data/sim_2025.rds")
 epi_stats(sim.base, sim, at = 520, qnt.low = 0.025, qnt.high = 0.975)
 
-# P(PrEP | Indication) = 70%
+
+### Initiation Rate = 1.5x
 # P(LAI | PrEP) = 0%
 sim <- readRDS("data/sim_2002.rds")
 epi_stats(sim.base, sim, at = 520, qnt.low = 0.025, qnt.high = 0.975)
@@ -100,7 +82,30 @@ epi_stats(sim.base, sim, at = 520, qnt.low = 0.025, qnt.high = 0.975)
 sim <- readRDS("data/sim_2026.rds")
 epi_stats(sim.base, sim, at = 520, qnt.low = 0.025, qnt.high = 0.975)
 
-# P(PrEP | Indication) = 80%
+
+### Initiation Rate = 2x
+# P(LAI | PrEP) = 0%
+sim <- readRDS("data/sim_2003.rds")
+epi_stats(sim.base, sim, at = 520, qnt.low = 0.025, qnt.high = 0.975)
+
+# P(LAI | PrEP) = 25%
+sim <- readRDS("data/sim_2009.rds")
+epi_stats(sim.base, sim, at = 520, qnt.low = 0.025, qnt.high = 0.975)
+
+# P(LAI | PrEP) = 50%
+sim <- readRDS("data/sim_2015.rds")
+epi_stats(sim.base, sim, at = 520, qnt.low = 0.025, qnt.high = 0.975)
+
+# P(LAI | PrEP) = 75%
+sim <- readRDS("data/sim_2021.rds")
+epi_stats(sim.base, sim, at = 520, qnt.low = 0.025, qnt.high = 0.975)
+
+# P(LAI | PrEP) = 100%
+sim <- readRDS("data/sim_2027.rds")
+epi_stats(sim.base, sim, at = 520, qnt.low = 0.025, qnt.high = 0.975)
+
+
+### Initiation Rate = 3x
 # P(LAI | PrEP) = 0%
 sim <- readRDS("data/sim_2004.rds")
 epi_stats(sim.base, sim, at = 520, qnt.low = 0.025, qnt.high = 0.975)
@@ -121,7 +126,8 @@ epi_stats(sim.base, sim, at = 520, qnt.low = 0.025, qnt.high = 0.975)
 sim <- readRDS("data/sim_2028.rds")
 epi_stats(sim.base, sim, at = 520, qnt.low = 0.025, qnt.high = 0.975)
 
-# P(PrEP | Indication) = 90%
+
+### Initiation Rate = 4x
 # P(LAI | PrEP) = 0%
 sim <- readRDS("data/sim_2005.rds")
 epi_stats(sim.base, sim, at = 520, qnt.low = 0.025, qnt.high = 0.975)
