@@ -234,7 +234,7 @@ epi_stats(sim.base, sim, at = 520, qnt.low = 0.025, qnt.high = 0.975)
 # Varying P(Initiate|Indication) & P(LAI vs Oral)
 
 # Process Data
-sim.base <- readRDS("data/sim_2003.rds")
+sim.base <- readRDS("data/sim_2001.rds")
 incid.base <- unname(colSums(sim.base$epi$incid))
 
 sims <- 3000:3120
