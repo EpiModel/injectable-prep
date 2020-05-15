@@ -14,7 +14,7 @@ library("ggpubr")
 sim.base <- readRDS("data/sim_2001.rds")
 incid.base <- unname(colSums(sim.base$epi$incid))
 
-sims <- 6000:6008
+sims <- c(6000:6003, 2013, 6005:6008)
 
 for (i in seq_along(sims)) {
   fn <- list.files("data/", pattern = as.character(sims[i]), full.names = TRUE)
@@ -49,36 +49,39 @@ for (i in seq_along(sims)) {
   )
 
   if (i == 1) {
-    fig3.df <- new.df
+    fig.df <- new.df
   } else {
-    fig3.df <- rbind(fig3.df, new.df)
+    fig.df <- rbind(fig.df, new.df)
   }
 
   cat("*")
 }
 
-fig3.df$days <- NULL
-fig3.df$days[fig3.df$scen == 6000] <- "1/3x\n75"
-fig3.df$days[fig3.df$scen == 6001] <- "1/2.5x\n90"
-fig3.df$days[fig3.df$scen == 6002] <- "1/2x\n112"
-fig3.df$days[fig3.df$scen == 6003] <- "1/1.5x\n149"
-fig3.df$days[fig3.df$scen == 6004] <- "1x\n224"
-fig3.df$days[fig3.df$scen == 6005] <- "1.5x\n336"
-fig3.df$days[fig3.df$scen == 6006] <- "2x\n448"
-fig3.df$days[fig3.df$scen == 6007] <- "2.5x\n560"
-fig3.df$days[fig3.df$scen == 6008] <- "3x\n672"
+fig.df$days <- NULL
+fig.df$days[fig.df$scen == 6000] <- "1/3x\n75"
+fig.df$days[fig.df$scen == 6001] <- "1/2.5x\n90"
+fig.df$days[fig.df$scen == 6002] <- "1/2x\n112"
+fig.df$days[fig.df$scen == 6003] <- "1/1.5x\n149"
+fig.df$days[fig.df$scen == 2013] <- "1x\n224"
+fig.df$days[fig.df$scen == 6005] <- "1.5x\n336"
+fig.df$days[fig.df$scen == 6006] <- "2x\n448"
+fig.df$days[fig.df$scen == 6007] <- "2.5x\n560"
+fig.df$days[fig.df$scen == 6008] <- "3x\n672"
 
-xlab <- "Median days to spontaneous discontinuation of LAI-PrEP"
+# Used 2013 for consistency with other analyses, but 6004 has same parameters
+fig.df$scen[fig.df$scen == 2013] <- 6004
 
-fig3.df$pia.100 <- fig3.df$pia * 100
-fig3.df$percP.i.100 <- fig3.df$percP.i * 100
-fig3.df$percP.w.100 <- fig3.df$percP.w * 100
+fig.df$pia.100 <- fig.df$pia * 100
+fig.df$percP.i.100 <- fig.df$percP.i * 100
+fig.df$percP.w.100 <- fig.df$percP.w * 100
 
+fig.df2 <- fig.df %>% filter(scen == 6000 | scen == 6002 | scen == 6004 | scen == 6006 | scen == 6008)
+
+xlab <- "Median days to discontinuation"
 par(mar = c(3,3,2,1), mgp = c(2,1,0))
-
 pal <- viridis::viridis(n = 1, alpha = 0.75, begin = 0.5)
 
-fig3.i <- ggplot(fig3.df,
+fig.i <- ggplot(fig.df2,
         aes(x = reorder(days, scen), y = percP.i.100)) +
         geom_boxplot(fill = pal, outlier.shape = NA) +
         theme_classic() +
@@ -89,7 +92,7 @@ fig3.i <- ggplot(fig3.df,
               axis.ticks.length = unit(0.25, "cm"),
               axis.ticks = element_line(color = "black"))
 
-fig3.w <- ggplot(fig3.df,
+fig.w <- ggplot(fig.df2,
         aes(x = reorder(days, scen), y = percP.w.100)) +
         geom_boxplot(fill = pal, outlier.shape = NA) +
         theme_classic() +
@@ -100,18 +103,18 @@ fig3.w <- ggplot(fig3.df,
               axis.ticks.length = unit(0.25, "cm"),
               axis.ticks = element_line(color = "black"))
 
-fig3.ir <- ggplot(fig3.df,
+fig.ir <- ggplot(fig.df2,
         aes(x = reorder(days, scen), y = ir)) +
         geom_boxplot(fill = pal, outlier.shape = NA) +
         theme_classic() +
         labs(x = xlab,
-             y = "HIV Incidence Rate") +
+             y = "HIV incidence rate") +
         theme(axis.text = element_text(size = 9, colour = "black"),
               axis.title = element_text(size = 11),
               axis.ticks.length = unit(0.25, "cm"),
               axis.ticks = element_line(color = "black"))
 
-fig3.pia <- ggplot(fig3.df,
+fig.pia <- ggplot(fig.df2,
         aes(x = reorder(days, scen), y = pia.100)) +
         geom_boxplot(fill = pal, outlier.shape = NA) +
         theme_classic() +
@@ -122,6 +125,8 @@ fig3.pia <- ggplot(fig3.df,
               axis.ticks.length = unit(0.25, "cm"),
               axis.ticks = element_line(color = "black"))
 
-ggarrange(fig3.i, fig3.w, fig3.ir, fig3.pia,
+ggarrange(fig.i, fig.w, fig.ir, fig.pia,
          labels = c("A", "B", "C", "D"),
          ncol = 2, nrow = 2)
+
+pdf(file = "analysis/Figure3.pdf", height = 6.0, width = 6.0)

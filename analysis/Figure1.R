@@ -1,12 +1,3 @@
-rm(list = ls())
-library("EpiModelHIV")
-library("EpiModelHPC")
-
-library("dplyr")
-
-library("ggplot2")
-library("viridis")
-library("gridExtra")
 
 # Process Data --------------------------------------------------------
 
@@ -64,18 +55,17 @@ fig1.df$percP.la[which(is.na(fig1.df$percP.la))] <- 0
 ## Creating a function for PIA according to % PrEP and % LAI-PrEP
 fit.loess <- loess(pia ~ percP.t * percP.la, data = fig1.df)
 
- min(fig1.df$percP.la) # [1] 0
- max(fig1.df$percP.la) # [1] 1
+# min(fig1.df$percP.la) # [1] 0
+# max(fig1.df$percP.la) # [1] 1
 
- min(fig1.df$percP.t) # [1] 0
- max(fig1.df$percP.t) # [1] 0.6146004
+# min(fig1.df$percP.t) # [1] 0
+# max(fig1.df$percP.t) # [1] 0.6146004
 
 preds.loess <- expand.grid(list(percP.la = seq(0, 1, 0.01),
                                 percP.t  = seq(0, 0.6, 0.01)))
 preds.loess$pia <- as.numeric(predict(fit.loess, newdata = preds.loess))
 
 # Plot
-
 ggplot(preds.loess, aes(percP.t, percP.la)) +
   geom_raster(aes(fill = pia), interpolate = TRUE) +
   geom_contour(aes(z = pia), col = "white", alpha = 0.5, lwd = 0.5) +
@@ -83,7 +73,7 @@ ggplot(preds.loess, aes(percP.t, percP.la)) +
   theme_classic() +
   scale_y_continuous(expand = c(0, 0)) +
   scale_x_continuous(expand = c(0, 0)) +
-  labs(x = "% PrEP | Indicated", y = "% LAI PrEP | PrEP", fill = "PIA") +
+  labs(x = "% using PrEP", y = "% LAI-PrEP among all PrEP", fill = "PIA") +
   scale_fill_viridis(discrete = FALSE, alpha = 1, option = "D", direction = -1,
                      breaks = c(-0.1, 0.0, 0.1, 0.2, 0.3, 0.4, 0.5),
                      labels = c("-10%", "0%","10%","20%","30%","40%", "50%")) +
@@ -94,25 +84,3 @@ ggplot(preds.loess, aes(percP.t, percP.la)) +
         legend.title = element_text(size = 10),
         axis.ticks.length = unit(0.25, "cm"),
         axis.ticks = element_line(color = "black"))
-
-# Some boxplots
-
-par(mar = c(3,3,2,1), mgp = c(2,1,0))
-boxplot(pia ~ percP.t, data = fig1.df, outline = FALSE, col = "orange", medlwd = 1.5, xlab = "Proportion of indicated MSM using PrEP", ylab = "PIA")
-boxplot(pia ~ percP.la, data = fig1.df, outline = FALSE, col = "orange", medlwd = 1.5, xlab = "Proportion LAI-PrEP among all PrEP", ylab = "PIA")
-
-df2 <- filter(fig1.df,
-                scen == 3003 |
-                scen == 3014 |
-                scen == 3025 |
-                scen == 3036 |
-                scen == 3047 |
-                scen == 3058 |
-                scen == 3069 |
-                scen == 3080 |
-                scen == 3091 |
-                scen == 3102 |
-                scen == 3113)
-head(df2)
-
-boxplot(pia ~ percP.la, data = df2, outline = FALSE, col = "orange", medlwd = 1.5)

@@ -141,14 +141,14 @@ epi_stats <- function(sim.base,
                                 ql = quantile(vec.pia, qnt.low, names = FALSE),
                                 qu = quantile(vec.pia, qnt.high, names = FALSE)), 3)
 
-    # cat("\nPercent on oral PrEP - all men:")
-    # print(t(out.percP.o))
-    #
-    # cat("\nPercent on inj PrEP - all men:")
-    # print(t(out.percP.i))
-    #
-    # cat("\nPercent waning inj PrEP - all men:")
-    # print(t(out.percP.w))
+    cat("\nPercent on oral PrEP - all men:")
+    print(t(out.percP.o))
+
+    cat("\nPercent on inj PrEP - all men:")
+    print(t(out.percP.i))
+
+    cat("\nPercent waning inj PrEP - all men:")
+    print(t(out.percP.w))
 
     cat("\nPercent on oral PrEP - indicated:")
     print(t(out.percP.ind.o))
@@ -156,8 +156,8 @@ epi_stats <- function(sim.base,
     cat("\nPercent on inj PrEP - indicated:")
     print(t(out.percP.ind.i))
 
-    # cat("\nPercent waning inj PrEP - indicated:")
-    # print(t(out.percP.ind.w))
+    cat("\nPercent waning inj PrEP - indicated:")
+    print(t(out.percP.ind.w))
 
     cat("\nHIV Prevalence:")
     print(t(out.prev))
@@ -170,14 +170,14 @@ epi_stats <- function(sim.base,
 
   } else {
 
-    # cat("\nPercent on oral PrEP - all men:")
-    # print(t(percP.base.o))
-    #
-    # cat("\nPercent on inj PrEP - all men:")
-    # print(t(percP.base.i))
-    #
-    # cat("\nPercent waning inj PrEP - all men:")
-    # print(t(percP.base.w))
+    cat("\nPercent on oral PrEP - all men:")
+    print(t(percP.base.o))
+
+    cat("\nPercent on inj PrEP - all men:")
+    print(t(percP.base.i))
+
+    cat("\nPercent waning inj PrEP - all men:")
+    print(t(percP.base.w))
 
     cat("\nPercent on oral PrEP - indicated:")
     print(t(percP.ind.base.o))
@@ -185,8 +185,8 @@ epi_stats <- function(sim.base,
     cat("\nPercent on inj PrEP - indicated:")
     print(t(percP.ind.base.i))
 
-    # cat("\nPercent waning inj PrEP - indicated:")
-    # print(t(percP.ind.base.w))
+    cat("\nPercent waning inj PrEP - indicated:")
+    print(t(percP.ind.base.w))
 
     cat("\nHIV Prevalence:")
     print(t(prev.base))
