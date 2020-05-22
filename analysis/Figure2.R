@@ -73,7 +73,7 @@ ggplot(preds.loess, aes(picpt, phalf.days)) +
   theme_classic() +
   scale_y_continuous(expand = c(0, 0)) +
   scale_x_continuous(expand = c(0, 0)) +
-  labs(y = "Half-life (Days)", x = "Peak Plasma Concentration (ug/ml)", fill = "PIA") +
+  labs(y = "Half-life (days)", x = "Peak plasma concentration (µg/ml)", fill = "PIA") +
   scale_fill_viridis(discrete = FALSE, alpha = 1, option = "magma", direction = -1,
                      breaks = c(1, 2, 3, 4, 5, 6, 7),
                      labels = c("1%","2%","3%","4%","5%","6%", "7%")) +
@@ -85,4 +85,4 @@ ggplot(preds.loess, aes(picpt, phalf.days)) +
        axis.ticks.length = unit(0.25, "cm"),
        axis.ticks = element_line(color = "black"))
 
-pdf(file = "analysis/Figure2.pdf", height = 5.0, width = 4.0)
+# pdf(file = "analysis/Figure2.pdf", height = 5.0, width = 4.0)

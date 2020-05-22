@@ -1,3 +1,12 @@
+rm(list = ls())
+library("EpiModelHIV")
+library("EpiModelHPC")
+
+library("dplyr")
+
+library("ggplot2")
+library("viridis")
+library("gridExtra")
 
 # Process Data --------------------------------------------------------
 
@@ -35,41 +44,44 @@ for (i in seq_along(sims)) {
 
   new.df <- data.frame(scen = sims[i],
                        percP.la = percP.ind.la,
+                       percP.la.100 = percP.ind.la * 100,
                        percP.t = percP.ind.t,
+                       percP.t.100 = percP.ind.t * 100,
                        prev = prev,
                        ir = ir,
-                       pia = pia
-                       )
+                       pia = pia)
 
   if (i == 1) {
-    fig1.df <- new.df
+    fig.df <- new.df
   } else {
-    fig1.df <- rbind(fig1.df, new.df)
+    fig.df <- rbind(fig.df, new.df)
   }
 
   cat("*")
 }
 
-fig1.df$percP.la[which(is.na(fig1.df$percP.la))] <- 0
+fig.df$percP.la[which(is.na(fig.df$percP.la))] <- 0
+fig.df$percP.la.100[which(is.na(fig.df$percP.la.100))] <- 0
+
 
 ## Creating a function for PIA according to % PrEP and % LAI-PrEP
-fit.loess <- loess(pia ~ percP.t * percP.la, data = fig1.df)
+fit.loess <- loess(pia ~ percP.t.100 * percP.la.100, data = fig.df)
 
-# min(fig1.df$percP.la) # [1] 0
-# max(fig1.df$percP.la) # [1] 1
+# min(fig.df$percP.la.100) # [1] 0
+# max(fig.df$percP.la.100) # [1] 100
 
-# min(fig1.df$percP.t) # [1] 0
-# max(fig1.df$percP.t) # [1] 0.6146004
+# min(fig.df$percP.t.100) # [1] 0
+# max(fig.df$percP.t.100) # [1] 61.46004
 
-preds.loess <- expand.grid(list(percP.la = seq(0, 1, 0.01),
-                                percP.t  = seq(0, 0.6, 0.01)))
+preds.loess <- expand.grid(list(percP.la.100 = seq(0, 100, 1),
+                                percP.t.100  = seq(0, 60, 1)))
 preds.loess$pia <- as.numeric(predict(fit.loess, newdata = preds.loess))
 
 # Plot
-ggplot(preds.loess, aes(percP.t, percP.la)) +
+ggplot(preds.loess, aes(percP.t.100, percP.la.100)) +
   geom_raster(aes(fill = pia), interpolate = TRUE) +
   geom_contour(aes(z = pia), col = "white", alpha = 0.5, lwd = 0.5) +
-  geom_vline(xintercept = 0.151, linetype="dashed") +
+  geom_vline(xintercept = 15.1, linetype="dashed") +
   theme_classic() +
   scale_y_continuous(expand = c(0, 0)) +
   scale_x_continuous(expand = c(0, 0)) +

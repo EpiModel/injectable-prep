@@ -129,4 +129,4 @@ ggarrange(fig.i, fig.w, fig.ir, fig.pia,
          labels = c("A", "B", "C", "D"),
          ncol = 2, nrow = 2)
 
-pdf(file = "analysis/Figure3.pdf", height = 6.0, width = 6.0)
+# pdf(file = "analysis/Figure3.pdf", height = 6.0, width = 6.0)

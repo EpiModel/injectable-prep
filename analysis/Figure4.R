@@ -74,7 +74,7 @@ fig.df$pia.100 <- fig.df$pia * 100
 fig.df$percP.i.100 <- fig.df$percP.i * 100
 fig.df$percP.w.100 <- fig.df$percP.w * 100
 
-xlab <- "Relative change in LAI-PrEP Hazard Ratio"
+xlab <- "Relative change in LAI-PrEP hazard-ratio"
 par(mar = c(3,3,2,1), mgp = c(2,1,0))
 pal <- viridis::viridis(n = 1, alpha = 0.75, begin = 0.5)
 
@@ -106,6 +106,8 @@ ggarrange(fig.ir, fig.pia,
           labels = c("A", "B"),
           ncol = 1, nrow = 2)
 
-ggarrange(fig.ir, fig.pia,
-          labels = c("A", "B"),
-          ncol = 2, nrow = 1)
+# pdf(file = "analysis/Figure4.pdf", height = 6.0, width = 8.0)
+
+# ggarrange(fig.ir, fig.pia,
+#           labels = c("A", "B"),
+#           ncol = 2, nrow = 1)
