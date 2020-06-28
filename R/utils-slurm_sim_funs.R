@@ -33,12 +33,13 @@ slurm_combine <- function(sims_path = "slurm_wf/out", n_steps = 1) {
   saveRDS(df, df_name, compress = TRUE)
 }
 
-slurm_injec_scenario <- function(orig, param, init, control, n_steps = 52,
+slurm_injec_scenario <- function(orig, param, init, control,
+                                 n_steps = 52, in_path = "slurm_wf/",
                                  SIMNO, PSP, PPI, PICPT, PHALF, RELHR, LOWP,
                                  DCREL, repl_num) {
 
   library(EpiModelHIV)
-  out_dir <- paste0("slurm_wf/out/", SIMNO, "/")
+  out_dir <- paste0(in_path, "/out/", SIMNO, "/")
 
   if (! file.exists(out_dir))
     dir.create(out_dir, recursive = TRUE)
@@ -87,7 +88,8 @@ slurm_scenario_combine <- function(sims_path = "slurm_wf/", scenarios_no) {
       }
     }
 
-    saveRDS(out, paste0("slurm_wf/out/sim_", scen_no, ".rds"), compress = "xz")
+    saveRDS(out, paste0(sims_path, "/out/sim_", scen_no, ".rds"),
+            compress = TRUE)
   }
 }
 
@@ -103,7 +105,7 @@ scenarios_params <- function(param, SIMNO, PSP, PPI, PICPT, PHALF, RELHR, LOWP,
 
   data.frame(
     SIMNO = SIMNO,
-    prep.start.prob = PSP,
+    prep.start.prob = 1 - PSP,
     prep.prob.oral = 1 - PPI,
     prepla.dlevel.icpt = PICPT,
     prepla.dlevel.halflife.int = PHALF,

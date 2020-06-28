@@ -9,13 +9,13 @@ n_years_scenario <- 10 # number of years to simulate the scenario periode
 n_years_output <- 15  # number of years to keep as output
 
 shared_res <- list(
-  partition = "csde", #"csde", #"ckpt",
-  account = "csde", #"csde", #"csde-ckpt",
+  partition = "ckpt", #"csde", #"ckpt",
+  account = "csde-ckpt", #"csde", #"csde-ckpt",
   n_cpus = 28,
   memory = 5 * 1e3 # in Mb and PER CPU
 )
 
-rows <- 21:40 # 94:186, 187:280
+## rows <- 221:280 # 94:186, 187:280
 
 
 ### Template part ----------------------------------------------------------------
@@ -56,8 +56,8 @@ param$prep.inj.int <- 8
 
 # Scenarios preparation --------------------------------------------------------
 ## Read scenarios excel
-df_scenarios <- read_excel("out/est/params4.xlsx")
-df_scenarios <- df_scenarios[rows,]
+df_scenarios <- read_excel("out/est/params5.xlsx")
+## df_scenarios <- df_scenarios[rows,]
 
 ## Put the char cols to numeric
 chr_cols <- c("PHALF", "RELHR", "DCREL")
@@ -88,19 +88,19 @@ slurm_wf_Map(
   DCREL = rep(df_scenarios$DCREL, each = n_repl),
   repl_num = repl_nums,
   MoreArgs = list(orig = orig, param = param, init = init, control = control,
-                  n_steps = n_years_output * 52)
+                  n_steps = n_years_output * 52, in_path = "slurm_wf/")
 )
 
 slurm_wf_do.call(
   "slurm_wf",
   resources = c(shared_res, list(
-    job_name = "combine_injec ",
+    job_name = "combine_injec",
     afterany = "scenarios_injec",
-    walltime = 90
+    walltime = 180
   )),
   what = slurm_scenario_combine,
   args = list(
-    sims_path = "slurm_wf",
+    sims_path = "slurm_wf/",
     scenarios_no = df_scenarios$SIMNO)
 )
 
