@@ -6,7 +6,7 @@ This repository holds the source to code to reproduce the analysis featured in o
 
 > Maloney KM, Le Guillou A, Driggers RA, Sarkar S, Anderson EJ, Malik AA, Jenness SM. Projected Impact of Concurrently Available Long-Acting Injectable and Daily-Oral HIV Pre-Exposure Prophylaxis: A Mathematical Model. _The Journal of Infectious Diseases._ Accepted.
 
-<img src="https://github.com/EpiModel/injectable-prep/blob/master/analysis/Fig1.pdf">
+<img src="https://github.com/EpiModel/injectable-prep/blob/master/analysis/Fig1.png">
 
 Additional details may be found in the journal article:
 
