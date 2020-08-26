@@ -10,7 +10,6 @@ targets <- c(
   i.prev.dx.H = 0.127,
   i.prev.dx.W = 0.084,
   #prep_prop = 0.15,
-  # google sheet: https://docs.google.com/spreadsheets/d/1GWFrDqvTpdK24f6Lzqg3xdzCobbvOXj7Bpalq7xLUX4/edit?ts=5defba8b#gid=0
   cc.dx.B = 0.804,
   cc.dx.H = 0.799,
   cc.dx.W = 0.88,
