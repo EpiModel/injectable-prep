@@ -28,13 +28,12 @@ Additional details may be found in the journal article:
 
 These models are written and executed in the R statistical software language. To run these files, it is necessary to first install our epidemic modeling software, [EpiModel](http://epimodel.org/), and our extension package specifically for modeling HIV and STI transmission dynamics among MSM, [EpiModelHIV](http://github.com/statnet/EpiModelHIV).
 
-In R:
-```
-install.packages("EpiModel", dep = TRUE)
+This is accomplished with the `renv` package in R. First install `renv` (if you do not already have it installed) and run:
 
-# install remotes if necessary, install.packages("remotes")
-remotes::install_github("statnet/tergmLite")
-remotes::install_github("statnet/EpiModelHPC")
-remotes::install_github("statnet/EpiModelHIV", ref = "p4")
+
+```r
+renv::init()
 ```
 
+
+in your project directory. Select the option to restore the package set from the "renv.lock" file. Currently, this requires access to the `ARTnetData` package, which requires a limited access data use agreement due to the sensitive nature of those study data. Please contact the corresponding author for access.
