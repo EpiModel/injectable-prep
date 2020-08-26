@@ -35,7 +35,9 @@ vignettes/*.pdf
 .DS_Store
 
 data/*.rda
+data/*.rds
 data/f1/*.rda
+data/f1/*.rds
 data/t1/*.rda
 data/PaperDatav1.zip
 data/PaperDatav2.zip
