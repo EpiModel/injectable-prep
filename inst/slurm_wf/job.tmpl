@@ -1,0 +1,29 @@
+#!/bin/bash
+
+<% if (is.null(resources$n_array)) resources$n_array <- 1 -%>
+<%
+env_var <- if (!is.null(resources$export)) paste0(",", resources$export) else ""
+-%>
+
+#SBATCH --job-name=<%= resources$job_name %>
+#SBATCH --output=<%= resources$log_file %>
+#SBATCH --time=<%= ceiling(resources$walltime) %>
+#SBATCH --nodes=1
+#SBATCH --cpus-per-task=<%= resources$n_cpus %>
+#SBATCH --mem-per-cpu=<%= resources$memory %>
+#SBATCH --partition=<%= resources$partition %>
+#SBATCH --account=<%= resources$account %>
+#SBATCH --array=1-<%= resources$n_array %>
+#SBATCH --export=ALL<%= env_var %>
+
+## Initialize work environment like
+## source /etc/profile
+## module add ...
+source loadR.sh
+
+## Export value of DEBUGME environemnt var to slave
+export DEBUGME=<%= Sys.getenv("DEBUGME") %>
+
+## Run R:
+## we merge R output with stdout from SLURM, which gets then logged via --output option
+Rscript -e '<%= rscript_cmd %>'

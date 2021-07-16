@@ -1,0 +1,13 @@
+#!/bin/bash
+
+<%
+if (!is.null(resources$afterany)) {
+  deps <- paste0(
+      "--depend=afterany:$(squeue --noheader --Format arrayjobid --name ",
+    resources$afterany, " | uniq)")
+} else {
+  deps <- ""
+}
+-%>
+
+sbatch <%= deps %> <%= job_name %>
