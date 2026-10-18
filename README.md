@@ -2,9 +2,17 @@
 
 This repository holds the source to code to reproduce the analysis featured in our HIV transmission model among men who have sex with men in the United States. This study investigated how the availability of injectable PrEP could impact HIV incidence overall among MSM. We modeled PrEP uptake by varying the rate of PrEP initiation and proportion choosing injectable PrEP versus daily-oral PrEP.
 
-## Citation
+## Paper and engine
 
-> Maloney KM, Le Guillou A, Driggers RA, Sarkar S, Anderson EJ, Malik AA, Jenness SM. Projected Impact of Concurrently Available Long-Acting Injectable and Daily-Oral HIV Pre-Exposure Prophylaxis: A Mathematical Model. _The Journal of Infectious Diseases._ 2021; 223(1): 72–82.
+> Maloney KM, Le Guillou A, Driggers RA, Sarkar S, Anderson EJ, Malik AA, Jenness SM. Projected Impact of Concurrently Available Long-Acting Injectable and Daily-Oral Human Immunodeficiency Virus Preexposure Prophylaxis: A Mathematical Model. _J Infect Dis._ 2021; 223(1): 72-82. [doi:10.1093/infdis/jiaa552](https://doi.org/10.1093/infdis/jiaa552)
+
+The EpiModelHIV engine for this paper is release [`LAPREP-JID`](https://github.com/EpiModel/EpiModelHIV/releases/tag/LAPREP-JID) of EpiModel/EpiModelHIV. Install it with:
+
+```r
+remotes::install_github("EpiModel/EpiModelHIV@LAPREP-JID")
+```
+
+`scripts/InstallStack.R` installs EpiModelHIV-p, which is private. Use the install line above instead.
 
 <img src="https://github.com/EpiModel/injectable-prep/blob/master/analysis/Fig1.png">
 
