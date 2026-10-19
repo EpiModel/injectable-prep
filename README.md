@@ -42,4 +42,4 @@ renv::init()
 ```
 
 
-in your project directory. Select the option to restore the package set from the "renv.lock" file. Currently, this requires access to the `ARTnetData` package, which requires a limited access data use agreement due to the sensitive nature of those study data. Please contact the corresponding author for access.
+in your project directory. Select the option to restore the package set from the "renv.lock" file. Currently, this requires access to the `ARTnetData` package, which requires a limited access data use agreement due to the sensitive nature of those study data. Please contact the corresponding author for access. The paper's networks were estimated with ARTnet 2.0.0, which is no longer public, so `renv.lock` installs ARTnet 2.9.3, the first version in the public [ARTnet](https://github.com/EpiModel/ARTnet) repository. Networks re-estimated with it may not match the paper's exactly.
